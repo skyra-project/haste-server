@@ -9,7 +9,7 @@ on:
       - '.github/workflows/postgres-deployment.yml'
 
 jobs:
-  Postgres-Image:
+  Postgres-Image-GitHub:
     name: Publish postgres image to Github Package Registry
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
@@ -25,3 +25,21 @@ jobs:
           password: ${{ secrets.SKYRA_TOKEN }}
           tags: 'latest,stable,master'
           registry: docker.pkg.github.com
+
+  Postgres-Image-Dockerhub:
+    name: Publish postgres image to Dockerhub
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Publish to Dockerhub
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: skyrabot/postgres
+          workdir: postgres
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          tags: 'latest,stable,master'
