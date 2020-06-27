@@ -6,10 +6,10 @@ Function Step-Main {
     Process {
         switch ( $Command ) {
             login { docker login }
-            build { docker build -t skyrabot/lavalink:latest . }
-            run { docker container run -it skyrabot/lavalink:latest }
-            deploy { docker push skyrabot/lavalink:latest }
-            remove { docker rmi -f skyrabot/lavalink }
+            build { docker build -t docker.pkg.github.com/skyra-project/docker-images/lavalink:latest . }
+            run { docker container run -it docker.pkg.github.com/skyra-project/docker-images/lavalink:latest }
+            deploy { docker push docker.pkg.github.com/skyra-project/docker-images/lavalink:latest }
+            remove { docker rmi -f docker.pkg.github.com/skyra-project/docker-images/lavalink }
             default { Write-Host "Unrecognized command, please try again" -ForegroundColor Red }
         }
     }
