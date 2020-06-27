@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - 'lavalink/**'
+      - '.github/workflows/lavalink-deployment.yml'
 
 jobs:
   Lavalink-Image:
@@ -20,7 +21,7 @@ jobs:
       - name: Publish to Github Package Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: skyrabot/docker-images/lavalink
+          name: skyra-project/docker-images/lavalink
           workdir: lavalink
           username: NM-EEA-Y
           password: ${{ secrets.SKYRA_TOKEN }}

@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - 'postgres/**'
+      - '.github/workflows/postgres-deployment.yml'
 
 jobs:
   Postgres-Image:
@@ -18,7 +19,7 @@ jobs:
       - name: Publish to Github Package Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: skyrabot/docker-images/postgres
+          name: skyra-project/docker-images/postgres
           workdir: postgres
           username: NM-EEA-Y
           password: ${{ secrets.SKYRA_TOKEN }}
