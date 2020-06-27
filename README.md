@@ -6,7 +6,7 @@
 
 ## What is this repo?
 
-This repo holds all the Docker images used by Skyra, neatly organized in folders. Each of these images is published to Dockerhub under the organization [skyrabot] and Github Package Registry, which is found in the packages section in the repository details to the side.
+This repo holds all the Docker images used by Skyra, neatly organized in folders. Each of these images is published to the Github Package Registry, which is found in the packages section in the repository details to the side.
 
 Each of the image folders in this repository has a `control.ps1` file that can be used in Powershell to execute common Docker commands such as building and publishing that specific image.
 
@@ -49,10 +49,11 @@ We accept donations through Patreon, BitCoin, Ethereum, and Litecoin. You can us
 
 <!----------------- LINKS --------------->
 
-[skyrabot]: https://hub.docker.com/u/skyrabot
 [wizard]: https://github.com/skyra-project/wizard
+
 [skyra invite link]: https://skyra.pw/invite
 [support server]: https://join.skyra.pw
+
 [patreon]: https://www.patreon.com/kyranet
 [patreonimage]: https://raw.githubusercontent.com/skyra-project/Skyra/master/assets/github/patreon.png
 [paypalimage]: https://raw.githubusercontent.com/skyra-project/Skyra/master/assets/github/paypal.png
