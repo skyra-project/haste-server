@@ -1,0 +1,10 @@
+### IDE's ###
+.vscode/
+.idea/
+
+# MacOS Finder
+.DS_Store
+
+# Logs
+logs/
+**/*.log

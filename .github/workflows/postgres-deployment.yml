@@ -1,0 +1,26 @@
+name: Continuous Deployment - Postgres
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'postgres/**'
+
+jobs:
+  Postgres-Image:
+    name: Publish postgres image to Github Package Registry
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+      - name: Publish to Github Package Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: skyrabot/docker-images/postgres
+          workdir: postgres
+          username: NM-EEA-Y
+          password: ${{ secrets.SKYRA_TOKEN }}
+          tags: 'latest,stable,master'
+          registry: docker.pkg.github.com
