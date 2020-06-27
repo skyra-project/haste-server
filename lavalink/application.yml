@@ -28,5 +28,5 @@ lavalink:
 
 metrics:
   prometheus:
-    enabled: true
+    enabled: false
     endpoint: /metrics
