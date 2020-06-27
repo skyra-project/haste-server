@@ -11,7 +11,7 @@ Function Step-Main {
                 ConvertFrom-SecureString -SecureString $SecurePassword | docker login https://docker.pkg.github.com -u $Username --password-stdin
             }
             build { docker build -t docker.pkg.github.com/skyra-project/docker-images/lavalink:latest . }
-            run { docker container run -it docker.pkg.github.com/skyra-project/docker-images/lavalink:latest }
+            run { docker container run -it docker.pkg.github.com/skyra-project/docker-images/lavalink:latest /bin/sh }
             deploy { docker push docker.pkg.github.com/skyra-project/docker-images/lavalink:latest }
             remove { docker rmi -f docker.pkg.github.com/skyra-project/docker-images/lavalink }
             default { Write-Host "Unrecognized command, please try again" -ForegroundColor Red }
