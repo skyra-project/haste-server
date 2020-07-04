@@ -19,17 +19,17 @@ Function Step-Main {
                     Copy-Item ".\local.Dockerfile" ".\Dockerfile"
 
                     # Trigger a Docker build
-                    docker build -t docker.pkg.github.com/skyra-project/docker-images/postgres:latest .
+                    docker build -t docker.pkg.github.com/skyra-project/docker-images/postgres:master .
 
                     # Move the backup back to the original Dockerfile
                     Move-Item -Force ".\Dockerfile.backup" ".\Dockerfile"
                 }
                 else {
-                    docker build -t docker.pkg.github.com/skyra-project/docker-images/postgres:latest .
+                    docker build -t docker.pkg.github.com/skyra-project/docker-images/postgres:master .
                 }
             }
-            run { docker container run -it docker.pkg.github.com/skyra-project/docker-images/postgres:latest /bin/sh }
-            deploy { docker push docker.pkg.github.com/skyra-project/docker-images/postgres:latest }
+            run { docker container run -it docker.pkg.github.com/skyra-project/docker-images/postgres:master /bin/sh }
+            deploy { docker push docker.pkg.github.com/skyra-project/docker-images/postgres:master }
             remove { docker rmi -f docker.pkg.github.com/skyra-project/docker-images/postgres }
             default { Write-Host "Unrecognized command, please try again" -ForegroundColor Red }
         }
