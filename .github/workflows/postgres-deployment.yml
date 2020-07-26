@@ -3,7 +3,7 @@ name: Continuous Deployment - Postgres
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'postgres/**'
       - '.github/workflows/postgres-deployment.yml'
@@ -23,7 +23,7 @@ jobs:
           workdir: postgres
           username: NM-EEA-Y
           password: ${{ secrets.SKYRA_TOKEN }}
-          tags: 'latest,stable,master'
+          tags: 'latest,stable,master,main'
           registry: docker.pkg.github.com
 
   Postgres-Image-Dockerhub:
@@ -36,10 +36,10 @@ jobs:
         with:
           lfs: true
       - name: Publish to Dockerhub
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@main
         with:
           name: skyrabot/postgres
           workdir: postgres
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          tags: 'latest,stable,master'
+          tags: 'latest,stable,main'

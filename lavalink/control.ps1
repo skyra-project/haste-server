@@ -10,9 +10,9 @@ Function Step-Main {
                 $SecurePassword = $( Read-Host -AsSecureString "Please provide a GitHub token with access to publish packages" )
                 ConvertFrom-SecureString -SecureString $SecurePassword | docker login https://docker.pkg.github.com -u $Username --password-stdin
             }
-            build { docker build -t skyrabot/lavalink:master . }
-            run { docker container run -it skyrabot/lavalink:master /bin/sh }
-            deploy { docker push skyrabot/lavalink:master }
+            build { docker build -t skyrabot/lavalink:main . }
+            run { docker container run -it skyrabot/lavalink:main /bin/sh }
+            deploy { docker push skyrabot/lavalink:main }
             remove { docker rmi -f skyrabot/lavalink }
             default { Write-Host "Unrecognized command, please try again" -ForegroundColor Red }
         }

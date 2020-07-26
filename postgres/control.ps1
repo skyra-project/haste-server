@@ -19,17 +19,17 @@ Function Step-Main {
                     Copy-Item ".\local.Dockerfile" ".\Dockerfile"
 
                     # Trigger a Docker build
-                    docker build -t skyrabot/postgres:master .
+                    docker build -t skyrabot/postgres:main .
 
                     # Move the backup back to the original Dockerfile
                     Move-Item -Force ".\Dockerfile.backup" ".\Dockerfile"
                 }
                 else {
-                    docker build -t skyrabot/postgres:master .
+                    docker build -t skyrabot/postgres:main .
                 }
             }
-            run { docker container run -it skyrabot/postgres:master /bin/sh }
-            deploy { docker push skyrabot/postgres:master }
+            run { docker container run -it skyrabot/postgres:main /bin/sh }
+            deploy { docker push skyrabot/postgres:main }
             remove { docker rmi -f skyrabot/postgres }
             default { Write-Host "Unrecognized command, please try again" -ForegroundColor Red }
         }

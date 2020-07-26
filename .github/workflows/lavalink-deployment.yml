@@ -3,7 +3,7 @@ name: Continuous Deployment - Lavalink
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'lavalink/**'
       - '.github/workflows/lavalink-deployment.yml'
@@ -25,7 +25,7 @@ jobs:
           workdir: lavalink
           username: NM-EEA-Y
           password: ${{ secrets.SKYRA_TOKEN }}
-          tags: 'latest,stable,master'
+          tags: 'latest,stable,master,main'
           registry: docker.pkg.github.com
 
   Lavalink-Image-Dockerhub:
@@ -38,10 +38,10 @@ jobs:
         with:
           lfs: true
       - name: Publish to Dockerhub
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@main
         with:
           name: skyrabot/lavalink
           workdir: lavalink
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          tags: 'latest,stable,master'
+          tags: 'latest,stable,main'
