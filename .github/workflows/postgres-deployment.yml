@@ -42,4 +42,4 @@ jobs:
           workdir: postgres
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          tags: 'latest,stable,main'
+          tags: 'latest,stable,master,main'
