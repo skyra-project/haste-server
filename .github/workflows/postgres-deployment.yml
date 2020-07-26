@@ -36,7 +36,7 @@ jobs:
         with:
           lfs: true
       - name: Publish to Dockerhub
-        uses: elgohr/Publish-Docker-Github-Action@main
+        uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: skyrabot/postgres
           workdir: postgres
