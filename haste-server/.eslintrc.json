@@ -1,0 +1,30 @@
+{
+	"extends": "@sapphire",
+	"rules": {
+		"@typescript-eslint/dot-notation": "off",
+		"@typescript-eslint/explicit-member-accessibility": "off",
+		"@typescript-eslint/init-declarations": "off",
+		"@typescript-eslint/naming-convention": "off",
+		"@typescript-eslint/no-empty-function": "off",
+		"@typescript-eslint/no-invalid-this": "off",
+		"@typescript-eslint/no-this-alias": "off",
+		"@typescript-eslint/no-var-requires": "off",
+		"@typescript-eslint/prefer-for-of": "off",
+		"@typescript-eslint/restrict-plus-operands": "off",
+		"block-scoped-var": "off",
+		"consistent-this": "off",
+		"eqeqeq": "off",
+		"func-names": "off",
+		"guard-for-in": "off",
+		"no-eq-null": "off",
+		"no-implicit-coercion": "off",
+		"no-lonely-if": "off",
+		"no-path-concat": "off",
+		"no-var": "off",
+		"object-shorthand": "off",
+		"one-var": "off",
+		"prefer-destructuring": "off",
+		"prefer-template": "off",
+		"spaced-comment": "off"
+	}
+}

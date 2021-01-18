@@ -1,0 +1,8 @@
+{
+	"extends": "@sapphire/ts-config",
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true
+	},
+	"include": ["lib", "static", "config.js", "docker-entrypoint.js", "server.js"]
+}
