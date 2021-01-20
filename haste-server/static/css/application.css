@@ -82,7 +82,7 @@ pre {
 #box1 a.logo,
 #box1 a.logo:visited {
 	display: inline-block;
-	background: url(logo.png);
+	background: url(../images/logo.png);
 	width: 126px;
 	height: 42px;
 }
@@ -92,7 +92,7 @@ pre {
 }
 
 #box2 .function {
-	background: url(function-icons.png);
+	background: url(../images/function-icons.png);
 	width: 32px;
 	height: 37px;
 	display: inline-block;
@@ -112,7 +112,7 @@ pre {
 	display: block;
 	height: 5px;
 	width: 10px;
-	background: url(hover-dropdown-tip.png);
+	background: url(../images/hover-dropdown-tip.png);
 	bottom: 0px;
 	position: absolute;
 	margin: auto;
