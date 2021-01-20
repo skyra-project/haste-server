@@ -1,14 +1,12 @@
-var http = require('http');
-var fs = require('fs');
-
-var uglify = require('uglify-js');
-var winston = require('winston');
-var connect = require('connect');
-var route = require('connect-route');
-var connect_st = require('st');
-var connect_rate_limit = require('connect-ratelimit');
-
-var DocumentHandler = require('./lib/document_handler');
+const http = require('http');
+const fs = require('fs');
+const uglify = require('uglify-js');
+const winston = require('winston');
+const connect = require('connect');
+const route = require('connect-route');
+const connect_st = require('st');
+const connect_rate_limit = require('connect-ratelimit');
+const DocumentHandler = require('./lib/document_handler');
 
 // Load the configuration and set some defaults
 const configPath = process.argv.length <= 2 ? 'config.js' : process.argv[2];
@@ -42,8 +40,8 @@ if (!config.storage.type) {
 	config.storage.type = 'file';
 }
 
-var Store = require('./lib/document_stores/' + config.storage.type);
-var preferredStore = new Store(config.storage);
+const Store = require('./lib/document_stores/' + config.storage.type);
+const preferredStore = new Store(config.storage);
 
 // Compress the static javascript assets
 if (config.recompressStaticAssets) {
@@ -81,10 +79,10 @@ for (var name in config.documents) {
 }
 
 // Pick up a key generator
-var pwOptions = config.keyGenerator || {};
+const pwOptions = config.keyGenerator || {};
 pwOptions.type = pwOptions.type || 'random';
-var gen = require('./lib/key_generators/' + pwOptions.type);
-var keyGenerator = new gen(pwOptions);
+const gen = require(`./lib/key_generators/${pwOptions.type}`);
+const keyGenerator = new gen(pwOptions);
 
 // Configure the document handler
 var documentHandler = new DocumentHandler({
@@ -164,4 +162,4 @@ app.use(
 
 http.createServer(app).listen(config.port, config.host);
 
-winston.info('listening on ' + config.host + ':' + config.port);
+winston.info(`listening on http://${config.host}:${config.port}`);
