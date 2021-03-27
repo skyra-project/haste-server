@@ -132,10 +132,10 @@ You have to install [`powershell`](https://github.com/PowerShell/powershell/rele
 ```ps1
 Function haste {
 	$fileContent = Get-Content -Path $args[0] -Encoding UTF8 -Raw
-	$response = Invoke-RestMethod -Uri http://localhost:7777/documents -Method POST -Body $fileContent
+	$response = Invoke-RestMethod -Uri https://hastebin.skyra.pw/documents -Method POST -Body $fileContent
 	$key = $response.key
 
-	Write-Host http://localhost:7777/$key
+	Write-Host https://hastebin.skyra.pw/$key
 }
 ```
 
