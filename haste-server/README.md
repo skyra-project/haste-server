@@ -20,7 +20,7 @@
     -   [Description](#description)
     -   [Installation](#installation)
     -   [Usage](#usage)
-        -   [From [the website][website]](#from-the-websitewebsite)
+        -   [From the [website]](#from-the-website)
         -   [From the Console](#from-the-console)
             -   [Shell (Bash/Zsh/Fish/etc)](#shell-bashzshfishetc)
                 -   [Prerequisite](#prerequisite)
