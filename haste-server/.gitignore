@@ -21,3 +21,8 @@ data/
 # Ignore heapsnapshot and log files
 *.heapsnapshot
 *.log
+
+# Files that are build from lib/
+application.min.js
+highlight.min.js
+applicatio.css

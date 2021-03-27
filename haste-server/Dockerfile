@@ -36,7 +36,7 @@ ENV RATELIMITS_NORMAL_TOTAL_REQUESTS=500\
     RATELIMITS_BLACKLIST_EVERY_MILLISECONDS= \
     # comma separated list for the blacklisted \
     RATELIMITS_BLACKLIST=example1.blacklist,example2.blacklist 
-ENV DOCUMENTS=about=./about.md
+ENV DOCUMENTS=about=./README.md
 
 EXPOSE ${PORT}
 STOPSIGNAL SIGINT
