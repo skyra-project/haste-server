@@ -1,13 +1,16 @@
 FROM node:14-alpine
 
-RUN mkdir -p /usr/src/app && \
-    chown node:node /usr/src/app
-
-USER node:node 
+RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
 
-COPY --chown=node:node . . 
+COPY lib/ lib/
+COPY static/ static/
+COPY config.js .
+COPY docker-entrypoint* .
+COPY package.json .
+COPY README.md .
+COPY server.js .
 
 RUN yarn --frozen-lockfile --no-bin-links
 

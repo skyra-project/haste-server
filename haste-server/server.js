@@ -11,7 +11,7 @@ const DocumentHandler = require('./lib/document_handler');
 // Load the configuration and set some defaults
 const configPath = process.argv.length <= 2 ? 'config.js' : process.argv[2];
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-config.port = process.env.PORT || config.port || 7777;
+config.port = process.env.PORT || config.port || 8290;
 config.host = process.env.HOST || config.host || 'localhost';
 
 // Set up the logger
