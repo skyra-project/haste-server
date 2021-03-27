@@ -16,21 +16,21 @@
 
 **_Table of Contents_**
 
-- [Hasteserver](#hasteserver)
-  - [Description](#description)
-  - [Installation](#installation)
-  - [Usage](#usage)
-	- [From the website](#from-the-website)
-	- [From the Console](#from-the-console)
-	  - [UNIX Shell](#unix-shell)
-		- [Prerequisite](#prerequisite)
-		- [Script](#script)
-		- [Usage](#usage-1)
-	  - [PowerShell (Windows/Linux/MacOS)](#powershell-windowslinuxmacos)
-		- [Prerequisite](#prerequisite-1)
-		- [Script](#script-1)
-		- [Usage](#usage-2)
-  -  [Paste lifetime](#paste-lifetime)
+-   [Hasteserver](#hasteserver)
+    -   [Description](#description)
+    -   [Installation](#installation)
+    -   [Usage](#usage)
+    -   [From the website](#from-the-website)
+    -   [From the Console](#from-the-console)
+        -   [UNIX Shell](#unix-shell)
+        -   [Prerequisite](#prerequisite)
+        -   [Script](#script)
+        -   [Usage](#usage-1)
+        -   [PowerShell (Windows/Linux/MacOS)](#powershell-windowslinuxmacos)
+        -   [Prerequisite](#prerequisite-1)
+        -   [Script](#script-1)
+        -   [Usage](#usage-2)
+    -   [Paste lifetime](#paste-lifetime)
 
 ## Description
 
@@ -93,9 +93,10 @@ following may not work, but is guaranteed to on BaSH, Zsh, Fish, et cetera.
 ##### Prerequisites
 
 For this to run, your system needs:
-- `curl`
-- `cat`
-- `jq`
+
+-   `cat`
+-   [`curl`](https://github.com/curl/curl)
+-   [`jq`](https://github.com/stedolan/jq)
 
 ##### Script
 
@@ -126,6 +127,7 @@ cat something | haste | pbcopy
 ```sh
 cat something | haste | copy_command
 ```
+
 You should replace `copy_command` with your clipboard of choice. This is
 typically `xsel` or `xclipcopy` on systems using X11.
 
