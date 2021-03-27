@@ -70,7 +70,7 @@ services:
 
 ## Usage
 
-### From [the website][website]
+### From the [website]
 
 Type what you want me to see, click "Save", and then copy the URL. Send that
 URL to someone and they'll see what you see.
