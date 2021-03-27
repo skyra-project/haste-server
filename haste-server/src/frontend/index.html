@@ -5,7 +5,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" />
 		<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
 
-		<script type="text/javascript" src="./index.ts"></script>
+		<script defer="true" type="text/javascript" src="./index.ts"></script>
 
 		<!-- SEO -->
 		<link rel="canonical" href="https://hastebin.skyra.pw" />
@@ -52,44 +52,10 @@
 		<link rel="apple-touch-startup-image" href="./seo/icons/apple-startup.png" />
 		<meta name="theme-color" content="#282C34" />
 		<link rel="mask-icon" href="./seo/icons/safari-pinned-tab.svg" color="#1e88e5" />
-
-		<!-- HASTE SCRIPT -->
-		<script type="text/javascript">
-			var app = null;
-			// Handle pops
-			var handlePop = function (evt) {
-				var path = evt.target.location.pathname;
-				if (path === '/') {
-					app.newDocument(true);
-				} else {
-					app.loadDocument(path.substring(1, path.length));
-				}
-			};
-			// Set up the pop state to handle loads, skipping the first load
-			// to make chrome behave like others:
-			// http://code.google.com/p/chromium/issues/detail?id=63040
-			setTimeout(function () {
-				window.onpopstate = function (evt) {
-					try {
-						handlePop(evt);
-					} catch (err) {
-						/* not loaded yet */
-					}
-				};
-			}, 1000);
-			// Construct app and load initial path
-			$(function () {
-				app = new haste('hastebin', { twitter: false });
-				handlePop({ target: window });
-			});
-		</script>
 	</head>
 
 	<body>
-		<ul id="messages"></ul>
-
 		<div id="key">
-			<div id="pointer" style="display: none"></div>
 			<div id="box1">
 				<a href="/about" class="logo"></a>
 			</div>

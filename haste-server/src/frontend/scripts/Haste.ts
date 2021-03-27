@@ -1,14 +1,12 @@
 import { HasteDocument } from './HasteDocument';
 import type { Button } from './types';
-import { selectElement } from './utils';
+import { selectElement, selectElementAll } from './utils';
 
 export class Haste {
 	private appName = 'hastebin';
 	private textArea = selectElement('textarea')!;
 	private box = selectElement('#box')!;
 	private code = selectElement('#box code')!;
-	private lineos = selectElement('#lineos')!;
-	private options: any | null = null;
 	private doc: HasteDocument | null = null;
 	private buttons: Button[] = [
 		{
@@ -29,6 +27,13 @@ export class Haste {
 			shortcutDescription: 'Control or Command + n',
 			shortcut: (evt) => (evt.ctrlKey || evt.metaKey) && evt.key === 'n',
 			action: () => this.newDocument(!this.doc?.key)
+		},
+		{
+			where: selectElement('#box2 .duplicate'),
+			label: 'Duplicate & Edit',
+			shortcutDescription: 'control or command + d',
+			shortcut: (evt) => Boolean(this.doc?.locked) && (evt.ctrlKey || evt.metaKey) && evt.key === 'd',
+			action: () => this.duplicateDocument()
 		},
 		{
 			where: selectElement('#box2 .raw'),
@@ -75,9 +80,8 @@ export class Haste {
 		['xml', 'xml']
 	]);
 
-	public constructor(appName: string, options: any) {
+	public constructor(appName: string) {
 		this.appName = appName;
-		this.options = options;
 
 		this.configureShortcuts();
 
@@ -86,7 +90,7 @@ export class Haste {
 		}
 	}
 
-	private newDocument(hideHistory: boolean) {
+	public newDocument(hideHistory: boolean) {
 		this.box.style.display = 'none';
 		this.doc = new HasteDocument();
 
@@ -106,7 +110,7 @@ export class Haste {
 	 * Loads a document and shows it
 	 * @param url The url of the document to load
 	 */
-	private loadDocument(url: string) {
+	public loadDocument(url: string) {
 		const parts = url.split('.', 2);
 		this.doc = new HasteDocument();
 		void this.doc.load(
@@ -196,11 +200,11 @@ export class Haste {
 	 * @param enabledButtons List of buttons to enable
 	 */
 	private configureKey(...enabledButtons: string[]) {
-		const buttons = Array.from(document.querySelectorAll<HTMLElement>('#box2 .function'));
+		const buttons = Array.from(selectElementAll('#box2 .function'));
 
 		for (const enabledButton of enabledButtons) {
 			for (const button of buttons) {
-				if (button.classList.contains('')) {
+				if (button.classList.contains(enabledButton)) {
 					button.classList.add('enabled');
 				} else {
 					button.classList.remove('enabled');
@@ -241,14 +245,14 @@ export class Haste {
 			numbers += (i + 1).toString() + '<br/>';
 		}
 
-		document.querySelector('#lineos')!.innerHTML = numbers;
+		selectElement('#linenos').innerHTML = numbers;
 	}
 
 	/**
 	 * Removes the line numbers from view
 	 */
 	private removeLineNumbers() {
-		document.querySelector('#lineos')!.innerHTML = '&gt;';
+		selectElement('#linenos').innerHTML = '&gt;';
 	}
 
 	/**
@@ -267,14 +271,10 @@ export class Haste {
 			selectElement('#box3 .label').textContent = button.label;
 			selectElement('#box3 .shortcut').textContent = button.shortcutDescription || '';
 			selectElement('#box3').style.display = 'block';
-			selectElement('#pointer').remove();
-			selectElement('#pointer').append(button.where);
-			selectElement('#pointer').style.display = 'block';
 		};
 
 		button.where.onmouseleave = () => {
 			selectElement('#box3').style.display = 'none';
-			selectElement('#pointer').style.display = 'none';
 		};
 	}
 
