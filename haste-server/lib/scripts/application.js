@@ -275,9 +275,9 @@ haste.prototype.configureButtons = function () {
 		{
 			$where: $('#box2 .save'),
 			label: 'Save',
-			shortcutDescription: 'control + s',
+			shortcutDescription: 'control or command + s',
 			shortcut: function (evt) {
-				return evt.ctrlKey && evt.keyCode === 83;
+				return (evt.ctrlKey || evt.metaKey) && evt.keyCode === 83;
 			},
 			action: function () {
 				if (_this.$textarea.val().replace(/^\s+|\s+$/g, '') !== '') {
@@ -289,9 +289,9 @@ haste.prototype.configureButtons = function () {
 			$where: $('#box2 .new'),
 			label: 'New',
 			shortcut: function (evt) {
-				return evt.ctrlKey && evt.keyCode === 78;
+				return (evt.ctrlKey || evt.metaKey) && evt.keyCode === 78;
 			},
-			shortcutDescription: 'control + n',
+			shortcutDescription: 'control or command + n',
 			action: function () {
 				_this.newDocument(!_this.doc.key);
 			}
@@ -300,9 +300,9 @@ haste.prototype.configureButtons = function () {
 			$where: $('#box2 .duplicate'),
 			label: 'Duplicate & Edit',
 			shortcut: function (evt) {
-				return _this.doc.locked && evt.ctrlKey && evt.keyCode === 68;
+				return _this.doc.locked && (evt.ctrlKey || evt.metaKey) && evt.keyCode === 68;
 			},
-			shortcutDescription: 'control + d',
+			shortcutDescription: 'control or command + d',
 			action: function () {
 				_this.duplicateDocument();
 			}
@@ -311,9 +311,9 @@ haste.prototype.configureButtons = function () {
 			$where: $('#box2 .raw'),
 			label: 'Just Text',
 			shortcut: function (evt) {
-				return evt.ctrlKey && evt.shiftKey && evt.keyCode === 82;
+				return (evt.ctrlKey || evt.metaKey) && evt.shiftKey && evt.keyCode === 82;
 			},
-			shortcutDescription: 'control + shift + r',
+			shortcutDescription: 'control or command + shift + r',
 			action: function () {
 				window.location.href = '/raw/' + _this.doc.key;
 			}

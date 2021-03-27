@@ -7,27 +7,27 @@
     "haste-server": "./server.js"
   },
   "scripts": {
-    "prebuild": "run-s clean",
-    "build": "run-p terser:** scss:**",
-    "scss:preprocess": "sass --no-source-map lib/stylesheets/application.scss static/css/application.css",
-    "terser:application": "terser lib/scripts/application.js --compress ecma=2019 --mangle --format comments=false,ecma=2019 --output static/minified/application.min.js",
-    "terser:highlight": "terser lib/scripts/highlight.js --compress ecma=2019 --mangle --format comments=false,ecma=2019 --output static/minified/highlight.min.js",
-    "clean": "rimraf static/css/application.css static/minified/application.min.js static/minified/highlight.min.js",
-    "start": "node server.js",
-    "lint": "eslint lib docker-entrypoint.js server.js --fix",
-    "format": "prettier --write lib static docker-entrypoint.js server.js"
+    "start": "node src/backend/server.js",
+    "dev": "run-s build start",
+    "build": "parcel build src/frontend/index.html",
+    "clean": "rimraf .parcel-cache dist",
+    "lint": "eslint src --fix",
+    "format": "prettier --write src"
   },
   "dependencies": {
     "busboy": "0.3.1",
     "connect": "^3.7.0",
     "connect-ratelimit": "0.0.7",
     "connect-route": "0.1.5",
+    "highlight.js": "^10.7.1",
     "redis": "3.0.2",
     "st": "^2.0.0",
     "uglify-js": "3.12.8",
     "winston": "^2.4.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.13",
+    "@parcel/transformer-sass": "2.0.0-beta.2",
     "@sapphire/eslint-config": "^3.0.1",
     "@sapphire/prettier-config": "^1.0.7",
     "@sapphire/ts-config": "^2.0.1",
@@ -37,11 +37,11 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "npm-run-all": "^4.1.5",
+    "parcel": "^2.0.0-beta.2",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
-    "sass": "^1.32.8",
-    "terser": "^5.6.1",
     "typescript": "^4.2.2"
   },
+  "browserslist": "> 0.2%",
   "prettier": "@sapphire/prettier-config"
 }

@@ -7,7 +7,9 @@ node_modules/
 coverage/
 
 # Ignore output folders
+.parcel-cache/
 data/
+dist/
 
 # Environment variables
 .DS_Store
@@ -21,8 +23,3 @@ data/
 # Ignore heapsnapshot and log files
 *.heapsnapshot
 *.log
-
-# Files that are build from lib/
-application.min.js
-highlight.min.js
-application.css

@@ -1,4 +1,4 @@
-{
+const config = {
 
   "host": "localhost",
   "port": 8290,
@@ -41,3 +41,5 @@
   }
 
 }
+
+module.exports = config;

@@ -7,12 +7,14 @@ const route = require('connect-route');
 const connect_st = require('st');
 const connect_rate_limit = require('connect-ratelimit');
 const DocumentHandler = require('./lib/document_handler');
+const nodePath = require('path');
+const config = require('./lib/config');
+
+const rootDir = nodePath.resolve(__dirname, '..', '..');
 
 // Load the configuration and set some defaults
-const configPath = process.argv.length <= 2 ? 'config.js' : process.argv[2];
-const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-config.port = process.env.PORT || config.port || 8290;
-config.host = process.env.HOST || config.host || 'localhost';
+config.port ??= process.env.PORT || config.port || 8290;
+config.host ??= process.env.HOST || config.host || 'localhost';
 
 // Set up the logger
 if (config.logging) {
@@ -40,23 +42,8 @@ if (!config.storage.type) {
 	config.storage.type = 'file';
 }
 
-const Store = require('./lib/document_stores/' + config.storage.type);
+const Store = require('./document_stores/' + config.storage.type);
 const preferredStore = new Store(config.storage);
-
-// Compress the static javascript assets
-if (config.recompressStaticAssets) {
-	var list = fs.readdirSync('./static');
-	for (var j = 0; j < list.length; j++) {
-		var item = list[j];
-		if (item.indexOf('.js') === item.length - 3 && item.indexOf('.min.js') === -1) {
-			var dest = item.substring(0, item.length - 3) + '.min' + item.substring(item.length - 3);
-			var orig_code = fs.readFileSync('./static/' + item, 'utf8');
-
-			fs.writeFileSync('./static/' + dest, uglify.minify(orig_code).code, 'utf8');
-			winston.info('compressed ' + item + ' into ' + dest);
-		}
-	}
-}
 
 // Send the static documents into the preferred store, skipping expirations
 var path, data;
@@ -81,7 +68,7 @@ for (var name in config.documents) {
 // Pick up a key generator
 const pwOptions = config.keyGenerator || {};
 pwOptions.type = pwOptions.type || 'random';
-const gen = require(`./lib/key_generators/${pwOptions.type}`);
+const gen = require(`./key_generators/${pwOptions.type}`);
 const keyGenerator = new gen(pwOptions);
 
 // Configure the document handler
@@ -133,7 +120,7 @@ app.use(
 // Otherwise, try to match static files
 app.use(
 	connect_st({
-		path: __dirname + '/static',
+		path: nodePath.resolve(rootDir, 'dist'),
 		content: { maxAge: config.staticMaxAge },
 		passthrough: true,
 		index: false
@@ -154,7 +141,7 @@ app.use(
 // And match index
 app.use(
 	connect_st({
-		path: __dirname + '/static',
+		path: nodePath.resolve(rootDir, 'dist'),
 		content: { maxAge: config.staticMaxAge },
 		index: 'index.html'
 	})

@@ -1,0 +1,14 @@
+{
+	"extends": "@sapphire/ts-config",
+	"compilerOptions": {
+		"rootDir": "src",
+		"outDir": "dist",
+		"allowJs": true,
+		"checkJs": true,
+		"lib": ["ESNext", "DOM"],
+
+		"importHelpers": false,
+		"noEmitHelpers": true
+	},
+	"include": ["src"]
+}

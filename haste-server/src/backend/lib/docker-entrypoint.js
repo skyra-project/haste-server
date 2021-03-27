@@ -103,4 +103,4 @@ const config = {
 		: null
 };
 
-console.log(JSON.stringify(config));
+module.exports = config;
