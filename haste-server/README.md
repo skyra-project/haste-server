@@ -106,13 +106,13 @@ cat something | haste
 You can even take this a step further, and cut out the last step of copying the
 URL with:
 
-**osx:**
+**MacOS:**
 
 ```sh
 cat something | haste | pbcopy
 ```
 
-**linux:**
+**Linux:**
 
 ```sh
 cat something | haste | xsel
