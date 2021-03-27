@@ -25,17 +25,16 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-15-${{ hashFiles('**/haste-server/yarn.lock') }}
-      - name: Move to haste-server folder
-        run: cd haste-server
       - name: Install Dependencies
-        run: yarn --ignore-scripts --frozen-lockfile
+        run: cd haste-server && yarn --ignore-scripts --frozen-lockfile
       - name: Minify application.js
-        run: yarn build
+        run: cd haste-server && yarn build
       - name: Publish to Github Package Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: skyra-project/docker-images/haste-server
           username: NM-EEA-Y
+          workdir: haste-server
           password: ${{ secrets.SKYRA_TOKEN }}
           tags: 'latest,stable,master,main'
           registry: docker.pkg.github.com
@@ -56,16 +55,15 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-15-${{ hashFiles('**/haste-server/yarn.lock') }}
-      - name: Move to haste-server folder
-        run: cd haste-server
       - name: Install Dependencies
-        run: yarn --ignore-scripts --frozen-lockfile
+        run: cd haste-server && yarn --ignore-scripts --frozen-lockfile
       - name: Minify application.js
-        run: yarn build
+        run: cd haste-server && yarn build
       - name: Publish to Dockerhub
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: skyrabot/haste-server
+          workdir: haste-server
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           tags: 'latest,stable,master,main'
