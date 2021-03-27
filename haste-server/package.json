@@ -7,10 +7,12 @@
     "haste-server": "./server.js"
   },
   "scripts": {
+    "prebuild": "run-s clean",
     "build": "run-p terser:** scss:**",
     "scss:preprocess": "sass --no-source-map lib/stylesheets/application.scss static/css/application.css",
     "terser:application": "terser lib/scripts/application.js --compress ecma=2019 --mangle --format comments=false,ecma=2019 --output static/minified/application.min.js",
     "terser:highlight": "terser lib/scripts/highlight.js --compress ecma=2019 --mangle --format comments=false,ecma=2019 --output static/minified/highlight.min.js",
+    "clean": "rimraf static/css/application.css static/minified/application.min.js static/minified/highlight.min.js",
     "start": "node server.js",
     "lint": "eslint lib docker-entrypoint.js server.js --fix",
     "format": "prettier --write lib static docker-entrypoint.js server.js"
@@ -36,6 +38,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
     "sass": "^1.32.8",
     "terser": "^5.6.1",
     "typescript": "^4.2.2"
