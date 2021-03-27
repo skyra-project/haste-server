@@ -9,6 +9,7 @@ const connect_rate_limit = require('connect-ratelimit');
 const DocumentHandler = require('./lib/document_handler');
 const nodePath = require('path');
 const config = require('./lib/config');
+const { rootDir } = require('./lib/constants');
 
 // Load the configuration and set some defaults
 config.port ??= process.env.PORT || config.port || 8290;
