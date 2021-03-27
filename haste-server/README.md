@@ -1,6 +1,6 @@
 <div align="center">
 
-# Hasteserver
+# HasteServer
 
 **open-source pastebin for all**
 
@@ -16,29 +16,32 @@
 
 **_Table of Contents_**
 
--   [Hasteserver](#hasteserver)
-    -   [Description](#description)
-    -   [Installation](#installation)
-    -   [Usage](#usage)
-        -   [From [the website][website]](#from-the-websitewebsite)
-        -   [From the Console](#from-the-console)
-            -   [Shell (Bash/Zsh/Fish/etc)](#shell-bashzshfishetc)
-                -   [Prerequisite](#prerequisite)
-                -   [Script](#script)
-                -   [Usage](#usage-1)
-            -   [PowerShell (Windows/Linux/MacOS)](#powershell-windowslinuxmacos)
-                -   [Prerequisite](#prerequisite-1)
-                -   [Script](#script-1)
-                -   [Usage](#usage-2)
-    -   [Paste lifetime](#paste-lifetime)
+- [Hasteserver](#hasteserver)
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [From the website](#from-the-website)
+    - [From the Console](#from-the-console)
+      - [UNIX Shell](#unix-shell)
+        - [Prerequisite](#prerequisite)
+        - [Script](#script)
+        - [Usage](#usage-1)
+      - [PowerShell (Windows/Linux/MacOS)](#powershell-windowslinuxmacos)
+        - [Prerequisite](#prerequisite-1)
+        - [Script](#script-1)
+        - [Usage](#usage-2)
+  -  [Paste lifetime](#paste-lifetime)
 
 ## Description
 
-Haste is an open-source pastebin software written in NodeJS, which is easily installable in any network. It can be backed by either redis or filesystem, and has a very easy adapter interface for other stores. A publicly available version can be found at [hastebin.skyra.pw][website]
+Haste is an open-source pastebin server written for Node.JS, which is easily
+installable on any system. It can use either Redis or the filesystem for its
+backend, and it has a very easy-to-use adapter interface for other stores. A
+publicly available version can be found at [hastebin.skyra.pw][website].
 
 ## Installation
 
-You can use the following Docker Compose config to set up this image:
+You can use the following Docker Compose configuration to set up this image:
 
 ```yaml
 version: '2.4'
@@ -74,28 +77,30 @@ services:
 
 ### From the [website]
 
-Type what you want me to see, click "Save", and then copy the URL. Send that
-URL to someone and they'll see what you see.
+Type or paste what you want to upload into the website, save it, and then copy
+the URL. Send that to someone and they'll be able to view the file.
 
-To make a new entry, click "New" (or type 'control + n')
+To make a new entry, click "New" (or use `CTRL+N` on the keyboard).
 
 ### From the Console
 
-#### Shell (Bash/Zsh/Fish/etc)
+#### UNIX Shell
 
-Use the following function to easily POST to the hastebin server
+You can use the following function to easily POST to a Hasteserver instance.
+It should be noted that due to POSIX restrictions and shell differences, the
+following may not work, but is guaranteed to on BaSH, Zsh, Fish, et cetera.
 
-##### Prerequisite
+##### Prerequisites
 
-You have to install [`jq`](https://stedolan.github.io/jq/) for this script to work
+For this to run, your system needs:
+- `curl`
+- `cat`
+- `jq`
 
 ##### Script
 
 ```sh
-function haste() {
-    a=$(cat);
-    curl -X POST -s -d "$a" https://hastebin.skyra.pw/documents |  jq --raw-output '.key' | { read key; echo "https://hastebin.skyra.pw/${key}"; }
-}
+haste() curl -X POST -s -d "$(cat)" https://hastebin.skyra.pw/documents | jq --raw-output '.key' | { read key; echo "https://hastebin.skyra.pw/${key}"; }
 ```
 
 ##### Usage
@@ -117,10 +122,12 @@ cat something | haste | pbcopy
 **Linux:**
 
 ```sh
-cat something | haste | xsel
+cat something | haste | copy_command
 ```
+You should replace `copy_command` with your clipboard of choice. This is
+typically `xsel` or `xclipcopy` on systems using X11.
 
-After running that, the STDOUT output of `cat something` will show up as a URL
+After running that, the output of `cat something` will show up as a URL
 which has been conveniently copied to your clipboard.
 
 #### PowerShell (Windows/Linux/MacOS)
