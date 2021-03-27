@@ -1,3 +1,6 @@
+const { rootDir } = require('./constants')
+const path = require('path');
+
 const config = {
 
   "host": "localhost",
@@ -37,7 +40,7 @@ const config = {
   },
 
   "documents": {
-    "about": "./README.md"
+    "about": path.resolve(rootDir, 'README.md')
   }
 
 }

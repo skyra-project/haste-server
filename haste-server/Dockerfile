@@ -1,19 +1,13 @@
-FROM node:14-alpine
+FROM node:15-alpine
 
-RUN mkdir -p /usr/src/app
+WORKDIR /usr/app/
 
-WORKDIR /usr/src/app
-
-COPY lib/ lib/
-COPY static/ static/
-COPY config.js .
-COPY docker-entrypoint.js .
-COPY docker-entrypoint.sh .
+COPY src/ src/
 COPY package.json .
 COPY README.md .
-COPY server.js .
 
-RUN yarn --frozen-lockfile --no-bin-links
+RUN yarn --frozen-lockfile --no-bin-links \
+    && yarn build
 
 ENV LOGGING_LEVEL=verbose \
     LOGGING_TYPE=Console \
@@ -40,7 +34,6 @@ ENV RATELIMITS_NORMAL_TOTAL_REQUESTS=500\
     RATELIMITS_BLACKLIST_EVERY_MILLISECONDS= \
     # comma separated list for the blacklisted \
     RATELIMITS_BLACKLIST=example1.blacklist,example2.blacklist 
-ENV DOCUMENTS=about=./README.md
 
 EXPOSE ${PORT}
 STOPSIGNAL SIGINT

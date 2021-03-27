@@ -1,3 +1,6 @@
+const { rootDir } = require('./constants');
+const path = require('path');
+
 const {
 	HOST,
 	PORT,
@@ -27,8 +30,7 @@ const {
 	RATE_LIMITS_WHITELIST,
 	RATE_LIMITS_BLACKLIST_TOTAL_REQUESTS,
 	RATE_LIMITS_BLACKLIST_EVERY_MILLISECONDS,
-	RATE_LIMITS_BLACKLIST,
-	DOCUMENTS
+	RATE_LIMITS_BLACKLIST
 } = process.env;
 
 const config = {
@@ -95,12 +97,9 @@ const config = {
 		path: STORAGE_FILEPATH
 	},
 
-	documents: DOCUMENTS
-		? DOCUMENTS.split(',').reduce((acc, item) => {
-				const keyAndValueArray = item.replace(/\s/g, '').split('=');
-				return { ...acc, [keyAndValueArray[0]]: keyAndValueArray[1] };
-		  }, {})
-		: null
+	documents: {
+		about: path.resolve(rootDir, 'README.md')
+	}
 };
 
 module.exports = config;

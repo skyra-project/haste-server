@@ -10,8 +10,6 @@ const DocumentHandler = require('./lib/document_handler');
 const nodePath = require('path');
 const config = require('./lib/config');
 
-const rootDir = nodePath.resolve(__dirname, '..', '..');
-
 // Load the configuration and set some defaults
 config.port ??= process.env.PORT || config.port || 8290;
 config.host ??= process.env.HOST || config.host || 'localhost';
