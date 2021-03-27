@@ -52,8 +52,10 @@ services:
         command: redis-server --port 8287 --requirepass redis
     hasteserver:
         container_name: hasteserver
-        image: skyrabot/haste-server
+        image: haste-server:latest
+        build: .
         restart: always
+        tty: true
         depends_on:
             - redis
         ports:
@@ -61,7 +63,7 @@ services:
         environment:
             PORT: 8290
             STORAGE_TYPE: redis
-            STORAGE_HOST: host.docker.internal
+            STORAGE_HOST: redis
             STORAGE_PORT: 8287
             STORAGE_PASSWORD: redis
             STORAGE_DB: 2
