@@ -7,7 +7,8 @@ WORKDIR /usr/src/app
 COPY lib/ lib/
 COPY static/ static/
 COPY config.js .
-COPY docker-entrypoint* .
+COPY docker-entrypoint.js .
+COPY docker-entrypoint.sh .
 COPY package.json .
 COPY README.md .
 COPY server.js .
