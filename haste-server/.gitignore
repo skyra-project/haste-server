@@ -25,4 +25,4 @@ data/
 # Files that are build from lib/
 application.min.js
 highlight.min.js
-applicatio.css
+application.css
