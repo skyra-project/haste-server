@@ -20,16 +20,16 @@
   - [Description](#description)
   - [Installation](#installation)
   - [Usage](#usage)
-    - [From the website](#from-the-website)
-    - [From the Console](#from-the-console)
-      - [UNIX Shell](#unix-shell)
-        - [Prerequisite](#prerequisite)
-        - [Script](#script)
-        - [Usage](#usage-1)
-      - [PowerShell (Windows/Linux/MacOS)](#powershell-windowslinuxmacos)
-        - [Prerequisite](#prerequisite-1)
-        - [Script](#script-1)
-        - [Usage](#usage-2)
+	- [From the website](#from-the-website)
+	- [From the Console](#from-the-console)
+	  - [UNIX Shell](#unix-shell)
+		- [Prerequisite](#prerequisite)
+		- [Script](#script)
+		- [Usage](#usage-1)
+	  - [PowerShell (Windows/Linux/MacOS)](#powershell-windowslinuxmacos)
+		- [Prerequisite](#prerequisite-1)
+		- [Script](#script-1)
+		- [Usage](#usage-2)
   -  [Paste lifetime](#paste-lifetime)
 
 ## Description
@@ -46,31 +46,31 @@ You can use the following Docker Compose configuration to set up this image:
 ```yaml
 version: '2.4'
 services:
-    redis:
-        container_name: redis
-        image: redis:alpine
-        restart: always
-        ports:
-            - '8287:8287'
-        command: redis-server --port 8287 --requirepass redis
-    hasteserver:
-        container_name: hasteserver
-        image: haste-server:latest
-        build: .
-        restart: always
-        tty: true
-        depends_on:
-            - redis
-        ports:
-            - '8290:8290'
-        environment:
-            PORT: 8290
-            STORAGE_TYPE: redis
-            STORAGE_HOST: redis
-            STORAGE_PORT: 8287
-            STORAGE_PASSWORD: redis
-            STORAGE_DB: 2
-            STORAGE_EXPIRE_SECONDS: 21600
+	redis:
+		container_name: redis
+		image: redis:alpine
+		restart: always
+		ports:
+			- '8287:8287'
+		command: redis-server --port 8287 --requirepass redis
+	hasteserver:
+		container_name: hasteserver
+		image: haste-server:latest
+		build: .
+		restart: always
+		tty: true
+		depends_on:
+			- redis
+		ports:
+			- '8290:8290'
+		environment:
+			PORT: 8290
+			STORAGE_TYPE: redis
+			STORAGE_HOST: redis
+			STORAGE_PORT: 8287
+			STORAGE_PASSWORD: redis
+			STORAGE_DB: 2
+			STORAGE_EXPIRE_SECONDS: 21600
 ```
 
 ## Usage
@@ -100,7 +100,9 @@ For this to run, your system needs:
 ##### Script
 
 ```sh
-haste() curl -X POST -s -d "$(cat)" https://hastebin.skyra.pw/documents | jq --raw-output '.key' | { read key; echo "https://hastebin.skyra.pw/${key}"; }
+haste() {
+	curl -X POST -s -d "$(cat)" https://hastebin.skyra.pw/documents | jq --raw-output '.key' | { read key; echo "https://hastebin.skyra.pw/${key}"; }
+}
 ```
 
 ##### Usage
