@@ -30,7 +30,7 @@ textarea {
 	top: 20px;
 	left: 0px;
 	width: 30px; /* 30 to get 20 away from box */
-	font-size: 13px;
+	font-size: 15px;
 	font-family: 'Fira Code', Consolas, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono,
 		Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Monaco, Courier New, Courier, monospace;
 	text-align: right;

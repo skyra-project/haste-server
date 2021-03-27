@@ -16,11 +16,25 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
+      - name: Use Node.js 15
+        uses: actions/setup-node@v2
+        with:
+          node-version: 15
+      - name: Restore CI Cache
+        uses: actions/cache@v2.1.4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-15-${{ hashFiles('**/haste-server/yarn.lock') }}
+      - name: Move to haste-server folder
+        run: cd haste-server
+      - name: Install Dependencies
+        run: yarn --ignore-scripts --frozen-lockfile
+      - name: Minify application.js
+        run: yarn build
       - name: Publish to Github Package Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: skyra-project/docker-images/haste-server
-          workdir: haste-server
           username: NM-EEA-Y
           password: ${{ secrets.SKYRA_TOKEN }}
           tags: 'latest,stable,master,main'
@@ -33,11 +47,25 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
+      - name: Use Node.js 15
+        uses: actions/setup-node@v2
+        with:
+          node-version: 15
+      - name: Restore CI Cache
+        uses: actions/cache@v2.1.4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-15-${{ hashFiles('**/haste-server/yarn.lock') }}
+      - name: Move to haste-server folder
+        run: cd haste-server
+      - name: Install Dependencies
+        run: yarn --ignore-scripts --frozen-lockfile
+      - name: Minify application.js
+        run: yarn build
       - name: Publish to Dockerhub
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: skyrabot/haste-server
-          workdir: haste-server
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           tags: 'latest,stable,master,main'
