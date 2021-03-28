@@ -9,14 +9,6 @@ const config = {
 
 	maxLength: 400000,
 
-	logging: [
-		{
-			level: 'verbose',
-			type: 'Console',
-			colorize: true
-		}
-	],
-
 	keyGenerator: {
 		type: 'phonetic'
 	},

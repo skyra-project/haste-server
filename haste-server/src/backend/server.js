@@ -1,6 +1,5 @@
 const http = require('http');
 const fs = require('fs');
-const winston = require('winston');
 const connect = require('connect');
 const route = require('connect-route');
 const connect_st = require('st');
@@ -13,23 +12,6 @@ const { rootDir } = require('./lib/constants');
 // Load the configuration and set some defaults
 config.port ??= process.env.PORT || config.port || 8290;
 config.host ??= process.env.HOST || config.host || 'localhost';
-
-// Set up the logger
-if (config.logging) {
-	try {
-		winston.remove(winston.transports.Console);
-	} catch (e) {
-		/* was not present */
-	}
-
-	var detail, type;
-	for (var i = 0; i < config.logging.length; i++) {
-		detail = config.logging[i];
-		type = detail.type;
-		delete detail.type;
-		winston.add(winston.transports[type], detail);
-	}
-}
 
 // build the store from the config on-demand - so that we don't load it
 // for statics
@@ -48,18 +30,13 @@ var path, data;
 for (var name in config.documents) {
 	path = config.documents[name];
 	data = fs.readFileSync(path, 'utf8');
-	winston.info('loading static document', { name: name, path: path });
 	if (data) {
 		preferredStore.set(
 			name,
 			data,
-			function (cb) {
-				winston.debug('loaded static document', { success: cb });
-			},
+			() => undefined,
 			true
 		);
-	} else {
-		winston.warn('failed to load static document', { name: name, path: path });
 	}
 }
 
@@ -145,4 +122,4 @@ app.use(
 
 http.createServer(app).listen(config.port, config.host);
 
-winston.info(`listening on http://${config.host}:${config.port}`);
+console.info(`listening on http://${config.host}:${config.port}`);

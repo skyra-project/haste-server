@@ -22,8 +22,7 @@
 		"connect-route": "0.1.5",
 		"highlight.js": "^10.7.1",
 		"redis": "3.0.2",
-		"st": "^2.0.0",
-		"winston": "^2.4.5"
+		"st": "^2.0.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.13.13",

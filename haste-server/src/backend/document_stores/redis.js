@@ -1,5 +1,4 @@
 var redis = require('redis');
-var winston = require('winston');
 
 // For storing in redis
 // options[type] = redis
@@ -11,10 +10,8 @@ var winston = require('winston');
 var RedisDocumentStore = function (options, client) {
 	this.expire = options.expire;
 	if (client) {
-		winston.info('using predefined redis client');
 		RedisDocumentStore.client = client;
 	} else if (!RedisDocumentStore.client) {
-		winston.info('configuring redis');
 		RedisDocumentStore.connect(options);
 	}
 };
@@ -30,16 +27,9 @@ RedisDocumentStore.connect = function (options) {
 		RedisDocumentStore.client.auth(options.password);
 	}
 
-	RedisDocumentStore.client.on('error', function (err) {
-		winston.error('redis disconnected', err);
-	});
-
 	RedisDocumentStore.client.select(index, function (err) {
 		if (err) {
-			winston.error('error connecting to redis index ' + index, { error: err });
 			process.exit(1);
-		} else {
-			winston.info('connected to redis on ' + host + ':' + port + '/' + index);
 		}
 	});
 };
@@ -62,11 +52,7 @@ RedisDocumentStore.prototype.set = function (key, data, callback, skipExpire) {
 // Expire a key in expire time if set
 RedisDocumentStore.prototype.setExpiration = function (key) {
 	if (this.expire) {
-		RedisDocumentStore.client.expire(key, this.expire, function (err) {
-			if (err) {
-				winston.error('failed to set expiry on key: ' + key);
-			}
-		});
+		RedisDocumentStore.client.expire(key, this.expire, () => undefined);
 	}
 };
 

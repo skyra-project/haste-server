@@ -1,8 +1,6 @@
 var fs = require('fs');
 var crypto = require('crypto');
 
-var winston = require('winston');
-
 // For storing in files
 // options[type] = file
 // options[path] - Where to store
@@ -31,9 +29,6 @@ FileDocumentStore.prototype.set = function (key, data, callback, skipExpire) {
 					callback(false);
 				} else {
 					callback(true);
-					if (_this.expire && !skipExpire) {
-						winston.warn('file store cannot set expirations on keys');
-					}
 				}
 			});
 		});
@@ -51,9 +46,6 @@ FileDocumentStore.prototype.get = function (key, callback, skipExpire) {
 			callback(false);
 		} else {
 			callback(data);
-			if (_this.expire && !skipExpire) {
-				winston.warn('file store cannot set expirations on keys');
-			}
 		}
 	});
 };
