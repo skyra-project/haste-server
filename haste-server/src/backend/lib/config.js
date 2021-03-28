@@ -1,48 +1,47 @@
-const { rootDir } = require('./constants')
+const { rootDir } = require('./constants');
 const path = require('path');
 
 const config = {
+	host: process.env.HOST ?? 'localhost',
+	port: process.env.PORT ?? 8290,
 
-  "host": "localhost",
-  "port": 8290,
+	keyLength: 10,
 
-  "keyLength": 10,
+	maxLength: 400000,
 
-  "maxLength": 400000,
+	logging: [
+		{
+			level: 'verbose',
+			type: 'Console',
+			colorize: true
+		}
+	],
 
-  "staticMaxAge": 86400,
+	keyGenerator: {
+		type: 'phonetic'
+	},
 
-  "recompressStaticAssets": true,
+	rateLimits: {
+		categories: {
+			normal: {
+				totalRequests: 500,
+				every: 60000
+			}
+		}
+	},
 
-  "logging": [
-    {
-      "level": "verbose",
-      "type": "Console",
-      "colorize": true
-    }
-  ],
+	storage: {
+		type: process.env.STORAGE_TYPE ?? 'file',
+		host: process.env.STORAGE_HOST ?? undefined,
+		port: process.env.STORAGE_PORT ?? undefined,
+		expire: process.env.STORAGE_EXPIRE_SECONDS ?? undefined,
+		db: process.env.STORAGE_DB ?? undefined,
+		password: process.env.STORAGE_PASSWORD ?? undefined
+	},
 
-  "keyGenerator": {
-    "type": "phonetic"
-  },
-
-  "rateLimits": {
-    "categories": {
-      "normal": {
-        "totalRequests": 500,
-        "every": 60000
-      }
-    }
-  },
-
-  "storage": {
-    "type": "file"
-  },
-
-  "documents": {
-    "about": path.resolve(rootDir, 'README.md')
-  }
-
-}
+	documents: {
+		about: path.resolve(rootDir, 'README.md')
+	}
+};
 
 module.exports = config;

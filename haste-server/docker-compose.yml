@@ -7,7 +7,7 @@ services:
     ports:
       - '8287:8287'
     command: redis-server --port 8287 --requirepass redis
-  hasteserver:
+  haste:
     container_name: hasteserver
     image: haste-server:latest
     build: .

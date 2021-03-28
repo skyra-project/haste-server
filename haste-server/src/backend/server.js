@@ -120,7 +120,6 @@ app.use(
 app.use(
 	connect_st({
 		path: nodePath.resolve(rootDir, 'dist'),
-		content: { maxAge: config.staticMaxAge },
 		passthrough: true,
 		index: false
 	})
@@ -141,7 +140,6 @@ app.use(
 app.use(
 	connect_st({
 		path: nodePath.resolve(rootDir, 'dist'),
-		content: { maxAge: config.staticMaxAge },
 		index: 'index.html'
 	})
 );
