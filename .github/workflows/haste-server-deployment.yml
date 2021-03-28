@@ -9,10 +9,9 @@ on:
       - '.github/workflows/haste-server-deployment.yml'
 
 jobs:
-  HasteServer-Image-GitHub:
-    name: Publish haste-server image to Github Package Registry
+  Building:
+    name: Building
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
@@ -20,15 +19,38 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 15
-      - name: Restore CI Cache
-        uses: actions/cache@v2.1.4
+      - name: Restore NodeJS Cache
+        uses: actions/cache@v2
         with:
           path: node_modules
           key: ${{ runner.os }}-15-${{ hashFiles('**/haste-server/yarn.lock') }}
+      - name: Restore Parcel Cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/haste-server/.parcel-cache
+          key: ${{ runner.os }}-parcel-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies
-        run: cd haste-server && yarn --ignore-scripts --frozen-lockfile
-      - name: Minify application.js
-        run: cd haste-server && yarn build
+        run: yarn --frozen-lockfile
+      - name: Run Parcel Build
+        run: yarn build
+      - name: Store dist folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: distfolder
+          path: haste-server/dist/
+
+  HasteServer-Image-GitHub:
+    name: Publish haste-server image to Github Package Registry
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+      - name: Download dist folder
+        uses: actions/download-artifact@v2
+        with:
+          name: distfolder
+          path: haste-server/dist/
       - name: Publish to Github Package Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
@@ -46,19 +68,11 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
-      - name: Use Node.js 15
-        uses: actions/setup-node@v2
+      - name: Download dist folder
+        uses: actions/download-artifact@v2
         with:
-          node-version: 15
-      - name: Restore CI Cache
-        uses: actions/cache@v2.1.4
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-15-${{ hashFiles('**/haste-server/yarn.lock') }}
-      - name: Install Dependencies
-        run: cd haste-server && yarn --ignore-scripts --frozen-lockfile
-      - name: Minify application.js
-        run: cd haste-server && yarn build
+          name: distfolder
+          path: haste-server/dist/
       - name: Publish to Dockerhub
         uses: elgohr/Publish-Docker-Github-Action@master
         with:

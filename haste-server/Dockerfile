@@ -3,11 +3,11 @@ FROM node:15-alpine
 WORKDIR /usr/app/
 
 COPY src/ src/
+COPY dist/ dist/
 COPY package.json .
 COPY README.md .
 
-RUN yarn --frozen-lockfile --no-bin-links \
-    && yarn build
+RUN yarn --frozen-lockfile --no-bin-links
 
 ENV LOGGING_LEVEL=verbose \
     LOGGING_TYPE=Console \
