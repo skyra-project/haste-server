@@ -1,6 +1,5 @@
 const http = require('http');
 const fs = require('fs');
-const uglify = require('uglify-js');
 const winston = require('winston');
 const connect = require('connect');
 const route = require('connect-route');

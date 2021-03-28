@@ -1,5 +1,4 @@
 var winston = require('winston');
-var Busboy = require('busboy');
 
 // For handling serving stored documents
 
@@ -107,37 +106,21 @@ DocumentHandler.prototype.handlePost = function (request, response) {
 		});
 	};
 
-	// If we should, parse a form to grab the data
-	var ct = request.headers['content-type'];
-	if (ct && ct.split(';')[0] === 'multipart/form-data') {
-		var busboy = new Busboy({ headers: request.headers });
-		busboy.on('field', function (fieldname, val) {
-			if (fieldname === 'data') {
-				buffer = val;
-			}
-		});
-		busboy.on('finish', function () {
-			onSuccess();
-		});
-		request.pipe(busboy);
-		// Otherwise, use our own and just grab flat data from POST body
-	} else {
-		request.on('data', function (data) {
-			buffer += data.toString();
-		});
-		request.on('end', function () {
-			if (cancelled) {
-				return;
-			}
-			onSuccess();
-		});
-		request.on('error', function (error) {
-			winston.error('connection error: ' + error.message);
-			response.writeHead(500, { 'content-type': 'application/json' });
-			response.end(JSON.stringify({ message: 'Connection error.' }));
-			cancelled = true;
-		});
-	}
+	request.on('data', function (data) {
+		buffer += data.toString();
+	});
+	request.on('end', function () {
+		if (cancelled) {
+			return;
+		}
+		onSuccess();
+	});
+	request.on('error', function (error) {
+		winston.error('connection error: ' + error.message);
+		response.writeHead(500, { 'content-type': 'application/json' });
+		response.end(JSON.stringify({ message: 'Connection error.' }));
+		cancelled = true;
+	});
 };
 
 // Keep choosing keys until one isn't taken
