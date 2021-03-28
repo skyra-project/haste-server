@@ -12,7 +12,6 @@ services:
     image: skyrabot/haste-server:latest
     build: .
     restart: always
-    tty: true
     depends_on:
       - redis
     ports:
