@@ -55,7 +55,7 @@ services:
         command: redis-server --port 8287 --requirepass redis
     hasteserver:
         container_name: hasteserver
-        image: haste-server:latest
+        image: skyrabot/haste-server:latest
         build: .
         restart: always
         tty: true
