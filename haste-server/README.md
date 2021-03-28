@@ -80,7 +80,7 @@ services:
 Type or paste what you want to upload into the website, save it, and then copy
 the URL. Send that to someone and they'll be able to view the file.
 
-To make a new entry, click "New", or press `CTRL+N` (Windows/UNIX) or `⌘+N` (MacOS) on the keyboard.
+To make a new entry, click "New", or press `CTRL+N` (Windows/Linux) or `⌘+N` (MacOS) on the keyboard.
 
 ### From the Console
 
