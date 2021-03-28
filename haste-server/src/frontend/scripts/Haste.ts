@@ -1,7 +1,7 @@
 import { error, Stack } from '@pnotify/core';
 import { HasteDocument } from './HasteDocument';
 import type { Button } from './types';
-import { selectElement, selectElementAll } from './utils';
+import { selectElement } from './utils';
 
 export class Haste {
 	private appName = 'hastebin';
@@ -18,7 +18,7 @@ export class Haste {
 			action: () => {
 				const textAreaValue = this.textArea.value;
 				if (textAreaValue && textAreaValue.replace(/^\s+|\s+$/g, '') !== '') {
-					this.lockDocument();
+					this.saveDocument();
 				}
 			}
 		},
@@ -80,6 +80,7 @@ export class Haste {
 		['md', 'markdown'],
 		['nginx', 'nginx'],
 		['php', 'php'],
+		['powershell', 'ps1'],
 		['properties', 'properties'],
 		['py', 'python'],
 		['sh', 'bash'],
@@ -110,7 +111,7 @@ export class Haste {
 		}
 
 		this.setTitle();
-		this.lightKey();
+		this.setButtonsEnabled(true);
 		this.textArea.value = '';
 		this.textArea.style.display = '';
 		this.textArea.focus();
@@ -130,7 +131,7 @@ export class Haste {
 				if (ret) {
 					this.code.innerHTML = ret.value;
 					this.setTitle(ret.key);
-					this.fullKey();
+					this.setButtonsEnabled(false);
 					this.textArea.value = '';
 					this.textArea.style.display = 'none';
 					this.box.style.display = '';
@@ -156,9 +157,9 @@ export class Haste {
 	}
 
 	/**
-	 * Locks the current document
+	 * Saves the current document to the database
 	 */
-	private lockDocument() {
+	private saveDocument() {
 		const textAreaValue = this.textArea.value;
 		if (this.doc && textAreaValue) {
 			void this.doc.save(textAreaValue, (err, ret) => {
@@ -172,7 +173,7 @@ export class Haste {
 						file += `.${this.lookupExtensionByType(ret.language)}`;
 					}
 					window.history.pushState(null, this.appName + '-' + ret.key, file);
-					this.fullKey();
+					this.setButtonsEnabled(false);
 					this.textArea.value = '';
 					this.textArea.style.display = 'none';
 					this.box.style.display = '';
@@ -193,37 +194,18 @@ export class Haste {
 	}
 
 	/**
-	 * Configures the light keys
+	 * Enables the buttons when viewing an existing document
 	 */
-	private lightKey() {
-		this.configureKey('new', 'save');
-	}
-
-	/**
-	 * Configures the full keys
-	 */
-	private fullKey() {
-		this.configureKey('new', 'duplicate', 'raw');
-	}
-
-	/**
-	 * Sets up enabled buttons
-	 * @param enabledButtons List of buttons to enable
-	 */
-	private configureKey(...enabledButtons: string[]) {
-		const buttons = Array.from(selectElementAll('#box2 .function'));
-
-		for (const enabledButton of enabledButtons) {
-			for (const button of buttons) {
-				if (button.classList.contains(enabledButton)) {
-					button.classList.add('enabled');
-					break;
-				} else {
-					button.classList.remove('enabled');
-					// break;
-				}
-			}
+	private setButtonsEnabled(newDocument: boolean) {
+		for (const button of ['duplicate', 'raw']) {
+			newDocument
+				? selectElement(`#box2 .function.${button}`).classList.remove('enabled')
+				: selectElement(`#box2 .function.${button}`).classList.add('enabled');
 		}
+
+		newDocument
+			? selectElement('#box2 .function.save').classList.add('enabled')
+			: selectElement('#box2 .function.save').classList.remove('enabled');
 	}
 
 	/**
