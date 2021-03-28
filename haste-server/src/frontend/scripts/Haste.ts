@@ -1,4 +1,4 @@
-import { alert } from '@pnotify/core';
+import { error, Stack } from '@pnotify/core';
 import { HasteDocument } from './HasteDocument';
 import type { Button } from './types';
 import { selectElement, selectElementAll } from './utils';
@@ -45,6 +45,16 @@ export class Haste {
 				this.doc ? window.location.assign(`${window.location.href}/raw/${this.doc.key}`) : window.location.replace(window.location.href)
 		}
 	];
+
+	/**
+	 * pnotify messages stack positioned at the bottom left corner
+	 */
+	private messageStack = new Stack({
+		dir1: 'up',
+		dir2: 'right',
+		firstpos1: 10,
+		firstpos2: 10
+	});
 
 	/**
 	 * Map of common extensions
@@ -297,12 +307,15 @@ export class Haste {
 	}
 
 	private showMessage(message: string) {
-		alert({
+		error({
 			text: message,
 			type: 'error',
+			styling: 'material',
+			icons: 'material',
 			mode: 'dark',
-			animateSpeed: 'fast',
-			delay: 3000
+			animateSpeed: 'normal',
+			delay: 3000,
+			stack: this.messageStack
 		});
 	}
 }

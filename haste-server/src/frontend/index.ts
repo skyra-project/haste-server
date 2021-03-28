@@ -1,3 +1,4 @@
+import '@pnotify/core/dist/Material.css';
 import '@pnotify/core/dist/PNotify.css';
 import 'highlight.js/styles/atom-one-dark-reasonable.css';
 import 'regenerator-runtime/runtime';
