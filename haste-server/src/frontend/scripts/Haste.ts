@@ -1,10 +1,11 @@
+import { alert } from '@pnotify/core';
 import { HasteDocument } from './HasteDocument';
 import type { Button } from './types';
 import { selectElement, selectElementAll } from './utils';
 
 export class Haste {
 	private appName = 'hastebin';
-	private textArea = selectElement('textarea')!;
+	private textArea = selectElement<HTMLTextAreaElement>('textarea')!;
 	private box = selectElement('#box')!;
 	private code = selectElement('#box code')!;
 	private doc: HasteDocument | null = null;
@@ -12,10 +13,10 @@ export class Haste {
 		{
 			where: selectElement('#box2 .save'),
 			label: 'Save',
-			shortcutDescription: 'control or command + s',
+			shortcutDescription: 'Control Or Command + s',
 			shortcut: (evt) => (evt.ctrlKey || evt.metaKey) && evt.key === 's',
 			action: () => {
-				const textAreaValue = this.textArea.getAttribute('value');
+				const textAreaValue = this.textArea.value;
 				if (textAreaValue && textAreaValue.replace(/^\s+|\s+$/g, '') !== '') {
 					this.lockDocument();
 				}
@@ -24,21 +25,21 @@ export class Haste {
 		{
 			where: selectElement('#box2 .new'),
 			label: 'New',
-			shortcutDescription: 'Control or Command + n',
+			shortcutDescription: 'Control Or Command + n',
 			shortcut: (evt) => (evt.ctrlKey || evt.metaKey) && evt.key === 'n',
 			action: () => this.newDocument(!this.doc?.key)
 		},
 		{
 			where: selectElement('#box2 .duplicate'),
 			label: 'Duplicate & Edit',
-			shortcutDescription: 'control or command + d',
+			shortcutDescription: 'Control Or Command + d',
 			shortcut: (evt) => Boolean(this.doc?.locked) && (evt.ctrlKey || evt.metaKey) && evt.key === 'd',
 			action: () => this.duplicateDocument()
 		},
 		{
 			where: selectElement('#box2 .raw'),
 			label: 'Just Text',
-			shortcutDescription: 'Control or Command + shift + r',
+			shortcutDescription: 'Control Or Command + Shift + r',
 			shortcut: (evt) => (evt.ctrlKey || evt.metaKey) && evt.shiftKey && evt.key === 'r',
 			action: () =>
 				this.doc ? window.location.assign(`${window.location.href}/raw/${this.doc.key}`) : window.location.replace(window.location.href)
@@ -100,7 +101,7 @@ export class Haste {
 
 		this.setTitle();
 		this.lightKey();
-		this.textArea.setAttribute('value', '');
+		this.textArea.value = '';
 		this.textArea.style.display = '';
 		this.textArea.focus();
 		this.removeLineNumbers();
@@ -120,7 +121,7 @@ export class Haste {
 					this.code.innerHTML = ret.value;
 					this.setTitle(ret.key);
 					this.fullKey();
-					this.textArea.setAttribute('value', '');
+					this.textArea.value = '';
 					this.textArea.style.display = 'none';
 					this.box.style.display = '';
 					this.box.focus();
@@ -140,7 +141,7 @@ export class Haste {
 		if (this.doc?.locked && this.doc.data) {
 			const currentData = this.doc.data;
 			this.newDocument(false);
-			this.textArea.setAttribute('value', currentData);
+			this.textArea.value = currentData;
 		}
 	}
 
@@ -148,11 +149,11 @@ export class Haste {
 	 * Locks the current document
 	 */
 	private lockDocument() {
-		const textAreaValue = this.textArea.getAttribute('value');
+		const textAreaValue = this.textArea.value;
 		if (this.doc && textAreaValue) {
 			void this.doc.save(textAreaValue, (err, ret) => {
 				if (err) {
-					console.error(err);
+					this.showMessage(err.message);
 				} else if (ret) {
 					this.code.innerHTML = ret.value;
 					this.setTitle(ret.key);
@@ -162,7 +163,7 @@ export class Haste {
 					}
 					window.history.pushState(null, this.appName + '-' + ret.key, file);
 					this.fullKey();
-					this.textArea.setAttribute('value', '');
+					this.textArea.value = '';
 					this.textArea.style.display = 'none';
 					this.box.style.display = '';
 					this.box.focus();
@@ -206,8 +207,10 @@ export class Haste {
 			for (const button of buttons) {
 				if (button.classList.contains(enabledButton)) {
 					button.classList.add('enabled');
+					break;
 				} else {
 					button.classList.remove('enabled');
+					// break;
 				}
 			}
 		}
@@ -278,6 +281,9 @@ export class Haste {
 		};
 	}
 
+	/**
+	 * Configures keyboard shortcuts for all buttons
+	 */
 	private configureShortcuts() {
 		document.body.onkeydown = (event) => {
 			for (const button of this.buttons) {
@@ -288,5 +294,15 @@ export class Haste {
 				}
 			}
 		};
+	}
+
+	private showMessage(message: string) {
+		alert({
+			text: message,
+			type: 'error',
+			mode: 'dark',
+			animateSpeed: 'fast',
+			delay: 3000
+		});
 	}
 }

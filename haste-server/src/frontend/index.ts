@@ -1,7 +1,8 @@
-import 'regenerator-runtime/runtime';
+import '@pnotify/core/dist/PNotify.css';
 import 'highlight.js/styles/atom-one-dark-reasonable.css';
-import './styles/application.scss';
+import 'regenerator-runtime/runtime';
 import { Haste } from './scripts/Haste';
+import './styles/application.scss';
 
 const app = new Haste('hastebin');
 

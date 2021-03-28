@@ -1566,6 +1566,11 @@
     chrome-trace-event "^1.0.2"
     nullthrows "^1.1.1"
 
+"@pnotify/core@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@pnotify/core/-/core-5.2.0.tgz#fac2b1ab9b8cdad809c8bd82f169e6a9066d78cf"
+  integrity sha512-d9ZM7Q6ZxuwTJ14QbOa7pWmoUqObPis7S1K+TzISffrL8w2f7JigEPI281agLShVAMIsE5SsC6O9YhkutwekbA==
+
 "@sapphire/eslint-config@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@sapphire/eslint-config/-/eslint-config-3.0.1.tgz#f3a177fc8c957d877b2b10f6354a1068b299fa2a"

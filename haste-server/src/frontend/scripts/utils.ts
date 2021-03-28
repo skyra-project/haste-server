@@ -1,5 +1,5 @@
-export function selectElement(selector: string): HTMLElement {
-	return document.querySelector<HTMLElement>(selector)!;
+export function selectElement<E extends Element = HTMLElement>(selector: string): E {
+	return document.querySelector<E>(selector)!;
 }
 
 export function selectElementAll(selector: string): NodeListOf<HTMLElement> {

@@ -36,7 +36,7 @@ export class HasteDocument {
 				if (lang === 'txt') {
 					high = { value: this.htmlEscape(data), language: 'txt' };
 				} else if (lang) {
-					high = highlight(lang, data);
+					high = highlight(data, { language: lang });
 				} else {
 					high = highlightAuto(data);
 				}
