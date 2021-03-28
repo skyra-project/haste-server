@@ -2,10 +2,13 @@ FROM node:15-alpine
 
 WORKDIR /usr/app/
 
-COPY src/ src/
+COPY src/backend/ src/backend/
 COPY dist/ dist/
 COPY package.json .
+COPY yarn.lock .
 COPY README.md .
+
+ENV NODE_ENV production
 
 RUN yarn --frozen-lockfile --no-bin-links
 
