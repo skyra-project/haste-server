@@ -31,12 +31,7 @@ for (var name in config.documents) {
 	path = config.documents[name];
 	data = fs.readFileSync(path, 'utf8');
 	if (data) {
-		preferredStore.set(
-			name,
-			data,
-			() => undefined,
-			true
-		);
+		preferredStore.set(name, data, () => undefined, true);
 	}
 }
 
