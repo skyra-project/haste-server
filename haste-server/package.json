@@ -10,7 +10,8 @@
     "start": "node src/backend/server.js",
     "dev": "run-s build start",
     "build": "parcel build src/frontend/index.html",
-    "clean": "rimraf .parcel-cache dist",
+    "postbuild": "node scripts/copyRobots.mjs",
+    "clean": "rimraf .parcel-cache dist data",
     "lint": "eslint src --fix",
     "format": "prettier --write src"
   },
