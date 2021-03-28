@@ -16,20 +16,20 @@
 
 **_Table of Contents_**
 
--   [Hasteserver](#hasteserver)
+-   [HasteServer](#hasteserver)
     -   [Description](#description)
     -   [Installation](#installation)
     -   [Usage](#usage)
-    -   [From the website](#from-the-website)
-    -   [From the Console](#from-the-console)
-        -   [UNIX Shell](#unix-shell)
-        -   [Prerequisite](#prerequisite)
-        -   [Script](#script)
-        -   [Usage](#usage-1)
-        -   [PowerShell (Windows/Linux/MacOS)](#powershell-windowslinuxmacos)
-        -   [Prerequisite](#prerequisite-1)
-        -   [Script](#script-1)
-        -   [Usage](#usage-2)
+        -   [From the website](#from-the-website)
+        -   [From the Console](#from-the-console)
+            -   [UNIX Shell](#unix-shell)
+                -   [Prerequisites](#prerequisites)
+                -   [Script](#script)
+                -   [Usage](#usage-1)
+            -   [PowerShell (Windows/Linux/MacOS)](#powershell-windowslinuxmacos)
+                -   [Prerequisite](#prerequisite)
+                -   [Script](#script-1)
+                -   [Usage](#usage-2)
     -   [Paste lifetime](#paste-lifetime)
 
 ## Description
