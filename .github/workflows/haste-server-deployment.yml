@@ -9,9 +9,58 @@ on:
       - '.github/workflows/haste-server-deployment.yml'
 
 jobs:
+  pre_ci:
+    name: Prepare CI environment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+      - name: '[Push] Get commit message'
+        if: github.event_name == 'push'
+        id: push_get_commit_message
+        run: echo ::set-output name=push_commit_message::$(git log --format=%B -n 1 HEAD)
+      - name: '[Pull Request] Get commit message'
+        if: github.event_name == 'pull_request'
+        id: pr_get_commit_message
+        run: echo ::set-output name=pr_commit_message::$(git log --format=%B -n 1 HEAD^2)
+      - name: Add problem matchers
+        run: |
+          echo "::add-matcher::.github/problemMatchers/tsc.json"
+          echo "::add-matcher::.github/problemMatchers/eslint-stylish.json"
+    outputs:
+      commit_message: $( [ -z "${{ steps.pr_get_commit_message.outputs.pr_commit_message }}" ] && echo "${{ steps.push_get_commit_message.outputs.push_commit_message }}" || echo "${{ steps.pr_get_commit_message.outputs.pr_commit_message }}" )
+
+  Linting:
+    name: Linting
+    runs-on: ubuntu-latest
+    if: "!contains(needs.pre_ci.outputs.commit_message, '[skip ci]')"
+    needs: pre_ci
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+      - name: Use Node.js 15
+        uses: actions/setup-node@v2
+        with:
+          node-version: 15
+      - name: Restore NodeJS Cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-15-${{ hashFiles('**/haste-server/yarn.lock') }}
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
+        working-directory: haste-server
+      - name: Run ESLint
+        run: yarn lint --fix=false
+        working-directory: haste-server
+
   Building:
     name: Building
     runs-on: ubuntu-latest
+    if: "!contains(needs.pre_ci.outputs.commit_message, '[skip ci]')"
+    needs: pre_ci
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
@@ -28,11 +77,13 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}/haste-server/.parcel-cache
-          key: ${{ runner.os }}-parcel-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-parcel-${{ hashFiles('**/haste-server/yarn.lock') }}
       - name: Install Dependencies
         run: yarn --frozen-lockfile
+        working-directory: haste-server
       - name: Run Parcel Build
         run: yarn build
+        working-directory: haste-server
       - name: Store dist folder
         uses: actions/upload-artifact@v2
         with:
@@ -42,7 +93,8 @@ jobs:
   HasteServer-Image-GitHub:
     name: Publish haste-server image to Github Package Registry
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    if: "!contains(needs.pre_ci.outputs.commit_message, '[skip ci]')"
+    needs: [pre_ci, Linting, Building]
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
@@ -64,7 +116,8 @@ jobs:
   HasteServer-Image-Dockerhub:
     name: Publish haste-server image to Dockerhub
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    if: "!contains(needs.pre_ci.outputs.commit_message, '[skip ci]')"
+    needs: [pre_ci, Linting, Building]
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
