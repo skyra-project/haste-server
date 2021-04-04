@@ -25,15 +25,15 @@
 		"st": "^2.0.0"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.13.13",
+		"@babel/core": "^7.13.14",
 		"@parcel/packager-raw-url": "2.0.0-beta.2",
 		"@parcel/transformer-sass": "2.0.0-beta.2",
 		"@parcel/transformer-webmanifest": "2.0.0-beta.2",
 		"@sapphire/eslint-config": "^3.0.2",
 		"@sapphire/prettier-config": "^1.0.8",
 		"@sapphire/ts-config": "^2.1.0",
-		"@typescript-eslint/eslint-plugin": "^4.19.0",
-		"@typescript-eslint/parser": "^4.19.0",
+		"@typescript-eslint/eslint-plugin": "^4.20.0",
+		"@typescript-eslint/parser": "^4.20.0",
 		"eslint": "^7.23.0",
 		"eslint-config-prettier": "^8.1.0",
 		"eslint-plugin-prettier": "^3.3.1",
