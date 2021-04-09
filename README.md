@@ -1,8 +1,14 @@
-# Skyra [![Discord](https://discordapp.com/api/guilds/254360814063058944/embed.png)](https://join.skyra.pw)
+<div align="center">
 
-[![Status](https://top.gg/api/widget/status/266624760782258186.svg?noavatar=true)](https://top.gg/bot/266624760782258186)
-[![Servers](https://top.gg/api/widget/servers/266624760782258186.svg?noavatar=true)](https://top.gg/bot/266624760782258186)
-[![Upvotes](https://top.gg/api/widget/upvotes/266624760782258186.svg?noavatar=true)](https://top.gg/bot/266624760782258186)
+![Sapphire Logo](https://cdn.skyra.pw/gh-assets/skyra_avatar.png)
+
+# Skyra Project Docker Images
+
+**Source code various docker images published to DockerHub and GitHub Container Registry.**
+
+[![Discord](https://discord.com/api/guilds/254360814063058944/embed.png?style=banner2)](https://join.skyra.pw)
+
+</div>
 
 ## What is this repo?
 
@@ -12,25 +18,17 @@ Each of the image folders in this repository has a `control.ps1` file that can b
 
 ## Included images
 
-### Lavalink
+### Lavalink [![Docker Pulls](https://img.shields.io/docker/pulls/skyrabot/lavalink?label=lavalink%20docker%20pulls&logo=docker)](https://hub.docker.com/r/skyrabot/lavalink)
 
 The Lavalink image is used for music in Skyra. We maintain our own image in order to be able to run it on Alpine Linux with OpenJ9 JRE as well as have full control over the application.yml and jar file.
 
-### Postgres
+### Postgres [![Docker Pulls](https://img.shields.io/docker/pulls/skyrabot/postgres?label=postgres%20docker%20pulls&logo=docker)](https://hub.docker.com/r/skyrabot/postgres)
 
 The Postgres image is used to provide the Database for Skyra. We maintain this image in order to set defaults for the user, password and database name that is used for Skyra.
 
-### Wizard
+### Haste-Server [![Docker Pulls](https://img.shields.io/docker/pulls/skyrabot/haste-server?label=haste-server%20docker%20pulls&logo=docker)](https://hub.docker.com/r/skyrabot/haste-server)
 
-Information on the Wizard API and its Docker image can be found on the [Wizard] repository
-
-## Links
-
-**Skyra links**
-
--   [Skyra Invite Link]
--   [Support Server]
--   [Patreon]
+The haste-server image is used to provide a reliable, self-controlled and self-hosted HasteServer for Skyra. We saw the need to make our own version because the official image is heavily outdated. It is using outdated bundling, outdated packages, does not use TypeScript and its general code quality is not up to Skyra Project standards. That said, this image would not exist without the awesome work that [John Crepezzi](https://github.com/seejohnrun) has put in the official [haste-server](https://github.com/seejohnrun/haste-server) and we thank him greatly for that.
 
 ## Buy us some doughnuts
 
@@ -58,10 +56,13 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://favware.tech/"><img src="https://avatars3.githubusercontent.com/u/4019718?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeroen Claassens</b></sub></a><br /><a href="https://github.com/skyra-project/docker-images/commits?author=Favna" title="Code">💻</a> <a href="https://github.com/skyra-project/docker-images/commits?author=Favna" title="Documentation">📖</a> <a href="#projectManagement-Favna" title="Project Management">📆</a></td>
     <td align="center"><a href="https://github.com/kyranet"><img src="https://avatars0.githubusercontent.com/u/24852502?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Antonio Román</b></sub></a><br /><a href="#projectManagement-kyranet" title="Project Management">📆</a></td>
+    <td align="center"><a href="https://github.com/Nytelife26"><img src="https://avatars.githubusercontent.com/u/22531310?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tyler J Russell</b></sub></a><br /><a href="https://github.com/skyra-project/docker-images/commits?author=Nytelife26" title="Code">💻</a></td>
+    <td align="center"><a href="https://skyra.pw/"><img src="https://avatars.githubusercontent.com/u/61647701?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Skyra</b></sub></a><br /><a href="#maintenance-NM-EEA-Y" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/apps/depfu"><img src="https://avatars.githubusercontent.com/in/715?v=4?s=100" width="100px;" alt=""/><br /><sub><b>depfu[bot]</b></sub></a><br /><a href="#maintenance-depfu[bot]" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
-<!-- markdownlint-enable -->
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->

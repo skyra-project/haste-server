@@ -1,166 +1,58 @@
 <div align="center">
 
-# HasteServer
+![Skyra Logo](https://cdn.skyra.pw/gh-assets/skyra_avatar.png)
 
-**open-source pastebin for all**
+# Skyra Project HasteServeer Image
 
-[![License](https://img.shields.io/github/license/skyra-project/docker-images?logo=github&maxAge=3600&style=flat-square)](https://github.com/skyra-project/docker-images/blob/main/LICENSE.md)
-[![Depfu](https://badges.depfu.com/badges/1fa296942ce74ea50e813495d4fc3343/count.svg)](https://depfu.com/github/skyra-project/docker-images?project_id=23823)
-[![Patreon](https://img.shields.io/badge/donate-patreon-F96854.svg?logo=patreon)](https://donate.skyra.pw/patreon)
+**The HasteServer image used to provide a reliable, self-controlled and self-hosted HasteServer for Skyra**
+
+[![Discord](https://discord.com/api/guilds/254360814063058944/embed.png?style=banner2)](https://join.skyra.pw)
 
 </div>
 
----
+## Buy us some doughnuts
 
-**_Code taken from [seejohnrun/haste-server](https://github.com/seejohnrun/haste-server) and adopted for Skyra environment_**
+Skyra Project is open source and always will be, even if we don't get donations. That said, we know there are amazing people who
+may still want to donate just to show their appreciation. Thanks you very much in advance!
 
-**_Table of Contents_**
+We accept donations through Patreon, BitCoin, Ethereum, and Litecoin. You can use the buttons below to donate through your method of choice.
 
--   [HasteServer](#hasteserver)
-    -   [Description](#description)
-    -   [Installation](#installation)
-    -   [Usage](#usage)
-        -   [From the website](#from-the-website)
-        -   [From the Console](#from-the-console)
-            -   [UNIX Shell](#unix-shell)
-                -   [Prerequisites](#prerequisites)
-                -   [Script](#script)
-                -   [Usage](#usage-1)
-            -   [PowerShell (Windows/Linux/MacOS)](#powershell-windowslinuxmacos)
-                -   [Prerequisite](#prerequisite)
-                -   [Script](#script-1)
-                -   [Usage](#usage-2)
-    -   [Paste lifetime](#paste-lifetime)
+| Donate With |         QR         |                                                                  Address                                                                  |
+| :---------: | :----------------: | :---------------------------------------------------------------------------------------------------------------------------------------: |
+|   Patreon   | ![PatreonImage][]  |                                               [Click Here](https://donate.skyra.pw/patreon)                                               |
+|   PayPal    |  ![PayPalImage][]  |                                               [Click Here](https://donate.skyra.pw/paypal)                                                |
+|   BitCoin   | ![BitcoinImage][]  |         [3JNzCHMTFtxYFWBnVtDM9Tt34zFbKvdwco](bitcoin:3JNzCHMTFtxYFWBnVtDM9Tt34zFbKvdwco?amount=0.01&label=Skyra%20Discord%20Bot)          |
+|  Ethereum   | ![EthereumImage][] | [0xcB5EDB76Bc9E389514F905D9680589004C00190c](ethereum:0xcB5EDB76Bc9E389514F905D9680589004C00190c?amount=0.01&label=Skyra%20Discord%20Bot) |
+|  Litecoin   | ![LitecoinImage][] |         [MNVT1keYGMfGp7vWmcYjCS8ntU8LNvjnqM](litecoin:MNVT1keYGMfGp7vWmcYjCS8ntU8LNvjnqM?amount=0.01&label=Skyra%20Discord%20Bot)         |
 
-## Description
+## Contributors ✨
 
-Haste is an open-source pastebin server written for Node.JS, which is easily
-installable on any system. It can use either Redis or the filesystem for its
-backend, and it has a very easy-to-use adapter interface for other stores. A
-publicly available version can be found at [hastebin.skyra.pw][website].
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
-## Installation
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://favware.tech/"><img src="https://avatars3.githubusercontent.com/u/4019718?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeroen Claassens</b></sub></a><br /><a href="https://github.com/skyra-project/docker-images/commits?author=Favna" title="Code">💻</a> <a href="https://github.com/skyra-project/docker-images/commits?author=Favna" title="Documentation">📖</a> <a href="#projectManagement-Favna" title="Project Management">📆</a></td>
+    <td align="center"><a href="https://github.com/kyranet"><img src="https://avatars0.githubusercontent.com/u/24852502?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Antonio Román</b></sub></a><br /><a href="#projectManagement-kyranet" title="Project Management">📆</a></td>
+    <td align="center"><a href="https://github.com/Nytelife26"><img src="https://avatars.githubusercontent.com/u/22531310?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tyler J Russell</b></sub></a><br /><a href="https://github.com/skyra-project/docker-images/commits?author=Nytelife26" title="Code">💻</a></td>
+    <td align="center"><a href="https://skyra.pw/"><img src="https://avatars.githubusercontent.com/u/61647701?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Skyra</b></sub></a><br /><a href="#maintenance-NM-EEA-Y" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/apps/depfu"><img src="https://avatars.githubusercontent.com/in/715?v=4?s=100" width="100px;" alt=""/><br /><sub><b>depfu[bot]</b></sub></a><br /><a href="#maintenance-depfu[bot]" title="Maintenance">🚧</a></td>
+  </tr>
+</table>
 
-You can use the following Docker Compose configuration to set up this image:
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
-```yaml
-version: '2.4'
-services:
-    redis:
-        container_name: redis
-        image: redis:alpine
-        restart: always
-        ports:
-            - '8287:8287'
-        command: redis-server --port 8287 --requirepass redis
-    hasteserver:
-        container_name: hasteserver
-        image: skyrabot/haste-server:latest
-        build: .
-        restart: always
-        depends_on:
-            - redis
-        ports:
-            - '8290:8290'
-        environment:
-            PORT: 8290
-            STORAGE_TYPE: redis
-            STORAGE_HOST: redis
-            STORAGE_PORT: 8287
-            STORAGE_PASSWORD: redis
-            STORAGE_DB: 2
-            STORAGE_EXPIRE_SECONDS: 21600
-```
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
-## Usage
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-### From the [website]
+<!----------------- LINKS --------------->
 
-Type or paste what you want to upload into the website, save it, and then copy
-the URL. Send that to someone and they'll be able to view the file.
-
-To make a new entry, click "New", or press `CTRL+N` (Windows/Linux) or `⌘+N` (MacOS) on the keyboard.
-
-### From the Console
-
-#### UNIX Shell
-
-You can use the following function to easily POST to a Hasteserver instance.
-It should be noted that due to POSIX restrictions and shell differences, the
-following may not work, but is guaranteed to on BaSH, Zsh, Fish, et cetera.
-
-##### Prerequisites
-
-For this to run, your system needs:
-
--   `cat`
--   [`curl`](https://github.com/curl/curl)
--   [`jq`](https://github.com/stedolan/jq)
-
-##### Script
-
-```sh
-haste() {
-	curl -X POST -s -d "$(cat)" https://hastebin.skyra.pw/documents | jq --raw-output '.key' | { read key; echo "https://hastebin.skyra.pw/${key}"; }
-}
-```
-
-##### Usage
-
-```sh
-cat something | haste
-# https://hastebin.skyra.pw/1238193
-```
-
-You can even take this a step further, and cut out the last step of copying the
-URL with:
-
-**MacOS:**
-
-```sh
-cat something | haste | pbcopy
-```
-
-**Linux:**
-
-```sh
-cat something | haste | copy_command
-```
-
-You should replace `copy_command` with your clipboard of choice. This is
-typically `xsel` or `xclipcopy` on systems using X11.
-
-After running that, the output of `cat something` will show up as a URL
-which has been conveniently copied to your clipboard.
-
-#### PowerShell (Windows/Linux/MacOS)
-
-##### Prerequisite
-
-You have to install [`powershell`](https://github.com/PowerShell/powershell/releases/latest) for this script to work
-
-##### Script
-
-```ps1
-Function haste {
-	$fileContent = Get-Content -Path $args[0] -Encoding UTF8 -Raw
-	$response = Invoke-RestMethod -Uri https://hastebin.skyra.pw/documents -Method POST -Body $fileContent
-	$key = $response.key
-
-	Write-Host https://hastebin.skyra.pw/$key
-}
-```
-
-##### Usage
-
-```sh
-haste .\path\to\file
-# https://hastebin.skyra.pw/1238193
-```
-
-## Paste lifetime
-
-Pastes will stay for 6 hours from their last view. They may be removed earlier
-and without notice.
-
-[website]: http://hastebin.skyra.pw
+[patreonimage]: https://cdn.skyra.pw/gh-assets/patreon.png
+[paypalimage]: https://cdn.skyra.pw/gh-assets/paypal.png
+[bitcoinimage]: https://cdn.skyra.pw/gh-assets/bitcoin.png
+[ethereumimage]: https://cdn.skyra.pw/gh-assets/ethereum.png
+[litecoinimage]: https://cdn.skyra.pw/gh-assets/litecoin.png
