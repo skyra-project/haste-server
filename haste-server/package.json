@@ -20,7 +20,7 @@
 		"connect": "^3.7.0",
 		"connect-ratelimit": "0.0.7",
 		"connect-route": "0.1.5",
-		"highlight.js": "^10.7.1",
+		"highlight.js": "^10.7.2",
 		"redis": "3.0.2",
 		"st": "^2.0.0"
 	},
@@ -29,11 +29,11 @@
 		"@parcel/packager-raw-url": "2.0.0-beta.2",
 		"@parcel/transformer-sass": "2.0.0-beta.2",
 		"@parcel/transformer-webmanifest": "2.0.0-beta.2",
-		"@sapphire/eslint-config": "^3.0.2",
-		"@sapphire/prettier-config": "^1.0.8",
-		"@sapphire/ts-config": "^2.1.0",
+		"@sapphire/eslint-config": "^3.0.3",
+		"@sapphire/prettier-config": "^1.0.9",
+		"@sapphire/ts-config": "^2.1.1",
 		"@typescript-eslint/eslint-plugin": "^4.21.0",
-		"@typescript-eslint/parser": "^4.21.0",
+		"@typescript-eslint/parser": "^4.22.0",
 		"eslint": "^7.23.0",
 		"eslint-config-prettier": "^8.1.0",
 		"eslint-plugin-prettier": "^3.3.1",
@@ -41,7 +41,7 @@
 		"parcel": "^2.0.0-beta.2",
 		"prettier": "^2.2.1",
 		"rimraf": "^3.0.2",
-		"typescript": "^4.2.3"
+		"typescript": "^4.2.4"
 	},
 	"browserslist": {
 		"production": [
