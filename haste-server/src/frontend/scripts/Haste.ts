@@ -42,7 +42,7 @@ export class Haste {
 			shortcutDescription: 'Control Or Command + Shift + r',
 			shortcut: (evt) => (evt.ctrlKey || evt.metaKey) && evt.shiftKey && evt.key === 'r',
 			action: () =>
-				this.doc ? window.location.assign(`${window.location.href}/raw/${this.doc.key}`) : window.location.replace(window.location.href)
+				this.doc ? window.location.assign(`${window.location.origin}/raw/${this.doc.key}`) : window.location.replace(window.location.href)
 		}
 	];
 
