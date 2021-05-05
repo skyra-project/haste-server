@@ -1,4 +1,6 @@
-FROM adoptopenjdk/openjdk13-openj9:alpine-jre
+FROM --platform=linux/amd64 adoptopenjdk/openjdk13-openj9:alpine-jre
+
+RUN apk add --no-cache dumb-init
 
 WORKDIR /opt/Lavalink
 
@@ -9,4 +11,4 @@ RUN if [[ -f "./application.local.yml" ]]; then mv "./application.local.yml" "./
 
 EXPOSE 2333
 
-CMD ["java", "-jar", "Lavalink.jar"]
+CMD [ "dumb-init", "java", "-jar", "Lavalink.jar"]

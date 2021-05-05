@@ -1,12 +1,14 @@
-FROM node:16-alpine
+FROM --platform=linux/amd64 node:16-alpine
+
+RUN apk add --no-cache dumb-init
 
 WORKDIR /usr/app/
 
-COPY src/backend/ src/backend/
-COPY dist/ dist/
-COPY package.json .
-COPY yarn.lock .
-COPY README.md .
+COPY --chown=node:node src/backend/ src/backend/
+COPY --chown=node:node dist/ dist/
+COPY --chown=node:node package.json .
+COPY --chown=node:node yarn.lock .
+COPY --chown=node:node README.md .
 
 ENV NODE_ENV production
 ENV HOST=0.0.0.0
@@ -16,4 +18,6 @@ RUN yarn --frozen-lockfile --no-bin-links
 
 EXPOSE 8290
 
-CMD ["yarn", "start"]
+USER node
+
+CMD [ "dumb-init", "yarn", "start" ]
