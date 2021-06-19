@@ -5,7 +5,7 @@
 	"private": true,
 	"scripts": {
 		"start": "node src/backend/server.js",
-		"dev": "run-s clean build start",
+		"dev": "run-s build start",
 		"build": "parcel build src/frontend/index.html",
 		"postbuild": "node scripts/copyRobots.mjs",
 		"clean": "rimraf .parcel-cache dist data",
