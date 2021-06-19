@@ -11,7 +11,7 @@ const app = new Haste('hastebin');
 const handlePop = () => {
 	const path = window.location.pathname;
 	if (path === '/') {
-		app.newDocument(true);
+		app.newDocument();
 	} else {
 		app.loadDocument(path.substring(1, path.length));
 	}

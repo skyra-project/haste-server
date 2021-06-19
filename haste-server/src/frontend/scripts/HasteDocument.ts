@@ -1,4 +1,4 @@
-import { highlight, highlightAuto } from 'highlight.js';
+import hljs, { AutoHighlightResult, HighlightResult } from 'highlight.js';
 import { MimeTypes } from './constants';
 import type { DocumentData, LoadCallback, SaveCallback } from './types';
 
@@ -36,13 +36,13 @@ export class HasteDocument {
 				if (lang === 'txt') {
 					high = { value: this.htmlEscape(data), language: 'txt' };
 				} else if (lang) {
-					high = highlight(data, { language: lang });
+					high = hljs.highlight(data, { language: lang });
 				} else {
-					high = highlightAuto(data);
+					high = hljs.highlightAuto(data);
 				}
 			} catch {
 				// Failed to highlight, fallback to auto highlight
-				high = highlightAuto(data);
+				high = hljs.highlightAuto(data);
 			}
 
 			callback({
@@ -74,7 +74,7 @@ export class HasteDocument {
 			});
 			const result = (await response.json()) as DocumentData;
 			this.locked = true;
-			const high = highlightAuto(data);
+			const high = hljs.highlightAuto(data);
 
 			callback(null, {
 				value: high.value,

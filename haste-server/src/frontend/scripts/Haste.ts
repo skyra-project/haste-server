@@ -27,7 +27,7 @@ export class Haste {
 			label: 'New',
 			shortcutDescription: 'Control Or Command + n',
 			shortcut: (evt) => (evt.ctrlKey || evt.metaKey) && evt.key === 'n',
-			action: () => this.newDocument(!this.doc?.key)
+			action: () => this.newDocument()
 		},
 		{
 			where: selectElement('#box2 .duplicate'),
@@ -102,13 +102,11 @@ export class Haste {
 		}
 	}
 
-	public newDocument(hideHistory: boolean) {
+	public newDocument() {
 		this.box.style.display = 'none';
 		this.doc = new HasteDocument();
 
-		if (!hideHistory) {
-			window.history.pushState(null, this.appName, '/');
-		}
+		window.history.pushState(null, this.appName, '/');
 
 		this.setTitle();
 		this.setButtonsEnabled(true);
@@ -138,7 +136,7 @@ export class Haste {
 					this.box.focus();
 					this.addLineNumbers(ret.lineCount);
 				} else {
-					this.newDocument(false);
+					this.newDocument();
 				}
 			},
 			this.lookupTypeByExtension(parts[1])
@@ -151,7 +149,7 @@ export class Haste {
 	private duplicateDocument() {
 		if (this.doc?.locked && this.doc.data) {
 			const currentData = this.doc.data;
-			this.newDocument(false);
+			this.newDocument();
 			this.textArea.value = currentData;
 		}
 	}

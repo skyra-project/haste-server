@@ -1,4 +1,5 @@
-import { unregisterLanguage } from 'highlight.js';
+import hljs from 'highlight.js';
+const { unregisterLanguage } = hljs;
 
 unregisterLanguage('1c');
 unregisterLanguage('abnf');
