@@ -42,7 +42,9 @@ export class Haste {
 			shortcutDescription: 'Control Or Command + Shift + r',
 			shortcut: (evt) => (evt.ctrlKey || evt.metaKey) && evt.shiftKey && evt.key === 'r',
 			action: () =>
-				this.doc ? window.location.assign(`${window.location.origin}/raw/${this.doc.key}`) : window.location.replace(window.location.href)
+				this.doc && this.doc.key
+					? window.location.assign(`${window.location.origin}/raw/${this.doc.key}`)
+					: window.location.replace(window.location.href)
 		}
 	];
 
@@ -169,6 +171,9 @@ export class Haste {
 					let file = `/${ret.key}`;
 					if (ret.language) {
 						file += `.${this.lookupExtensionByType(ret.language)}`;
+					}
+					if (this.doc) {
+						this.doc.key = ret.key;
 					}
 					window.history.pushState(null, this.appName + '-' + ret.key, file);
 					this.setButtonsEnabled(false);
