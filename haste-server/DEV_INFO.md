@@ -5,7 +5,6 @@
 **open-source pastebin for all**
 
 [![License](https://img.shields.io/github/license/skyra-project/docker-images?logo=github&maxAge=3600&style=flat-square)](https://github.com/skyra-project/docker-images/blob/main/LICENSE.md)
-[![Depfu](https://badges.depfu.com/badges/1fa296942ce74ea50e813495d4fc3343/count.svg)](https://depfu.com/github/skyra-project/docker-images?project_id=23823)
 [![Patreon](https://img.shields.io/badge/donate-patreon-F96854.svg?logo=patreon)](https://donate.skyra.pw/patreon)
 
 </div>
