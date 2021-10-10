@@ -23,7 +23,7 @@
 		"st": "^3.0.0"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.15.5",
+		"@babel/core": "^7.15.8",
 		"@parcel/packager-raw-url": "^2.0.0-rc.0",
 		"@parcel/transformer-image": "2.0.0-rc.0",
 		"@parcel/transformer-sass": "^2.0.0-rc.0",
