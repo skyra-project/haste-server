@@ -26,11 +26,11 @@
 		"@babel/core": "^7.15.8",
 		"@parcel/packager-raw-url": "^2.0.0-rc.0",
 		"@parcel/transformer-image": "2.0.0-rc.0",
-		"@parcel/transformer-sass": "^2.0.0-rc.0",
+		"@parcel/transformer-sass": "2.0.0-rc.0",
 		"@parcel/transformer-webmanifest": "^2.0.0-rc.0",
-		"@sapphire/eslint-config": "^3.3.1",
-		"@sapphire/prettier-config": "^1.2.1",
-		"@sapphire/ts-config": "^3.1.0",
+		"@sapphire/eslint-config": "^4.0.0",
+		"@sapphire/prettier-config": "^1.2.2",
+		"@sapphire/ts-config": "^3.1.1",
 		"npm-run-all": "^4.1.5",
 		"parcel": "^2.0.0-rc.0",
 		"prettier": "^2.4.1",
@@ -52,9 +52,6 @@
 	"prettier": "@sapphire/prettier-config",
 	"resolutions": {
 		"is-svg": "^4.3.1",
-		"lodash": "^4.17.21",
-		"merge": "^2.1.1",
-		"trim": "^1.0.1",
 		"set-value": "^4.1.0"
 	}
 }
