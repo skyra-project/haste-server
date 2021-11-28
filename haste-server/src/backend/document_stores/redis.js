@@ -34,13 +34,7 @@ module.exports = class RedisDocumentStore {
 		if (client) {
 			this.client = client;
 		} else if (!this.client) {
-			this.client = new Redis({ ...this.config, lazyConnect: true });
-		}
-	}
-
-	connect() {
-		if (this.client) {
-			return this.client.connect();
+			this.client = new Redis(this.config);
 		}
 	}
 
