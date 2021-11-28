@@ -1,70 +1,99 @@
-var redis = require('redis');
+const Redis = require('ioredis');
 
-// For storing in redis
-// options[type] = redis
-// options[host] - The host to connect to (default localhost)
-// options[port] - The port to connect to (default 5379)
-// options[db] - The db to use (default 0)
-// options[expire] - The time to live for each key set (default never)
+/**
+ * @class The Redis document store.
+ */
+module.exports = class RedisDocumentStore {
+	/**
+	 * @type {{ host?: string; port?: number; db?: number; expire?: number }}
+	 */
 
-var RedisDocumentStore = function (options, client) {
-	this.expire = options.expire;
-	if (client) {
-		RedisDocumentStore.client = client;
-	} else if (!RedisDocumentStore.client) {
-		RedisDocumentStore.connect(options);
-	}
-};
+	config = {};
 
-// Create a connection according to config
-RedisDocumentStore.connect = function (options) {
-	var host = options.host || '127.0.0.1';
-	var port = options.port || 6379;
-	var index = options.db || 0;
-	RedisDocumentStore.client = redis.createClient(port, host);
-	// authenticate if password is provided
-	if (options.password) {
-		RedisDocumentStore.client.auth(options.password);
-	}
+	/**
+	 * @type {import('ioredis').Redis}
+	 */
+	client;
 
-	RedisDocumentStore.client.select(index, function (err) {
-		if (err) {
-			process.exit(1);
+	/** @type {number} */
+	expire;
+
+	/**
+	 * Constructs a new {@link RedisDocumentStore}.
+	 * @param {{ host: string; port: number; db: number; expire: number; password: string; type: 'file' | 'redis' }} config The custom redis server configuration.
+	 * @param {Redis.Redis} [client] The redis client.
+	 */
+	constructor(config, client) {
+		config.host ??= '127.0.0.1';
+		config.port ??= 6379;
+		config.db ??= 0;
+
+		this.expire = config.expire;
+		this.config = config;
+
+		if (client) {
+			this.client = client;
+		} else if (!this.client) {
+			this.client = new Redis({ ...this.config, lazyConnect: true });
 		}
-	});
-};
+	}
 
-// Save file in a key
-RedisDocumentStore.prototype.set = function (key, data, callback, skipExpire) {
-	var _this = this;
-	RedisDocumentStore.client.set(key, data, function (err) {
-		if (err) {
-			callback(false);
-		} else {
-			if (!skipExpire) {
-				_this.setExpiration(key);
+	connect() {
+		if (this.client) {
+			return this.client.connect();
+		}
+	}
+
+	/**
+	 * Saves a file at a specified key
+	 * @param {string} key The key to store
+	 * @param {*} data The file to save
+	 * @param {(setSuccessful: boolean) => void} [callback] The callback to call when the data is saved
+	 * @param {boolean} [skipExpire] Whether to skip the expiration
+	 */
+	async set(key, data, callback, skipExpire) {
+		if (!this.client) {
+			throw new Error('No redis client');
+		}
+
+		try {
+			if (skipExpire) {
+				await this.client.set(key, data);
+			} else {
+				await this.client.setex(key, this.expire, data);
 			}
-			callback(true);
-		}
-	});
-};
 
-// Expire a key in expire time if set
-RedisDocumentStore.prototype.setExpiration = function (key) {
-	if (this.expire) {
-		RedisDocumentStore.client.expire(key, this.expire, () => undefined);
+			if (callback) {
+				callback(true);
+			}
+		} catch {
+			if (callback) {
+				callback(false);
+			}
+		}
+	}
+
+	/**
+	 * Gets a file at a specified key
+	 * @param {string} key The key to retrieve
+	 * @param {(result: boolean | string) => void} [callback] The callback to call when the data is retrieved
+	 * @param {boolean} [skipExpire] Whether to skip the expiration
+	 */
+	async get(key, callback, skipExpire) {
+		if (!this.client) {
+			throw new Error('No redis client');
+		}
+
+		try {
+			const data = await this.client.get(key);
+
+			if (callback) {
+				callback(data);
+			}
+		} catch {
+			if (callback) {
+				callback(false);
+			}
+		}
 	}
 };
-
-// Get a file from a key
-RedisDocumentStore.prototype.get = function (key, callback, skipExpire) {
-	var _this = this;
-	RedisDocumentStore.client.get(key, function (err, reply) {
-		if (!err && !skipExpire) {
-			_this.setExpiration(key);
-		}
-		callback(err ? false : reply);
-	});
-};
-
-module.exports = RedisDocumentStore;
