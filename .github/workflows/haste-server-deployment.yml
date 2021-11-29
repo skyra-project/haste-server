@@ -21,11 +21,7 @@ jobs:
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c # renovate: tag=v2
         with:
           node-version: 16
-      - name: Restore NodeJS Cache
-        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed # renovate: tag=v2.1.7
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-15-${{ hashFiles('**/haste-server/yarn.lock') }}
+          cache: yarn
       - name: Install Dependencies
         run: yarn --frozen-lockfile
         working-directory: haste-server
@@ -45,11 +41,7 @@ jobs:
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c # renovate: tag=v2
         with:
           node-version: 16
-      - name: Restore NodeJS Cache
-        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed # renovate: tag=v2.1.7
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-15-${{ hashFiles('**/haste-server/yarn.lock') }}
+          cache: yarn
       - name: Restore Parcel Cache
         uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed # renovate: tag=v2.1.7
         with:
