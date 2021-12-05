@@ -301,6 +301,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint/eslintrc@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "@eslint/eslintrc@npm:1.0.5"
+  dependencies:
+    ajv: ^6.12.4
+    debug: ^4.3.2
+    espree: ^9.2.0
+    globals: ^13.9.0
+    ignore: ^4.0.6
+    import-fresh: ^3.2.1
+    js-yaml: ^4.1.0
+    minimatch: ^3.0.4
+    strip-json-comments: ^3.1.1
+  checksum: b35b50d7b65bd8acd92a05b6fb15ac62c0cefa40dfef0324ca5bf8632bf3679bab6e173c53b3ad1e1d837701cecdbd9c144b35f46588cdf4e046a9caa272488d
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.0.1":
   version: 1.1.2
   resolution: "@gar/promisify@npm:1.1.2"
@@ -319,7 +336,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@humanwhocodes/object-schema@npm:^1.2.0":
+"@humanwhocodes/config-array@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@humanwhocodes/config-array@npm:0.9.2"
+  dependencies:
+    "@humanwhocodes/object-schema": ^1.2.1
+    debug: ^4.1.1
+    minimatch: ^3.0.4
+  checksum: 28a9e2974c50a86765cb6cc96e03d29187ea33fdaba62c4f35db89002e3cfbd340e64c9f6cf869e33e2e5cdcc06e78763458f4178d38a6f30aea1308787ca706
+  languageName: node
+  linkType: hard
+
+"@humanwhocodes/object-schema@npm:^1.2.0, @humanwhocodes/object-schema@npm:^1.2.1":
   version: 1.2.1
   resolution: "@humanwhocodes/object-schema@npm:1.2.1"
   checksum: a824a1ec31591231e4bad5787641f59e9633827d0a2eaae131a288d33c9ef0290bd16fda8da6f7c0fcb014147865d12118df10db57f27f41e20da92369fcb3f1
@@ -1284,12 +1312,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ioredis@npm:^4.28.1":
-  version: 4.28.1
-  resolution: "@types/ioredis@npm:4.28.1"
+"@types/ioredis@npm:^4.28.2":
+  version: 4.28.2
+  resolution: "@types/ioredis@npm:4.28.2"
   dependencies:
     "@types/node": "*"
-  checksum: 2d5adc6ce3078a0dc59911b6e50214fbcedf7bf139b6fde8e466132d8f15c90b3f55ecbd1d16e93541dc0abaa666ce924608d6e34ed4d0ee9903aab51d1c9900
+  checksum: d519b48a6c3f2246f2953a10cc3642559da842c4065f7411feefdfb6fe6093f4a49030fb4663481a71fbb4864d0c93ad88c91be67d506070f92f035d98cd2dfc
   languageName: node
   linkType: hard
 
@@ -3191,6 +3219,54 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint@npm:^8.4.0":
+  version: 8.4.0
+  resolution: "eslint@npm:8.4.0"
+  dependencies:
+    "@eslint/eslintrc": ^1.0.5
+    "@humanwhocodes/config-array": ^0.9.2
+    ajv: ^6.10.0
+    chalk: ^4.0.0
+    cross-spawn: ^7.0.2
+    debug: ^4.3.2
+    doctrine: ^3.0.0
+    enquirer: ^2.3.5
+    escape-string-regexp: ^4.0.0
+    eslint-scope: ^7.1.0
+    eslint-utils: ^3.0.0
+    eslint-visitor-keys: ^3.1.0
+    espree: ^9.2.0
+    esquery: ^1.4.0
+    esutils: ^2.0.2
+    fast-deep-equal: ^3.1.3
+    file-entry-cache: ^6.0.1
+    functional-red-black-tree: ^1.0.1
+    glob-parent: ^6.0.1
+    globals: ^13.6.0
+    ignore: ^4.0.6
+    import-fresh: ^3.0.0
+    imurmurhash: ^0.1.4
+    is-glob: ^4.0.0
+    js-yaml: ^4.1.0
+    json-stable-stringify-without-jsonify: ^1.0.1
+    levn: ^0.4.1
+    lodash.merge: ^4.6.2
+    minimatch: ^3.0.4
+    natural-compare: ^1.4.0
+    optionator: ^0.9.1
+    progress: ^2.0.0
+    regexpp: ^3.2.0
+    semver: ^7.2.1
+    strip-ansi: ^6.0.1
+    strip-json-comments: ^3.1.0
+    text-table: ^0.2.0
+    v8-compile-cache: ^2.0.3
+  bin:
+    eslint: bin/eslint.js
+  checksum: 12eb9e7af353d4b8afbf5417f923a93e1da8aa065d97026d98c3e7f69442639eae5c013a5251fe20273dbbe9ad6f36445a985b3e9929e911dda79fb40e308eb0
+  languageName: node
+  linkType: hard
+
 "espree@npm:^9.0.0, espree@npm:^9.1.0":
   version: 9.1.0
   resolution: "espree@npm:9.1.0"
@@ -3199,6 +3275,17 @@ __metadata:
     acorn-jsx: ^5.3.1
     eslint-visitor-keys: ^3.1.0
   checksum: ba9b0f759c49c19a098e0bb97f3b9b05441a60dec3f868bc412ae300e00ba20cb0bd2c6a1bdd6c4f0056e6382650bf45b4982d81e67ad0210c1c16b336f73c39
+  languageName: node
+  linkType: hard
+
+"espree@npm:^9.2.0":
+  version: 9.2.0
+  resolution: "espree@npm:9.2.0"
+  dependencies:
+    acorn: ^8.6.0
+    acorn-jsx: ^5.3.1
+    eslint-visitor-keys: ^3.1.0
+  checksum: ae533a058036e3efeeac43a0ee39c74ab347e2a73bbe2946fba33cc0d84aca657e675bc317ed9afd95338f79d5d5a862afec2f717d2539ae13fa9f1638371761
   languageName: node
   linkType: hard
 
@@ -3817,16 +3904,16 @@ __metadata:
     "@sapphire/eslint-config": ^4.0.7
     "@sapphire/prettier-config": ^1.2.6
     "@sapphire/ts-config": ^3.1.6
-    "@types/ioredis": ^4.28.1
+    "@types/ioredis": ^4.28.2
     connect: ^3.7.0
     connect-ratelimit: 0.0.7
     connect-route: 0.1.5
-    eslint: ^8.3.0
+    eslint: ^8.4.0
     highlight.js: ^11.3.1
-    ioredis: ^4.28.1
+    ioredis: ^4.28.2
     npm-run-all: ^4.1.5
     parcel: ^2.0.1
-    prettier: ^2.5.0
+    prettier: ^2.5.1
     regenerator-runtime: ^0.13.9
     rimraf: ^3.0.2
     st: ^3.0.0
@@ -4120,9 +4207,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:^4.28.1":
-  version: 4.28.1
-  resolution: "ioredis@npm:4.28.1"
+"ioredis@npm:^4.28.2":
+  version: 4.28.2
+  resolution: "ioredis@npm:4.28.2"
   dependencies:
     cluster-key-slot: ^1.1.0
     debug: ^4.3.1
@@ -4135,7 +4222,7 @@ __metadata:
     redis-errors: ^1.2.0
     redis-parser: ^3.0.0
     standard-as-callback: ^2.1.0
-  checksum: aa86fd81e71176bf6e14d5fc20bad18324ed34d70803eac8cd1c6f25cc9f61f98a337a28bf95103f6f4336583e830b735f4049ed91fc36734fed65850947f428
+  checksum: 4d9e5a4707cc918d2c2e161ea430aa06e68d5a513a680e8a315cf2cdea0b65b410a2e7279a04bab6db66aa781af4244acce3df67f560fed198f1f2f1d2c1d609
   languageName: node
   linkType: hard
 
@@ -6189,6 +6276,15 @@ __metadata:
   bin:
     prettier: bin-prettier.js
   checksum: aad1b35b73e7c14596d389d90977a83dad0db689ba5802a0ef319c357b7867f55b885db197972aa6a56c30f53088c9f8e0d7f7930ae074c275a4e9cbe091d21d
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^2.5.1":
+  version: 2.5.1
+  resolution: "prettier@npm:2.5.1"
+  bin:
+    prettier: bin-prettier.js
+  checksum: 21b9408476ea1c544b0e45d51ceb94a84789ff92095abb710942d780c862d0daebdb29972d47f6b4d0f7ebbfb0ffbf56cc2cfa3e3e9d1cca54864af185b15b66
   languageName: node
   linkType: hard
 
