@@ -15,19 +15,18 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
-      - name: Change directory
-        run: cd haste-server
       - name: Add problem matchers
         run: echo "::add-matcher::.github/problemMatchers/eslint.json"
       - name: Use Node.js v16
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561 # renovate: tag=v2
         with:
           node-version: 16
-          cache: yarn
       - name: Install Dependencies
         run: yarn --immutable
+        working-directory: haste-server
       - name: Run ESLint
         run: yarn lint --fix=false
+        working-directory: haste-server
 
   Building:
     name: Building
@@ -35,15 +34,12 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
-      - name: Change directory
-        run: cd haste-server
       - name: Add problem matchers
         run: echo "::add-matcher::.github/problemMatchers/tsc.json"
       - name: Use Node.js v16
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561 # renovate: tag=v2
         with:
           node-version: 16
-          cache: yarn
       - name: Restore Parcel Cache
         uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed # renovate: tag=v2.1.7
         with:
@@ -51,8 +47,10 @@ jobs:
           key: ${{ runner.os }}-parcel-${{ hashFiles('**/haste-server/yarn.lock') }}
       - name: Install Dependencies
         run: yarn --immutable
+        working-directory: haste-server
       - name: Run Parcel Build
         run: yarn build
+        working-directory: haste-server
       - name: Store dist folder
         uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # renovate: tag=v2
         with:
