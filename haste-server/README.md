@@ -2,7 +2,7 @@
 
 ![Skyra Logo](https://cdn.skyra.pw/gh-assets/skyra_avatar.png)
 
-# Skyra Project HasteServeer Image
+# Skyra Project HasteServer Image
 
 **The HasteServer image used to provide a reliable, self-controlled and self-hosted HasteServer for Skyra**
 
