@@ -29,7 +29,7 @@
 		"@parcel/transformer-sass": "^2.3.2",
 		"@parcel/transformer-webmanifest": "^2.3.2",
 		"@parcel/transformer-xml": "^2.3.2",
-		"@sapphire/eslint-config": "^4.3.0",
+		"@sapphire/eslint-config": "^4.3.1",
 		"@sapphire/prettier-config": "^1.4.0",
 		"@sapphire/ts-config": "^3.3.2",
 		"@types/ioredis": "^4.28.8",
