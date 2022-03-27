@@ -17,7 +17,7 @@
 		"connect-ratelimit": "0.0.7",
 		"connect-route": "0.1.5",
 		"highlight.js": "^11.5.0",
-		"ioredis": "^4.28.5",
+		"ioredis": "^5.0.1",
 		"regenerator-runtime": "^0.13.9",
 		"st": "^3.0.0"
 	},
@@ -32,7 +32,6 @@
 		"@sapphire/eslint-config": "^4.3.2",
 		"@sapphire/prettier-config": "^1.4.1",
 		"@sapphire/ts-config": "^3.3.3",
-		"@types/ioredis": "^4.28.10",
 		"@typescript-eslint/eslint-plugin": "^5.16.0",
 		"@typescript-eslint/parser": "^5.16.0",
 		"eslint": "^8.12.0",
