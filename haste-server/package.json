@@ -17,7 +17,7 @@
 		"connect-ratelimit": "0.0.7",
 		"connect-route": "0.1.5",
 		"highlight.js": "^11.5.0",
-		"ioredis": "^4.28.5",
+		"ioredis": "^5.0.1",
 		"regenerator-runtime": "^0.13.9",
 		"st": "^3.0.0"
 	},
