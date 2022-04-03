@@ -18,10 +18,6 @@ Each of the image folders in this repository has a `control.ps1` file that can b
 
 ## Included images
 
-### Lavalink [![Docker Pulls](https://img.shields.io/docker/pulls/skyrabot/lavalink?label=lavalink%20docker%20pulls&logo=docker)](https://hub.docker.com/r/skyrabot/lavalink)
-
-The Lavalink image is used for music in Skyra. We maintain our own image in order to be able to run it on Alpine Linux with OpenJ9 JRE as well as have full control over the application.yml and jar file.
-
 ### Postgres [![Docker Pulls](https://img.shields.io/docker/pulls/skyrabot/postgres?label=postgres%20docker%20pulls&logo=docker)](https://hub.docker.com/r/skyrabot/postgres)
 
 The Postgres image is used to provide the Database for Skyra. We maintain this image in order to set defaults for the user, password and database name that is used for Skyra.

@@ -6,7 +6,6 @@
   "files": [
     "README.md",
     "haste-server/README.md",
-    "lavalink/README.md",
     "postgres/README.md"
   ],
   "imageSize": 100,
