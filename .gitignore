@@ -8,5 +8,4 @@ logs/
 **/*.log
 
 # Local configurations
-lavalink/application.local.yml
 postgres/local.Dockerfile
