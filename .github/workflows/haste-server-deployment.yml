@@ -41,7 +41,7 @@ jobs:
         with:
           node-version: 16
       - name: Restore Parcel Cache
-        uses: actions/cache@136d96b4aee02b1f0de3ba493b1d47135042d9c0 # tag=v3.0.1
+        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09 # tag=v3.0.2
         with:
           path: ${{ github.workspace }}/haste-server/.parcel-cache
           key: ${{ runner.os }}-parcel-${{ hashFiles('**/haste-server/yarn.lock') }}
