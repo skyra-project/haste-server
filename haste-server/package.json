@@ -34,13 +34,13 @@
 		"@sapphire/ts-config": "^3.3.4",
 		"@typescript-eslint/eslint-plugin": "^5.28.0",
 		"@typescript-eslint/parser": "^5.28.0",
-		"eslint": "^8.17.0",
+		"eslint": "^8.18.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.0.0",
 		"parcel": "2.5.0",
-		"prettier": "^2.6.2",
+		"prettier": "^2.7.1",
 		"rimraf": "^3.0.2",
-		"typescript": "^4.7.3"
+		"typescript": "^4.7.4"
 	},
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
