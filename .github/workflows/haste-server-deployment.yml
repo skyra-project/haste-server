@@ -41,7 +41,7 @@ jobs:
         with:
           node-version: 16
       - name: Restore Parcel Cache
-        uses: actions/cache@0865c47f36e68161719c5b124609996bb5c40129 # tag=v3.0.5
+        uses: actions/cache@f4278025ab0f432ce369118909e46deec636f50c # tag=v3.0.6
         with:
           path: ${{ github.workspace }}/haste-server/.parcel-cache
           key: ${{ runner.os }}-parcel-${{ hashFiles('**/haste-server/yarn.lock') }}
@@ -85,7 +85,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push Docker image
         id: docker_build
-        uses: docker/build-push-action@1cb9d22b932e4832bb29793b7777ec860fc1cde0 # tag=v3.1.0
+        uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94 # tag=v3.1.1
         with:
           push: true
           context: ./haste-server
