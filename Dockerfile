@@ -42,8 +42,8 @@ ENV NODE_OPTIONS="--enable-source-maps"
 ENV HOST=0.0.0.0
 ENV PORT=8290
 
-COPY --chown=node:node --from=builder /usr/app/dist dist
-COPY --chown=node:node --from=builder /usr/app/src/backend src/backend
+COPY --chown=node:node --from=builder /usr/src/app/dist dist
+COPY --chown=node:node --from=builder /usr/src/app/src/backend src/backend
 
 RUN yarn workspaces focus --all --production
 
