@@ -1300,6 +1300,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@skyra/haste-server@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@skyra/haste-server@workspace:."
+  dependencies:
+    "@babel/core": ^7.21.0
+    "@parcel/packager-raw-url": 2.8.3
+    "@parcel/packager-xml": 2.8.3
+    "@parcel/transformer-image": 2.8.3
+    "@parcel/transformer-sass": 2.8.3
+    "@parcel/transformer-webmanifest": 2.8.3
+    "@parcel/transformer-xml": 2.8.3
+    "@pnotify/core": ^5.2.0
+    "@sapphire/eslint-config": ^4.3.8
+    "@sapphire/prettier-config": ^1.4.5
+    "@sapphire/ts-config": ^3.3.4
+    "@typescript-eslint/eslint-plugin": ^5.54.1
+    "@typescript-eslint/parser": ^5.54.1
+    connect: ^3.7.0
+    connect-ratelimit: 0.0.7
+    connect-route: 0.1.5
+    eslint: ^8.35.0
+    eslint-config-prettier: ^8.7.0
+    eslint-plugin-prettier: ^4.2.1
+    highlight.js: ^11.7.0
+    ioredis: ^5.3.1
+    parcel: 2.8.3
+    prettier: ^2.8.4
+    regenerator-runtime: ^0.13.11
+    rimraf: ^4.4.0
+    st: ^3.0.0
+    typescript: ^4.9.5
+  languageName: unknown
+  linkType: soft
+
 "@swc/helpers@npm:^0.4.12":
   version: 0.4.14
   resolution: "@swc/helpers@npm:0.4.14"
@@ -2712,40 +2746,6 @@ __metadata:
   checksum: 1eab07a7436512db0be40a710b29b5dc21fa04880b7f63c9980b706683127e3c1b57cb80ea96d47991bdae2dfe479604f6a1ba410106ee1046a41d1bd0814400
   languageName: node
   linkType: hard
-
-"haste-server@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "haste-server@workspace:."
-  dependencies:
-    "@babel/core": ^7.21.0
-    "@parcel/packager-raw-url": 2.8.3
-    "@parcel/packager-xml": 2.8.3
-    "@parcel/transformer-image": 2.8.3
-    "@parcel/transformer-sass": 2.8.3
-    "@parcel/transformer-webmanifest": 2.8.3
-    "@parcel/transformer-xml": 2.8.3
-    "@pnotify/core": ^5.2.0
-    "@sapphire/eslint-config": ^4.3.8
-    "@sapphire/prettier-config": ^1.4.5
-    "@sapphire/ts-config": ^3.3.4
-    "@typescript-eslint/eslint-plugin": ^5.54.1
-    "@typescript-eslint/parser": ^5.54.1
-    connect: ^3.7.0
-    connect-ratelimit: 0.0.7
-    connect-route: 0.1.5
-    eslint: ^8.35.0
-    eslint-config-prettier: ^8.7.0
-    eslint-plugin-prettier: ^4.2.1
-    highlight.js: ^11.7.0
-    ioredis: ^5.3.1
-    parcel: 2.8.3
-    prettier: ^2.8.4
-    regenerator-runtime: ^0.13.11
-    rimraf: ^4.4.0
-    st: ^3.0.0
-    typescript: ^4.9.5
-  languageName: unknown
-  linkType: soft
 
 "highlight.js@npm:^11.7.0":
   version: 11.7.0

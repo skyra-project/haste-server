@@ -2,12 +2,9 @@
 #    Base Stage    #
 # ================ #
 
-FROM node:17-alpine as base
+FROM node:18-alpine as base
 
-WORKDIR /usr/app/
-
-ENV HUSKY=0
-ENV CI=true
+WORKDIR /usr/src/app
 
 RUN apk add --no-cache dumb-init python3 make g++
 
@@ -16,8 +13,6 @@ COPY --chown=node:node package.json .
 COPY --chown=node:node .yarnrc.yml .
 COPY --chown=node:node README.md .
 COPY --chown=node:node .yarn/ .yarn/
-
-RUN sed -i 's/"prepare": "husky install .github\/husky"/"prepare": ""/' ./package.json
 
 ENTRYPOINT ["dumb-init", "--"]
 

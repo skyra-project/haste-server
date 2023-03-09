@@ -40,36 +40,7 @@ publicly available version can be found at [hastebin.skyra.pw][website].
 
 ## Installation
 
-You can use the following Docker Compose configuration to set up this image:
-
-```yaml
-version: '2.4'
-services:
-    redis:
-        container_name: redis
-        image: redis:alpine
-        restart: always
-        ports:
-            - '8287:8287'
-        command: redis-server --port 8287 --requirepass redis
-    hasteserver:
-        container_name: hasteserver
-        image: skyrabot/haste-server:latest
-        build: .
-        restart: always
-        depends_on:
-            - redis
-        ports:
-            - '8290:8290'
-        environment:
-            PORT: 8290
-            STORAGE_TYPE: redis
-            STORAGE_HOST: redis
-            STORAGE_PORT: 8287
-            STORAGE_PASSWORD: redis
-            STORAGE_DB: 2
-            STORAGE_EXPIRE_SECONDS: 21600
-```
+You can use [the Docker Compose configuration](./docker-compose.yml) on the root of the repository to set up this image
 
 ## Usage
 

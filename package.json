@@ -1,7 +1,7 @@
 {
-	"name": "haste-server",
+	"name": "@skyra/haste-server",
 	"version": "1.0.0",
-	"description": "Private Pastebin Server",
+	"description": "Private Haste Server",
 	"private": true,
 	"scripts": {
 		"start": "node src/backend/server.js",
@@ -9,7 +9,7 @@
 		"build": "parcel build src/frontend/index.html && node scripts/copyRobots.mjs",
 		"clean": "rimraf \".parcel-cache\" \"dist\" \"data\"",
 		"lint": "eslint src scripts --fix --ext js,ts,mjs",
-		"format": "prettier --write src scripts"
+		"format": "prettier --write ."
 	},
 	"dependencies": {
 		"@pnotify/core": "^5.2.0",
