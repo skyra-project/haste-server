@@ -39,7 +39,7 @@
 		"eslint-plugin-prettier": "^4.2.1",
 		"parcel": "2.8.3",
 		"prettier": "^2.8.7",
-		"rimraf": "^4.4.1",
+		"rimraf": "^5.0.0",
 		"typescript": "^5.0.4"
 	},
 	"resolutions": {
