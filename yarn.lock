@@ -1335,13 +1335,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/ts-config@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "@sapphire/ts-config@npm:4.0.0"
+"@sapphire/ts-config@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@sapphire/ts-config@npm:4.0.1"
   dependencies:
-    tslib: ^2.5.0
-    typescript: ^5.0.3
-  checksum: 05ede6d5b34e070302e6671180bf46f20185c0ea0aceb6a3a287a00306a40923e32a104ed6795199529669d5448d3ac280cbe7524f6266efaf3938ecf5f7fb36
+    tslib: ^2.6.0
+    typescript: ^5.1.6
+  checksum: f8fae2d8c7cd85c254898cb9007681e35c8b093e1538f8ee7d1e2c22a5e2235b8e0f6e17fd37366dccc77a14762ad61e06382605347d4a49f8cf9a3f0a99b7d0
   languageName: node
   linkType: hard
 
@@ -1359,7 +1359,7 @@ __metadata:
     "@pnotify/core": ^5.2.0
     "@sapphire/eslint-config": ^4.4.3
     "@sapphire/prettier-config": ^1.4.5
-    "@sapphire/ts-config": ^4.0.0
+    "@sapphire/ts-config": ^4.0.1
     "@typescript-eslint/eslint-plugin": ^5.62.0
     "@typescript-eslint/parser": ^5.62.0
     connect: ^3.7.0
@@ -4506,10 +4506,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.4.0, tslib@npm:^2.5.0":
-  version: 2.5.0
-  resolution: "tslib@npm:2.5.0"
-  checksum: ae3ed5f9ce29932d049908ebfdf21b3a003a85653a9a140d614da6b767a93ef94f460e52c3d787f0e4f383546981713f165037dc2274df212ea9f8a4541004e1
+"tslib@npm:^2.4.0, tslib@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "tslib@npm:2.6.0"
+  checksum: c01066038f950016a18106ddeca4649b4d76caa76ec5a31e2a26e10586a59fceb4ee45e96719bf6c715648e7c14085a81fee5c62f7e9ebee68e77a5396e5538f
   languageName: node
   linkType: hard
 
@@ -4540,7 +4540,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.0.3, typescript@npm:^5.1.6":
+"typescript@npm:^5.1.6":
   version: 5.1.6
   resolution: "typescript@npm:5.1.6"
   bin:
@@ -4550,7 +4550,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^5.0.3#~builtin<compat/typescript>, typescript@patch:typescript@^5.1.6#~builtin<compat/typescript>":
+"typescript@patch:typescript@^5.1.6#~builtin<compat/typescript>":
   version: 5.1.6
   resolution: "typescript@patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=5da071"
   bin:
