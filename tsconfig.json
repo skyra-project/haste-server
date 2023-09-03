@@ -1,14 +1,11 @@
 {
-	"extends": "@sapphire/ts-config",
+	"extends": ["@sapphire/ts-config", "@sapphire/ts-config/extra-strict", "@sapphire/ts-config/verbatim", "@sapphire/ts-config/bundler"],
 	"compilerOptions": {
 		"rootDir": "src",
 		"outDir": "dist",
 		"allowJs": true,
 		"checkJs": true,
-		"lib": ["ESNext", "DOM"],
-
-		"importHelpers": false,
-		"noEmitHelpers": true
+		"lib": ["ESNext", "DOM"]
 	},
 	"include": ["src"]
 }
