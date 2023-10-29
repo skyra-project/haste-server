@@ -23,12 +23,12 @@
 	},
 	"devDependencies": {
 		"@babel/core": "^7.23.2",
-		"@parcel/packager-raw-url": "2.9.3",
-		"@parcel/packager-xml": "2.9.3",
-		"@parcel/transformer-image": "2.9.3",
-		"@parcel/transformer-sass": "2.9.3",
-		"@parcel/transformer-webmanifest": "2.9.3",
-		"@parcel/transformer-xml": "2.9.3",
+		"@parcel/packager-raw-url": "2.10.1",
+		"@parcel/packager-xml": "2.10.1",
+		"@parcel/transformer-image": "2.10.1",
+		"@parcel/transformer-sass": "2.10.1",
+		"@parcel/transformer-webmanifest": "2.10.1",
+		"@parcel/transformer-xml": "2.10.1",
 		"@sapphire/eslint-config": "^5.0.2",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.0",
@@ -37,7 +37,7 @@
 		"eslint": "^8.52.0",
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-prettier": "^5.0.1",
-		"parcel": "2.9.3",
+		"parcel": "2.10.1",
 		"prettier": "^3.0.3",
 		"rimraf": "^5.0.5",
 		"typescript": "^5.2.2"
@@ -59,5 +59,5 @@
 		]
 	},
 	"prettier": "@sapphire/prettier-config",
-	"packageManager": "yarn@3.6.4"
+	"packageManager": "yarn@4.0.1"
 }
