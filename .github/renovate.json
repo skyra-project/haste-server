@@ -1,24 +1,4 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["github>sapphiredev/readme:sapphire-renovate"],
-	"npm": {
-		"packageRules": [
-			{
-				"matchPackagePatterns": [
-					"@parcel/packager-raw-url",
-					"@parcel/packager-xml",
-					"@parcel/transformer-image",
-					"@parcel/transformer-sass",
-					"@parcel/transformer-webmanifest",
-					"@parcel/transformer-xml",
-					"parcel"
-				],
-				"enabled": false
-			},
-			{
-				"matchPackagePatterns": ["@influxdata"],
-				"groupName": "InfluxDB Dependencies"
-			}
-		]
-	}
+	"extends": ["github>sapphiredev/.github:sapphire-renovate"]
 }
