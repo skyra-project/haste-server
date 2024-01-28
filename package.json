@@ -22,7 +22,7 @@
 		"st": "^3.0.0"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.23.7",
+		"@babel/core": "^7.23.9",
 		"@parcel/packager-raw-url": "2.11.0",
 		"@parcel/packager-xml": "2.11.0",
 		"@parcel/transformer-image": "2.11.0",
@@ -32,8 +32,8 @@
 		"@sapphire/eslint-config": "^5.0.3",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.0",
-		"@typescript-eslint/eslint-plugin": "^6.19.0",
-		"@typescript-eslint/parser": "^6.19.0",
+		"@typescript-eslint/eslint-plugin": "^6.19.1",
+		"@typescript-eslint/parser": "^6.19.1",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-prettier": "^5.1.3",
