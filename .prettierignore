@@ -2,6 +2,5 @@
 node_modules/
 
 # Ignore output folders
-.parcel-cache/
 data/
 dist/

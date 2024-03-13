@@ -1,4 +1,4 @@
-import hljs, { AutoHighlightResult, HighlightResult } from 'highlight.js';
+import hljs, { type AutoHighlightResult, type HighlightResult } from 'highlight.js';
 import { MimeTypes } from './constants';
 import type { DocumentData, LoadCallback, SaveCallback } from './types';
 
@@ -84,7 +84,7 @@ export class HasteDocument {
 			});
 		} catch (error) {
 			try {
-				callback(JSON.parse(error));
+				callback(typeof error === 'string' ? JSON.parse(error) : error);
 			} catch {
 				callback({
 					message: 'Something went wrong!'

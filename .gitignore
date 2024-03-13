@@ -3,11 +3,8 @@ node_modules/
 .vs/
 .idea/
 *.iml
-/rethinkdb_data/
-coverage/
 
 # Ignore output folders
-.parcel-cache/
 data/
 dist/
 
@@ -16,17 +13,12 @@ dist/
 
 # Yarn files
 .yarn/install-state.gz
-.yarn/build-state.yml
 
 # Environment variables
-.DS_Store
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-*.swp
-*.swo
 
-# Ignore heapsnapshot and log files
-*.heapsnapshot
+# Ignore log files
 *.log

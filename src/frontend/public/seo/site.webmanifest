@@ -16,8 +16,7 @@
 		{
 			"src": "./android-chrome-36x36.png",
 			"sizes": "36x36",
-			"type": "image/png",
-			"purpose": "any badge"
+			"type": "image/png"
 		},
 		{
 			"src": "./android-chrome-48x48.png",
@@ -58,12 +57,6 @@
 			"src": "./android-chrome-512x512.png",
 			"sizes": "512x512",
 			"type": "image/png"
-		},
-		{
-			"src": "./maskable_icon.png",
-			"sizes": "256x256",
-			"type": "image/png",
-			"purpose": "any maskable"
 		}
 	],
 	"shortcuts": [
@@ -71,7 +64,14 @@
 			"name": "Hastebin",
 			"short_name": "Homepage",
 			"description": "Go to Hastebin homepage",
-			"url": "/"
+			"url": "/",
+			"icons": [
+				{
+					"src": "./android-chrome-96x96.png",
+					"sizes": "96x96",
+					"type": "image/png"
+				}
+			]
 		}
 	],
 	"splash_pages": {

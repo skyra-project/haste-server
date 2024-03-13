@@ -7,8 +7,7 @@
 			href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Fira+Code&family=Roboto:wght@400;500&display=swap"
 			rel="stylesheet"
 		/>
-
-		<script defer="true" type="module" src="./index.ts"></script>
+		<link rel="stylesheet" href="/index.css" />
 
 		<!-- SEO -->
 		<link rel="canonical" href="https://hastebin.skyra.pw" />
@@ -35,8 +34,8 @@
 		<meta name="apple-mobile-web-app-title" content="Hastebin" />
 		<meta name="application-name" content="Hastebin" />
 		<meta name="msapplication-TileColor" content="#282C34" />
-		<meta name="msapplication-TileImage" content="./seo/mstile-144x144.png" />
-		<meta name="msapplication-config" content="./seo/browserconfig.xml" />
+		<meta name="msapplication-TileImage" content="/seo/mstile-144x144.png" />
+		<meta name="msapplication-config" content="/seo/browserconfig.xml" />
 		<meta name="revisit-after" content="7 days" />
 		<meta property="og:email" content="contact@skyra.pw" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -46,21 +45,22 @@
 		<meta http-equiv="Cache-Control" content="1y" />
 		<meta http-equiv="Page-Enter" content="RevealTrans(Duration=2.0,Transition=2)" />
 		<meta http-equiv="Page-Exit" content="RevealTrans(Duration=3.0,Transition=12)" />
-		<link rel="apple-touch-icon" sizes="180x180" href="./seo/apple-touch-icon.png" />
-		<link rel="icon" type="image/png" sizes="192x192" href="./seo/android-chrome-192x192.png" />
-		<link rel="icon" type="image/png" sizes="32x32" href="./seo/favicon-32x32.png" />
-		<link rel="icon" type="image/png" sizes="16x16" href="./seo/favicon-16x16.png" />
-		<link rel="manifest" href="./seo/site.webmanifest" />
-		<link rel="shortcut icon" href="./seo/favicon.ico" />
-		<link rel="apple-touch-startup-image" href="./seo/apple-startup.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/seo/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="192x192" href="/seo/android-chrome-192x192.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/seo/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/seo/favicon-16x16.png" />
+		<link rel="manifest" href="/seo/site.webmanifest" />
+		<link rel="shortcut icon" href="/seo/favicon.ico" />
+		<link rel="apple-touch-startup-image" href="/seo/apple-startup.png" />
 		<meta name="theme-color" content="#282C34" />
-		<link rel="mask-icon" href="./seo/safari-pinned-tab.svg" color="#1e88e5" />
+		<link rel="mask-icon" href="/seo/safari-pinned-tab.svg" color="#1e88e5" />
 	</head>
 
 	<body>
+		<script type="module" src="/src/main.ts"></script>
 		<div id="key">
 			<div id="box1">
-				<a href="/about" class="logo"></a>
+				<a href="/about.md" class="logo"></a>
 			</div>
 			<div id="box2">
 				<button class="save function button-picture">Save</button>

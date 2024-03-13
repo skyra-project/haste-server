@@ -6,9 +6,10 @@
 	"scripts": {
 		"start": "node src/backend/server.js",
 		"dev": "yarn build && yarn start",
-		"build": "parcel build src/frontend/index.html && node scripts/copyRobots.mjs",
-		"clean": "rimraf \".parcel-cache\" \"dist\" \"data\"",
-		"lint": "eslint src scripts --fix --ext js,ts,mjs",
+		"build": "vite build",
+		"clean": "rimraf dist data",
+		"lint": "eslint src --fix --ext js,ts,mjs",
+		"prettier": "prettier --ignore-path .prettierignore",
 		"format": "prettier --write ."
 	},
 	"dependencies": {
@@ -18,45 +19,22 @@
 		"connect-route": "0.1.5",
 		"highlight.js": "^11.9.0",
 		"ioredis": "^5.3.2",
-		"regenerator-runtime": "^0.14.1",
 		"st": "^3.0.0"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.24.0",
-		"@parcel/packager-raw-url": "2.12.0",
-		"@parcel/packager-xml": "2.12.0",
-		"@parcel/transformer-image": "2.12.0",
-		"@parcel/transformer-sass": "2.12.0",
-		"@parcel/transformer-webmanifest": "2.12.0",
-		"@parcel/transformer-xml": "2.12.0",
 		"@sapphire/eslint-config": "^5.0.3",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.0",
+		"@types/node": "^20.11.27",
 		"@typescript-eslint/eslint-plugin": "^7.1.1",
 		"@typescript-eslint/parser": "^7.1.1",
 		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-prettier": "^5.1.3",
-		"parcel": "2.12.0",
 		"prettier": "^3.2.5",
 		"rimraf": "^5.0.5",
-		"typescript": "^5.4.2"
-	},
-	"resolutions": {
-		"ansi-regex": "^5.0.1",
-		"minimist": "^1.2.8"
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
+		"typescript": "^5.4.2",
+		"vite": "^5.1.6"
 	},
 	"prettier": "@sapphire/prettier-config",
 	"packageManager": "yarn@4.1.1"
