@@ -1,6 +1,7 @@
+import { FetchResultTypes, QueryError, fetch } from '@sapphire/fetch';
 import hljs, { type AutoHighlightResult, type HighlightResult } from 'highlight.js';
 import { MimeTypes } from './constants';
-import type { DocumentData, LoadCallback, SaveCallback } from './types';
+import type { DocumentData, LoadedHasteDocument } from './types';
 
 /**
  * Represents a single document
@@ -13,83 +14,85 @@ export class HasteDocument {
 	/**
 	 * Get this document from the backend and lock it here
 	 * @param keyToFetch The key to fetch from the backend
-	 * @param callback The callback to execute after fetching
 	 * @param lang The language of the document to highlight with
 	 */
-	public async load(keyToFetch: string, callback: LoadCallback, lang: string): Promise<void> {
-		try {
-			const result = await fetch(`/documents/${keyToFetch}`, {
+	public async load(keyToFetch: string, lang: string): Promise<LoadedHasteDocument> {
+		const { data, key } = await fetch<DocumentData>(
+			`/documents/${keyToFetch}`,
+			{
 				headers: {
 					'Content-Type': MimeTypes.ApplicationJson,
 					Accept: MimeTypes.ApplicationJson
 				}
-			});
-			const { data, key } = (await result.json()) as DocumentData;
+			},
+			FetchResultTypes.JSON
+		);
 
-			this.locked = true;
-			this.key = key;
-			this.data = data;
+		this.locked = true;
+		this.key = key;
+		this.data = data;
 
-			let high: AutoHighlightResult | HighlightResult | Pick<HighlightResult, 'value' | 'language'> | null = null;
+		let highlightResult: AutoHighlightResult | HighlightResult | Pick<HighlightResult, 'value' | 'language'> | null = null;
 
-			try {
-				if (lang === 'txt') {
-					high = { value: this.htmlEscape(data), language: 'txt' };
-				} else if (lang) {
-					high = hljs.highlight(data, { language: lang });
-				} else {
-					high = hljs.highlightAuto(data);
-				}
-			} catch {
-				// Failed to highlight, fallback to auto highlight
-				high = hljs.highlightAuto(data);
+		try {
+			if (lang === 'txt') {
+				highlightResult = { value: this.htmlEscape(data), language: 'txt' };
+			} else if (lang) {
+				highlightResult = hljs.highlight(data, { language: lang });
+			} else {
+				highlightResult = hljs.highlightAuto(data);
 			}
-
-			callback({
-				value: high.value,
-				key,
-				language: high.language || lang,
-				lineCount: data.split('\n').length
-			});
 		} catch {
-			callback(false);
+			// Failed to highlight, fallback to auto highlight
+			highlightResult = hljs.highlightAuto(data);
 		}
+
+		return {
+			value: highlightResult.value,
+			key,
+			language: highlightResult.language || lang,
+			lineCount: data.split('\n').length
+		};
 	}
 
-	public async save(data: string, callback: SaveCallback): Promise<void> {
+	public async save(data: string): Promise<LoadedHasteDocument | undefined> {
 		if (this.locked) {
 			return;
 		}
 
-		this.data = data;
-
 		try {
-			const response = await fetch('/documents', {
-				method: 'POST',
-				body: data,
-				headers: {
-					'Content-Type': MimeTypes.TextPlain,
-					Accept: MimeTypes.ApplicationJson
-				}
-			});
-			const result = (await response.json()) as DocumentData;
+			this.data = data;
+
+			const result = await fetch<DocumentData>(
+				'/documents',
+				{
+					method: 'POST',
+					body: data,
+					headers: {
+						'Content-Type': MimeTypes.TextPlain,
+						Accept: MimeTypes.ApplicationJson
+					}
+				},
+				FetchResultTypes.JSON
+			);
+
+			// if (response.ok) {
 			this.locked = true;
 			const high = hljs.highlightAuto(data);
 
-			callback(null, {
+			return {
 				value: high.value,
-				key: result.key,
+				key: (result as DocumentData).key,
 				language: high.language || 'txt',
 				lineCount: data.split('\n').length
-			});
+			};
+			// }
 		} catch (error) {
-			try {
-				callback(typeof error === 'string' ? JSON.parse(error) : error);
-			} catch {
-				callback({
-					message: 'Something went wrong!'
-				});
-			}
+			this.data = null;
+			const queryError = error as QueryError;
+
+			// Rethrow to be handled in the Haste class
+			throw new Error(queryError.toJSON().message);
 		}
 	}
 
