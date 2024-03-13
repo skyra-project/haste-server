@@ -1,3 +1,6 @@
+/**
+ * Represents an abstract class for a document store.
+ */
 export abstract class DocumentStore {
 	/**
 	 * Gets a file at a specified key

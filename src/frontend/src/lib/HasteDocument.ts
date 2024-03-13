@@ -54,6 +54,13 @@ export class HasteDocument {
 		};
 	}
 
+	/**
+	 * Saves the data of the Haste document.
+	 *
+	 * @param data - The data to be saved.
+	 * @returns A promise that resolves to a `LoadedHasteDocument` object if the save is successful, or `undefined` if the document is locked.
+	 * @throws An error if there is an issue with the save operation.
+	 */
 	public async save(data: string): Promise<LoadedHasteDocument | undefined> {
 		if (this.locked) {
 			return;

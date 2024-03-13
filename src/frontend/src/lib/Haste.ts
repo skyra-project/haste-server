@@ -3,6 +3,9 @@ import { HasteDocument } from './HasteDocument.js';
 import type { Button } from './types.js';
 import { selectElement } from './utils.js';
 
+/**
+ * Represents a Haste object that handles document creation, loading, and saving.
+ */
 export class Haste {
 	private appName = 'hastebin';
 	private textArea = selectElement<HTMLTextAreaElement>('textarea')!;
@@ -104,6 +107,14 @@ export class Haste {
 		}
 	}
 
+	/**
+	 * Creates a new document in the Haste application.
+	 *
+	 * This method hides the box, creates a new {@link HasteDocument} instance,
+	 * updates the browser history, sets the title, enables the buttons,
+	 * clears the text area, displays the text area, sets focus to the text area,
+	 * and removes line numbers.
+	 */
 	public newDocument() {
 		this.box.style.display = 'none';
 		this.doc = new HasteDocument();
