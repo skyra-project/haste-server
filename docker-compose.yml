@@ -19,6 +19,7 @@ services:
       - '8290:8290'
     environment:
       PORT: 8290
+      HOST: 0.0.0.0
       STORAGE_TYPE: redis
       STORAGE_HOST: redis
       STORAGE_PORT: 8287

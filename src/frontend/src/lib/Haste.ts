@@ -175,7 +175,7 @@ export class Haste {
 					if (this.doc) {
 						this.doc.key = ret.key;
 					}
-					window.history.pushState(null, this.appName + '-' + ret.key, file);
+					window.history.pushState(null, `${this.appName}-${ret.key}`, file);
 					this.setButtonsEnabled(false);
 					this.textArea.value = '';
 					this.textArea.style.display = 'none';
@@ -240,7 +240,7 @@ export class Haste {
 		let numbers = '';
 
 		for (let i = 0; i < lineCount; i++) {
-			numbers += (i + 1).toString() + '<br/>';
+			numbers += `${(i + 1).toString()}<br/>`;
 		}
 
 		selectElement('#linenos').innerHTML = numbers;

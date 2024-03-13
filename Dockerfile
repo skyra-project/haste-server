@@ -26,6 +26,7 @@ ENV NODE_ENV="development"
 
 COPY --chown=node:node tsconfig.json .
 COPY --chown=node:node vite.config.ts .
+COPY --chown=node:node tsup.config.ts .
 COPY --chown=node:node src/ src/
 
 RUN yarn install --immutable
@@ -43,7 +44,6 @@ ENV HOST=0.0.0.0
 ENV PORT=8290
 
 COPY --chown=node:node --from=builder /usr/src/app/dist dist
-COPY --chown=node:node --from=builder /usr/src/app/src/backend src/backend
 
 RUN yarn workspaces focus --all --production
 
