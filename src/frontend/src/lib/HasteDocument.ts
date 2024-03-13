@@ -1,7 +1,6 @@
-import { FetchResultTypes, QueryError, fetch } from '@sapphire/fetch';
+import { FetchMediaContentTypes, FetchResultTypes, QueryError, fetch } from '@sapphire/fetch';
 import hljs, { type AutoHighlightResult, type HighlightResult } from 'highlight.js';
-import { MimeTypes } from './constants';
-import type { DocumentData, LoadedHasteDocument } from './types';
+import type { DocumentData, LoadedHasteDocument } from './types.js';
 
 /**
  * Represents a single document
@@ -21,8 +20,8 @@ export class HasteDocument {
 			`/documents/${keyToFetch}`,
 			{
 				headers: {
-					'Content-Type': MimeTypes.ApplicationJson,
-					Accept: MimeTypes.ApplicationJson
+					'Content-Type': FetchMediaContentTypes.JSON,
+					Accept: FetchMediaContentTypes.JSON
 				}
 			},
 			FetchResultTypes.JSON
@@ -69,8 +68,8 @@ export class HasteDocument {
 					method: 'POST',
 					body: data,
 					headers: {
-						'Content-Type': MimeTypes.TextPlain,
-						Accept: MimeTypes.ApplicationJson
+						'Content-Type': FetchMediaContentTypes.TextPlain,
+						Accept: FetchMediaContentTypes.JSON
 					}
 				},
 				FetchResultTypes.JSON

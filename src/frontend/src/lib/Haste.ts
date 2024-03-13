@@ -1,7 +1,7 @@
 import { error, Stack } from '@pnotify/core';
-import { HasteDocument } from './HasteDocument';
-import type { Button } from './types';
-import { selectElement } from './utils';
+import { HasteDocument } from './HasteDocument.js';
+import type { Button } from './types.js';
+import { selectElement } from './utils.js';
 
 export class Haste {
 	private appName = 'hastebin';
