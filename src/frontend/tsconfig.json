@@ -1,0 +1,7 @@
+{
+	"extends": ["../../tsconfig.json", "@sapphire/ts-config/bundler"],
+	"compilerOptions": {
+		"rootDir": "."
+	},
+	"include": ["."]
+}

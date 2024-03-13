@@ -1,6 +1,0 @@
-.yarn/
-node_modules/
-
-# Ignore output folders
-data/
-dist/
