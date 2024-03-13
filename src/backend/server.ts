@@ -20,13 +20,16 @@ for (const [name, path] of Object.entries(config.documents)) {
 	}
 }
 
+// Setup the document handler with the preferred store
 const documentHandler = new DocumentHandler({
 	store: preferredStore,
 	keyLength: config.keyLength
 });
 
+// Initialize fastify with a restricted body size
 const fastify = Fastify({ bodyLimit: config.maxLength });
 
+// Set up the error handling for max length errors
 fastify.setErrorHandler((error, _, reply) => {
 	if (error instanceof Fastify.errorCodes.FST_ERR_CTP_BODY_TOO_LARGE) {
 		return reply.status(413).send({ message: 'Document exceeds maximum length.' });
