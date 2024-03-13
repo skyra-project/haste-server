@@ -3,6 +3,7 @@ process.env.NODE_ENV ??= 'development';
 import type { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 import Fastify, { type FastifyRequest } from 'fastify';
 import { readFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
 import { DocumentHandler } from './handlers/DocumentHandler.js';
 import { config } from './lib/config.js';
 import { rootDir } from './lib/constants.js';
@@ -81,6 +82,12 @@ await fastify.register(import('@fastify/swagger'), {
 // Register and configure Swagger UI
 await fastify.register(import('@fastify/swagger-ui'), {
 	routePrefix: '/swagger-ui'
+});
+
+await fastify.register(import('@fastify/vite'), {
+	root: fileURLToPath(rootDir),
+	dev: process.argv.includes('--dev'),
+	spa: true
 });
 
 // First try to match API routes
@@ -163,21 +170,13 @@ fastify.post<{ Body: SwaggerTypes.PostBodyType; Reply: SwaggerTypes.CreatedDocum
 	}
 );
 
-// Otherwise, try to match static files
-await fastify.register(import('@fastify/static'), {
-	root: new URL('dist/frontend/', rootDir),
-	prefix: '/',
-	cacheControl: true,
-	immutable: true,
-	maxAge: '3d',
-	wildcard: false
-});
-
 // Then we can loop back with a wildcard route, everything else should be a token,
 // so route it back to sending index.html
 fastify.get('*', { schema: { hide: true } }, (_, reply) => {
-	return reply.sendFile('index.html');
+	return reply.html();
 });
+
+await fastify.vite.ready();
 
 const serverAddress = await fastify.listen({
 	port: config.port,

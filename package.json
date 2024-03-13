@@ -7,8 +7,8 @@
 	"type": "module",
 	"scripts": {
 		"start": "node .",
-		"dev": "yarn build && conc -n \"frontend,backend\" -c \"bgBlue,bgGreen\" \"yarn build:frontend --watch --clearScreen=false\" \"yarn build:backend --watch --silent --onSuccess 'sleep 2 && node .'\"",
-		"build": "conc -c \"bgBlue,bgGreen\" \"yarn:build:*\"",
+		"dev": "yarn build:backend --watch --onSuccess \"node . --dev\"",
+		"build": "concurrently -c \"bgBlue,bgGreen\" \"yarn:build:*\"",
 		"build:frontend": "vite build",
 		"build:backend": "tsup",
 		"clean": "rimraf dist data",
@@ -18,10 +18,10 @@
 	"dependencies": {
 		"@fastify/rate-limit": "^9.1.0",
 		"@fastify/sensible": "^5.5.0",
-		"@fastify/static": "^7.0.1",
 		"@fastify/swagger": "^8.14.0",
 		"@fastify/swagger-ui": "^3.0.0",
 		"@fastify/type-provider-typebox": "^4.0.0",
+		"@fastify/vite": "^6.0.6",
 		"@pnotify/core": "^5.2.0",
 		"@sapphire/fetch": "^3.0.2",
 		"@sinclair/typebox": "^0.32.15",
