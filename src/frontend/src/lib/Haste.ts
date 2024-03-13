@@ -15,10 +15,10 @@ export class Haste {
 			label: 'Save',
 			shortcutDescription: 'Control Or Command + s',
 			shortcut: (evt) => (evt.ctrlKey || evt.metaKey) && evt.key === 's',
-			action: () => {
+			action: async () => {
 				const textAreaValue = this.textArea.value;
 				if (textAreaValue && textAreaValue.replace(/^\s+|\s+$/g, '') !== '') {
-					this.saveDocument();
+					await this.saveDocument();
 				}
 			}
 		},
@@ -122,27 +122,22 @@ export class Haste {
 	 * Loads a document and shows it
 	 * @param url The url of the document to load
 	 */
-	public loadDocument(url: string) {
+	public async loadDocument(url: string) {
 		const parts = url.split('.', 2);
 		this.doc = new HasteDocument();
-		void this.doc.load(
-			parts[0],
-			(ret) => {
-				if (ret) {
-					this.code.innerHTML = ret.value;
-					this.setTitle(ret.key);
-					this.setButtonsEnabled(false);
-					this.textArea.value = '';
-					this.textArea.style.display = 'none';
-					this.box.style.display = '';
-					this.box.focus();
-					this.addLineNumbers(ret.lineCount);
-				} else {
-					this.newDocument();
-				}
-			},
-			this.lookupTypeByExtension(parts[1])
-		);
+		try {
+			const ret = await this.doc.load(parts[0], this.lookupTypeByExtension(parts[1]));
+			this.code.innerHTML = ret.value;
+			this.setTitle(ret.key);
+			this.setButtonsEnabled(false);
+			this.textArea.value = '';
+			this.textArea.style.display = 'none';
+			this.box.style.display = '';
+			this.box.focus();
+			this.addLineNumbers(ret.lineCount);
+		} catch {
+			this.newDocument();
+		}
 	}
 
 	/**
@@ -159,31 +154,36 @@ export class Haste {
 	/**
 	 * Saves the current document to the database
 	 */
-	private saveDocument() {
+	private async saveDocument() {
 		const textAreaValue = this.textArea.value;
 		if (this.doc && textAreaValue) {
-			void this.doc.save(textAreaValue, (err, ret) => {
-				if (err) {
-					this.showMessage(err.message);
-				} else if (ret) {
-					this.code.innerHTML = ret.value;
-					this.setTitle(ret.key);
-					let file = `/${ret.key}`;
-					if (ret.language) {
-						file += `.${this.lookupExtensionByType(ret.language)}`;
+			try {
+				console.log('saving document');
+				const returnedDocument = await this.doc.save(textAreaValue);
+				console.log('returnedDocument is: ', returnedDocument);
+
+				if (returnedDocument) {
+					this.code.innerHTML = returnedDocument.value;
+					this.setTitle(returnedDocument.key);
+					let file = `/${returnedDocument.key}`;
+					if (returnedDocument.language) {
+						file += `.${this.lookupExtensionByType(returnedDocument.language)}`;
 					}
 					if (this.doc) {
-						this.doc.key = ret.key;
+						this.doc.key = returnedDocument.key;
 					}
-					window.history.pushState(null, `${this.appName}-${ret.key}`, file);
+					window.history.pushState(null, `${this.appName}-${returnedDocument.key}`, file);
 					this.setButtonsEnabled(false);
 					this.textArea.value = '';
 					this.textArea.style.display = 'none';
 					this.box.style.display = '';
 					this.box.focus();
-					this.addLineNumbers(ret.lineCount);
+					this.addLineNumbers(returnedDocument.lineCount);
 				}
-			});
+			} catch (err) {
+				const typedError = err as Error;
+				this.showMessage(typedError.message);
+			}
 		}
 	}
 
@@ -257,11 +257,11 @@ export class Haste {
 	 * Configures a button
 	 */
 	private configureButton(button: Button) {
-		button.where.onclick = (event) => {
+		button.where.onclick = async (event) => {
 			event.preventDefault();
 
 			if (!button.clickDisabled && button.where.classList.contains('enabled')) {
-				button.action();
+				await button.action();
 			}
 		};
 
@@ -280,11 +280,11 @@ export class Haste {
 	 * Configures keyboard shortcuts for all buttons
 	 */
 	private configureShortcuts() {
-		document.body.onkeydown = (event) => {
+		document.body.onkeydown = async (event) => {
 			for (const button of this.buttons) {
 				if (button.shortcut(event)) {
 					event.preventDefault();
-					button.action();
+					await button.action();
 					break;
 				}
 			}
