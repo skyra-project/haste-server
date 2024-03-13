@@ -7,7 +7,7 @@
 	"type": "module",
 	"scripts": {
 		"start": "node .",
-		"dev": "yarn build && conc -n \"frontend,backend\" -c \"bgBlue,bgGreen\" \"yarn build:frontend --watch --clearScreen=false\" \"yarn build:backend --watch --silent --onSuccess 'node .'\"",
+		"dev": "yarn build && conc -n \"frontend,backend\" -c \"bgBlue,bgGreen\" \"yarn build:frontend --watch --clearScreen=false\" \"yarn build:backend --watch --silent --onSuccess 'sleep 2 && node .'\"",
 		"build": "conc -c \"bgBlue,bgGreen\" \"yarn:build:*\"",
 		"build:frontend": "vite build",
 		"build:backend": "tsup",
