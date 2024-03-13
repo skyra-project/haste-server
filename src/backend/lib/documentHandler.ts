@@ -3,10 +3,17 @@ import type { DocumentStore } from './document_stores/base.js';
 import { createKey } from './keyGenerator.js';
 import type { DocumentHandlerConfig, FastifyRequestGeneric } from './types.js';
 
+/**
+ * Handles document operations such as retrieving, creating, and handling raw versions of documents.
+ */
 export class DocumentHandler {
 	#keyLength: number;
 	#store: DocumentStore;
 
+	/**
+	 * Creates an instance of DocumentHandler.
+	 * @param config The configuration object for DocumentHandler.
+	 */
 	public constructor(config: DocumentHandlerConfig) {
 		this.#keyLength = config.keyLength;
 		this.#store = config.store;

@@ -3,6 +3,9 @@ import { fileURLToPath } from 'node:url';
 import { rootDir } from './constants.js';
 import type { Config } from './types.js';
 
+/**
+ * Configuration object for the application.
+ */
 export const config: Config = {
 	host: envParseString('HOST', 'localhost'),
 	port: envParseInteger('PORT', 8290),

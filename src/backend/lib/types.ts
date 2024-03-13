@@ -1,6 +1,9 @@
 import type { IntegerString } from '@skyra/env-utilities';
 import type { DocumentStore } from './document_stores/base.js';
 
+/**
+ * Represents the configuration options for the application.
+ */
 export interface Config {
 	host: string;
 	port: number;
@@ -21,11 +24,24 @@ export interface Config {
 	};
 }
 
+/**
+ * Configuration options for the document handler.
+ */
 export interface DocumentHandlerConfig {
+	/**
+	 * The document store used by the handler.
+	 */
 	store: DocumentStore;
+
+	/**
+	 * The length of the key used for documents.
+	 */
 	keyLength: number;
 }
 
+/**
+ * Represents the generic request object in Fastify.
+ */
 export interface FastifyRequestGeneric {
 	Params: {
 		id: string;
