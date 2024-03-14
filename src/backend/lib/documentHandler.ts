@@ -30,14 +30,10 @@ export class DocumentHandler {
 		const result = await this.#store.get(key);
 
 		if (result) {
-			return reply //
-				.code(200)
-				.send(this.isHeadRequest(request) ? undefined : { data: result, key });
+			return reply.send({ data: result, key });
 		}
 
-		return reply //
-			.code(404)
-			.send(this.isHeadRequest(request) ? undefined : { message: 'Document not found.' });
+		return reply.notFound('Document not found.');
 	}
 
 	/**
@@ -51,15 +47,10 @@ export class DocumentHandler {
 		const result = await this.#store.get(key);
 
 		if (result) {
-			return reply //
-				.type('text/plain; charset=UTF-8')
-				.code(200)
-				.raw.end(this.isHeadRequest(request) ? undefined : result);
+			return reply.send(result);
 		}
 
-		return reply //
-			.code(404)
-			.send(this.isHeadRequest(request) ? undefined : { message: 'Document not found.' });
+		return reply.notFound('Document not found.');
 	}
 
 	/**
@@ -74,14 +65,10 @@ export class DocumentHandler {
 		const storeResult = await this.#store.set(key, typedBody);
 
 		if (storeResult) {
-			return reply //
-				.code(201)
-				.send({ key });
+			return reply.code(201).send({ key });
 		}
 
-		return reply //
-			.code(500)
-			.send({ message: 'Error adding document.' });
+		return reply.internalServerError('Error adding document.');
 	}
 
 	private async chooseKey(): Promise<string> {
@@ -97,9 +84,5 @@ export class DocumentHandler {
 
 	private acceptableKey() {
 		return createKey(this.#keyLength);
-	}
-
-	private isHeadRequest(request: FastifyRequest<FastifyRequestGeneric>) {
-		return request.method.toUpperCase() === 'HEAD';
 	}
 }

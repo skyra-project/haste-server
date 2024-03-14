@@ -1,3 +1,6 @@
+process.env.NODE_ENV ??= 'development';
+
+import { envParseString } from '@skyra/env-utilities';
 import Fastify, { type FastifyRequest } from 'fastify';
 import { readFile } from 'node:fs/promises';
 import { DocumentHandler } from './lib/DocumentHandler.js';
@@ -44,21 +47,20 @@ await fastify.register(import('@fastify/rate-limit'), {
 	timeWindow: config.rateLimits.timeWindow
 });
 
-// First try to match API routes
-fastify.route({
-	method: ['GET', 'HEAD'],
-	url: '/raw/:id',
-	handler: (request: FastifyRequest<FastifyRequestGeneric>, reply) => {
-		return documentHandler.handleRawGet(request, reply);
-	}
+await fastify.register(import('@fastify/sensible'));
+
+await fastify.register(import('@fastify/cors'), {
+	origin: envParseString('NODE_ENV') === 'production' ? config.cors_host : true,
+	methods: ['GET', 'POST']
 });
 
-fastify.route({
-	method: ['GET', 'HEAD'],
-	url: '/documents/:id',
-	handler: (request: FastifyRequest<FastifyRequestGeneric>, reply) => {
-		return documentHandler.handleGet(request, reply);
-	}
+// First try to match API routes
+fastify.get('/raw/:id', (request: FastifyRequest<FastifyRequestGeneric>, reply) => {
+	return documentHandler.handleRawGet(request, reply);
+});
+
+fastify.get('/documents/:id', (request: FastifyRequest<FastifyRequestGeneric>, reply) => {
+	return documentHandler.handleGet(request, reply);
 });
 
 fastify.post('/documents', (request, reply) => {
