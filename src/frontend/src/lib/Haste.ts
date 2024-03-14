@@ -169,9 +169,7 @@ export class Haste {
 		const textAreaValue = this.textArea.value;
 		if (this.doc && textAreaValue) {
 			try {
-				console.log('saving document');
 				const returnedDocument = await this.doc.save(textAreaValue);
-				console.log('returnedDocument is: ', returnedDocument);
 
 				if (returnedDocument) {
 					this.code.innerHTML = returnedDocument.value;

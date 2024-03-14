@@ -1,13 +1,13 @@
 import { Redis } from 'ioredis';
 import type { Config } from '../types.js';
-import { DocumentStore } from './base.js';
+import { BaseDocumentStore } from './BaseDocumentStore.js';
 
 export type RedisDocumentStoreConfig = Omit<Config['storage'], 'path' | 'type'>;
 
 /**
  * Represents a document store that uses Redis as the underlying data storage.
  */
-export class RedisDocumentStore extends DocumentStore {
+export class RedisDocumentStore extends BaseDocumentStore {
 	#client: Redis;
 	#expire: number | undefined;
 

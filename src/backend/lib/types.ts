@@ -1,5 +1,5 @@
 import type { IntegerString } from '@skyra/env-utilities';
-import type { DocumentStore } from './document_stores/base.js';
+import type { BaseDocumentStore } from './DocumentStores/BaseDocumentStore.js';
 
 /**
  * Represents the configuration options for the application.
@@ -9,6 +9,10 @@ export interface Config {
 	port: number;
 	keyLength: number;
 	maxLength: number;
+	rateLimits: {
+		max: number;
+		timeWindow: string;
+	};
 	storage: {
 		type: 'file' | 'redis';
 		host?: string;
@@ -31,7 +35,7 @@ export interface DocumentHandlerConfig {
 	/**
 	 * The document store used by the handler.
 	 */
-	store: DocumentStore;
+	store: BaseDocumentStore;
 
 	/**
 	 * The length of the key used for documents.
@@ -52,6 +56,10 @@ declare module '@skyra/env-utilities' {
 	export interface Env {
 		HOST: string;
 		PORT: IntegerString;
+		KEY_LENGTH: IntegerString;
+		MAX_LENGTH: IntegerString;
+		RATE_LIMIT_MAX: IntegerString;
+		RATE_LIMIT_TIME_WINDOW: string;
 		STORAGE_TYPE: 'file' | 'redis';
 		STORAGE_HOST: string;
 		STORAGE_PORT: IntegerString;

@@ -1,15 +1,15 @@
 import Fastify, { type FastifyRequest } from 'fastify';
 import { readFile } from 'node:fs/promises';
+import { DocumentHandler } from './lib/DocumentHandler.js';
 import { config } from './lib/config.js';
 import { rootDir } from './lib/constants.js';
-import { DocumentHandler } from './lib/documentHandler.js';
 import type { FastifyRequestGeneric } from './lib/types.js';
 
 // Use dynamic imports to ensure only one of the stores gets loaded
 const preferredStore =
 	config.storage.type === 'file'
-		? new (await import('./lib/document_stores/file.js')).FileDocumentStore(config.storage)
-		: new (await import('./lib/document_stores/redis.js')).RedisDocumentStore(config.storage);
+		? new (await import('./lib/DocumentStores/FileDocumentStore.js')).FileDocumentStore(config.storage)
+		: new (await import('./lib/DocumentStores/RedisDocumentStore.js')).RedisDocumentStore(config.storage);
 
 // Load all static documents
 for (const [name, path] of Object.entries(config.documents)) {
@@ -40,8 +40,8 @@ fastify.setErrorHandler((error, _, reply) => {
 
 // Register the rate limit handler
 await fastify.register(import('@fastify/rate-limit'), {
-	max: 500,
-	timeWindow: '1 minute'
+	max: config.rateLimits.max,
+	timeWindow: config.rateLimits.timeWindow
 });
 
 // First try to match API routes

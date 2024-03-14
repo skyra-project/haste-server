@@ -82,7 +82,6 @@ export class HasteDocument {
 				FetchResultTypes.JSON
 			);
 
-			// if (response.ok) {
 			this.locked = true;
 			const high = hljs.highlightAuto(data);
 
@@ -92,7 +91,6 @@ export class HasteDocument {
 				language: high.language || 'txt',
 				lineCount: data.split('\n').length
 			};
-			// }
 		} catch (error) {
 			this.data = null;
 			const queryError = error as QueryError;
