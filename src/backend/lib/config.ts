@@ -7,8 +7,9 @@ import type { Config } from './types.js';
  * Configuration object for the application.
  */
 export const config: Config = {
-	host: envParseString('HOST', 'localhost'),
+	host: envParseString('HOST', '::'),
 	port: envParseInteger('PORT', 8290),
+	cors_host: envParseString('CORS_HOST', 'https://hastebin.skyra.pw'),
 
 	keyLength: envParseInteger('KEY_LENGTH', 10),
 
