@@ -1,14 +1,14 @@
 import crypto from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import type { Config } from '../types.js';
-import { DocumentStore } from './base.js';
+import { BaseDocumentStore } from './BaseDocumentStore.js';
 
 export type FileDocumentStoreConfig = Pick<Config['storage'], 'path'>;
 
 /**
  * Represents a document store that stores documents as files on the file system.
  */
-export class FileDocumentStore extends DocumentStore {
+export class FileDocumentStore extends BaseDocumentStore {
 	#basePath: string;
 
 	/**

@@ -1,5 +1,5 @@
 import type { FastifyReply, FastifyRequest } from 'fastify';
-import type { DocumentStore } from './document_stores/base.js';
+import type { BaseDocumentStore } from './DocumentStores/BaseDocumentStore.js';
 import { createKey } from './keyGenerator.js';
 import type { DocumentHandlerConfig, FastifyRequestGeneric } from './types.js';
 
@@ -8,7 +8,7 @@ import type { DocumentHandlerConfig, FastifyRequestGeneric } from './types.js';
  */
 export class DocumentHandler {
 	#keyLength: number;
-	#store: DocumentStore;
+	#store: BaseDocumentStore;
 
 	/**
 	 * Creates an instance of DocumentHandler.
@@ -25,13 +25,12 @@ export class DocumentHandler {
 	 * @param reply The outgoing reply
 	 */
 	public async handleGet(request: FastifyRequest<FastifyRequestGeneric>, reply: FastifyReply) {
-		const key = request.params.id.split('.')[0];
+		const [key] = request.params.id.split('.', 1);
 
 		const result = await this.#store.get(key);
 
 		if (result) {
 			return reply //
-				.type('application/json')
 				.code(200)
 				.send(this.isHeadRequest(request) ? undefined : { data: result, key });
 		}
@@ -47,7 +46,7 @@ export class DocumentHandler {
 	 * @param reply The outgoing reply
 	 */
 	public async handleRawGet(request: FastifyRequest<FastifyRequestGeneric>, reply: FastifyReply) {
-		const key = request.params.id.split('.')[0];
+		const [key] = request.params.id.split('.', 1);
 
 		const result = await this.#store.get(key);
 

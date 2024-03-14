@@ -10,9 +10,14 @@ export const config: Config = {
 	host: envParseString('HOST', 'localhost'),
 	port: envParseInteger('PORT', 8290),
 
-	keyLength: 10,
+	keyLength: envParseInteger('KEY_LENGTH', 10),
 
-	maxLength: 400_000,
+	maxLength: envParseInteger('MAX_LENGTH', 400_000),
+
+	rateLimits: {
+		max: envParseInteger('RATE_LIMIT_MAX', 500),
+		timeWindow: envParseString('RATE_LIMIT_TIME_WINDOW', '1 minute')
+	},
 
 	storage: {
 		type: envParseString('STORAGE_TYPE', 'file'),

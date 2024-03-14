@@ -1,7 +1,7 @@
 /**
  * Represents an abstract class for a document store.
  */
-export abstract class DocumentStore {
+export abstract class BaseDocumentStore {
 	/**
 	 * Gets a file at a specified key
 	 * @param key The key to retrieve
