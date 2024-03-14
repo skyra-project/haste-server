@@ -1,5 +1,6 @@
 import type { IntegerString } from '@skyra/env-utilities';
 import type { BaseDocumentStore } from './DocumentStores/BaseDocumentStore.js';
+import type * as SwaggerTypes from './SwaggerTypes.js';
 
 /**
  * Represents the configuration options for the application.
@@ -71,9 +72,7 @@ export interface DocumentHandlerConfig {
  * Represents the generic request object in Fastify.
  */
 export interface FastifyRequestGeneric {
-	Params: {
-		id: string;
-	};
+	Params: SwaggerTypes.ParamsType;
 }
 
 declare module '@skyra/env-utilities' {
