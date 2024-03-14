@@ -52,6 +52,5 @@
 	"eslintConfig": {
 		"extends": "@sapphire"
 	},
-	"prettier": "@sapphire/prettier-config",
 	"packageManager": "yarn@4.1.1"
 }
