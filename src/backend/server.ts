@@ -1,9 +1,11 @@
 process.env.NODE_ENV ??= 'development';
 
+import type { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 import { envParseString } from '@skyra/env-utilities';
 import Fastify, { type FastifyRequest } from 'fastify';
 import { readFile } from 'node:fs/promises';
 import { DocumentHandler } from './lib/DocumentHandler.js';
+import * as SwaggerTypes from './lib/SwaggerTypes.js';
 import { config } from './lib/config.js';
 import { rootDir } from './lib/constants.js';
 import type { FastifyRequestGeneric } from './lib/types.js';
@@ -30,7 +32,7 @@ const documentHandler = new DocumentHandler({
 });
 
 // Initialize fastify with a restricted body size
-const fastify = Fastify({ bodyLimit: config.maxLength });
+const fastify = Fastify({ bodyLimit: config.maxLength }).withTypeProvider<TypeBoxTypeProvider>();
 
 // Set up the error handling for max length errors
 fastify.setErrorHandler((error, _, reply) => {
@@ -54,18 +56,101 @@ await fastify.register(import('@fastify/cors'), {
 	methods: ['GET', 'POST']
 });
 
+await fastify.register(import('@fastify/swagger'), {
+	swagger: {
+		info: {
+			title: 'Skyra Hastebin',
+			description: 'A Hastebin by developers for developers',
+			// Inject the version with esbuild
+			version: '[VI]{{inject}}[/VI]'
+		},
+		host: 'localhost',
+		consumes: ['text/plain'],
+		produces: ['application/json'],
+		tags: [{ name: 'document', description: 'Document management related end-points' }]
+	}
+});
+
+await fastify.register(import('@fastify/swagger-ui'), {
+	routePrefix: '/swagger-ui',
+	uiConfig: {
+		docExpansion: 'full',
+		deepLinking: false
+	}
+});
+
 // First try to match API routes
-fastify.get('/raw/:id', (request: FastifyRequest<FastifyRequestGeneric>, reply) => {
-	return documentHandler.handleRawGet(request, reply);
-});
+fastify.get<{ Params: SwaggerTypes.ParamsType; Reply: SwaggerTypes.RawDocumentType }>(
+	'/raw/:id',
+	{
+		schema: {
+			description: 'Get the raw version of a document by its id',
+			tags: ['document'],
+			params: SwaggerTypes.Params,
+			response: {
+				200: {
+					description: 'The raw document.',
+					...SwaggerTypes.RawDocument
+				},
+				404: {
+					description: 'An error indicating that the document could not be found.',
+					...SwaggerTypes.Error
+				}
+			}
+		}
+	},
+	(request: FastifyRequest<FastifyRequestGeneric>, reply) => {
+		return documentHandler.handleRawGet(request, reply);
+	}
+);
 
-fastify.get('/documents/:id', (request: FastifyRequest<FastifyRequestGeneric>, reply) => {
-	return documentHandler.handleGet(request, reply);
-});
+fastify.get<{ Params: SwaggerTypes.ParamsType; Reply: SwaggerTypes.DocumentType }>(
+	'/documents/:id',
+	{
+		schema: {
+			description: 'Get a document by its id',
+			tags: ['document'],
+			params: SwaggerTypes.Params,
+			response: {
+				200: {
+					description: 'The document.',
+					...SwaggerTypes.Document
+				},
+				404: {
+					description: 'An error indicating that the document could not be found.',
+					...SwaggerTypes.Error
+				}
+			}
+		}
+	},
+	(request: FastifyRequest<FastifyRequestGeneric>, reply) => {
+		return documentHandler.handleGet(request, reply);
+	}
+);
 
-fastify.post('/documents', (request, reply) => {
-	return documentHandler.handlePost(request, reply);
-});
+fastify.post<{ Body: SwaggerTypes.PostBodyType; Reply: SwaggerTypes.CreatedDocumentType }>(
+	'/documents',
+	{
+		schema: {
+			description: 'Get a document by its id',
+			tags: ['document'],
+			body: SwaggerTypes.PostBody,
+			response: {
+				201: {
+					description: 'The key of the created document.',
+					...SwaggerTypes.CreatedDocument
+				},
+				500: {
+					description: 'An error indicating that the document could not be saved.',
+					...SwaggerTypes.Error
+				}
+			}
+		}
+	},
+	(request, reply) => {
+		return documentHandler.handlePost(request, reply);
+	}
+);
 
 // Otherwise, try to match static files
 await fastify.register(import('@fastify/static'), {
@@ -79,7 +164,7 @@ await fastify.register(import('@fastify/static'), {
 
 // Then we can loop back with a wildcard route, everything else should be a token,
 // so route it back to sending index.html
-fastify.get('*', (_, reply) => {
+fastify.get('*', { schema: { hide: true } }, (_, reply) => {
 	return reply.sendFile('index.html');
 });
 

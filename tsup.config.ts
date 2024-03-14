@@ -1,3 +1,4 @@
+import { esbuildPluginVersionInjector } from 'esbuild-plugin-version-injector';
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
@@ -11,5 +12,6 @@ export default defineConfig({
 	target: 'es2022',
 	tsconfig: 'src/backend/tsconfig.json',
 	outDir: 'dist/backend',
-	bundle: false
+	bundle: false,
+	esbuildPlugins: [esbuildPluginVersionInjector()]
 });
