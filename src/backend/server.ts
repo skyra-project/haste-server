@@ -20,6 +20,7 @@ const preferredStore =
 for (const [name, path] of Object.entries(config.documents)) {
 	const data = await readFile(path, 'utf-8');
 
+	// Only if the file has actual content we want to add it to the store
 	if (data) {
 		await preferredStore.set(name, data, true);
 	}
@@ -49,13 +50,16 @@ await fastify.register(import('@fastify/rate-limit'), {
 	timeWindow: config.rateLimits.timeWindow
 });
 
+// Register Fastify Sensible for sending errors
 await fastify.register(import('@fastify/sensible'));
 
+// Register and configure CORS protection
 await fastify.register(import('@fastify/cors'), {
 	origin: envParseString('NODE_ENV') === 'production' ? config.cors_host : true,
 	methods: ['GET', 'POST']
 });
 
+// Register and configure Swagger
 await fastify.register(import('@fastify/swagger'), {
 	swagger: {
 		info: {
@@ -67,16 +71,22 @@ await fastify.register(import('@fastify/swagger'), {
 		host: 'localhost',
 		consumes: ['text/plain'],
 		produces: ['application/json'],
-		tags: [{ name: 'document', description: 'Document management related end-points' }]
+		tags: [
+			{
+				name: 'GET',
+				description: 'Endpoints that can be approached by a GET call'
+			},
+			{
+				name: 'POST',
+				description: 'Endpoints that can be approached by a POST call'
+			}
+		]
 	}
 });
 
+// Register and configure Swagger UI
 await fastify.register(import('@fastify/swagger-ui'), {
-	routePrefix: '/swagger-ui',
-	uiConfig: {
-		docExpansion: 'full',
-		deepLinking: false
-	}
+	routePrefix: '/swagger-ui'
 });
 
 // First try to match API routes
@@ -85,13 +95,14 @@ fastify.get<{ Params: SwaggerTypes.ParamsType; Reply: SwaggerTypes.RawDocumentTy
 	{
 		schema: {
 			description: 'Get the raw version of a document by its id',
-			tags: ['document'],
+			tags: ['GET'],
 			params: SwaggerTypes.Params,
 			response: {
 				200: {
 					description: 'The raw document.',
 					...SwaggerTypes.RawDocument
 				},
+				...SwaggerTypes.FastifyError,
 				404: {
 					description: 'An error indicating that the document could not be found.',
 					...SwaggerTypes.Error
@@ -109,13 +120,14 @@ fastify.get<{ Params: SwaggerTypes.ParamsType; Reply: SwaggerTypes.DocumentType 
 	{
 		schema: {
 			description: 'Get a document by its id',
-			tags: ['document'],
+			tags: ['GET'],
 			params: SwaggerTypes.Params,
 			response: {
 				200: {
 					description: 'The document.',
 					...SwaggerTypes.Document
 				},
+				...SwaggerTypes.FastifyError,
 				404: {
 					description: 'An error indicating that the document could not be found.',
 					...SwaggerTypes.Error
@@ -133,13 +145,14 @@ fastify.post<{ Body: SwaggerTypes.PostBodyType; Reply: SwaggerTypes.CreatedDocum
 	{
 		schema: {
 			description: 'Get a document by its id',
-			tags: ['document'],
+			tags: ['POST'],
 			body: SwaggerTypes.PostBody,
 			response: {
 				201: {
 					description: 'The key of the created document.',
 					...SwaggerTypes.CreatedDocument
 				},
+				...SwaggerTypes.FastifyError,
 				500: {
 					description: 'An error indicating that the document could not be saved.',
 					...SwaggerTypes.Error
