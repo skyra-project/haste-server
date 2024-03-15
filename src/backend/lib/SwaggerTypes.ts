@@ -24,6 +24,13 @@ export const CreatedDocument = Type.Object({
 	key: Type.String()
 });
 
+export const FastifyError = {
+	400: {
+		description: 'An error indicating that the document could not be found.',
+		...Error
+	}
+};
+
 export type RawDocumentType = Static<typeof RawDocument>;
 export type DocumentType = Static<typeof Document>;
 export type PostBodyType = Static<typeof PostBody>;
