@@ -5,8 +5,7 @@ node_modules/
 *.iml
 
 # Ignore output folders
-data/
-dist/
+.nuxt/
 
 # MacOS Finder
 .DS_Store

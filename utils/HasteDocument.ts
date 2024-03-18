@@ -1,6 +1,6 @@
 import { FetchMediaContentTypes, FetchResultTypes, QueryError, fetch } from '@sapphire/fetch';
 import hljs, { type AutoHighlightResult, type HighlightResult } from 'highlight.js';
-import type { DocumentData, LoadedHasteDocument } from './types.js';
+import type { DocumentData, LoadedHasteDocument } from '../old/types.js';
 
 /**
  * Represents a single document

@@ -1,0 +1,11 @@
+.github/
+.nuxt/
+.output/
+.vscode/
+dist/
+node_modules/
+.gitignore
+.prettierignore
+docker-compose.yml
+LICENSE.md
+README.md
