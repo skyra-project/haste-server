@@ -8,8 +8,6 @@ import type * as SwaggerTypes from './swaggerTypes.js';
 export interface Config {
 	/** The host server for Fastify to start on */
 	host: string;
-	/** If `NODE_ENV` is `'production'`, the host to allow CORS requests from */
-	cors_host: string;
 	/** The port for Fastify to start on */
 	port: number;
 	/** The length of the key used for documents */
@@ -78,7 +76,6 @@ export interface FastifyRequestGeneric {
 declare module '@skyra/env-utilities' {
 	export interface Env {
 		HOST: string;
-		CORS_HOST: string;
 		PORT: IntegerString;
 		KEY_LENGTH: IntegerString;
 		MAX_LENGTH: IntegerString;
