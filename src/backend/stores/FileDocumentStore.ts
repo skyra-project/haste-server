@@ -1,6 +1,6 @@
 import crypto from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import type { Config } from '../types.js';
+import type { Config } from '../lib/types.js';
 import { BaseDocumentStore } from './BaseDocumentStore.js';
 
 export type FileDocumentStoreConfig = Pick<Config['storage'], 'path'>;

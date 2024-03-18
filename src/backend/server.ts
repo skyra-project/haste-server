@@ -4,7 +4,7 @@ import type { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 import { envParseString } from '@skyra/env-utilities';
 import Fastify, { type FastifyRequest } from 'fastify';
 import { readFile } from 'node:fs/promises';
-import { DocumentHandler } from './lib/DocumentHandler.js';
+import { DocumentHandler } from './handlers/DocumentHandler.js';
 import { config } from './lib/config.js';
 import { rootDir } from './lib/constants.js';
 import * as SwaggerTypes from './lib/swaggerTypes.js';
@@ -13,8 +13,8 @@ import type { FastifyRequestGeneric } from './lib/types.js';
 // Use dynamic imports to ensure only one of the stores gets loaded
 const preferredStore =
 	config.storage.type === 'file'
-		? new (await import('./lib/DocumentStores/FileDocumentStore.js')).FileDocumentStore(config.storage)
-		: new (await import('./lib/DocumentStores/RedisDocumentStore.js')).RedisDocumentStore(config.storage);
+		? new (await import('./stores/FileDocumentStore.js')).FileDocumentStore(config.storage)
+		: new (await import('./stores/RedisDocumentStore.js')).RedisDocumentStore(config.storage);
 
 // Load all static documents
 for (const [name, path] of Object.entries(config.documents)) {
