@@ -5,9 +5,9 @@ import { envParseString } from '@skyra/env-utilities';
 import Fastify, { type FastifyRequest } from 'fastify';
 import { readFile } from 'node:fs/promises';
 import { DocumentHandler } from './lib/DocumentHandler.js';
-import * as SwaggerTypes from './lib/SwaggerTypes.js';
 import { config } from './lib/config.js';
 import { rootDir } from './lib/constants.js';
+import * as SwaggerTypes from './lib/swaggerTypes.js';
 import type { FastifyRequestGeneric } from './lib/types.js';
 
 // Use dynamic imports to ensure only one of the stores gets loaded
