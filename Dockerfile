@@ -12,6 +12,7 @@ COPY --chown=node:node yarn.lock .
 COPY --chown=node:node package.json .
 COPY --chown=node:node .yarnrc.yml .
 COPY --chown=node:node README.md .
+COPY --chown=node:node vite.config.mjs .
 COPY --chown=node:node .yarn/ .yarn/
 
 ENTRYPOINT ["dumb-init", "--"]
@@ -25,7 +26,6 @@ FROM base as builder
 ENV NODE_ENV="development"
 
 COPY --chown=node:node tsconfig.json .
-COPY --chown=node:node vite.config.ts .
 COPY --chown=node:node tsup.config.ts .
 COPY --chown=node:node src/ src/
 
