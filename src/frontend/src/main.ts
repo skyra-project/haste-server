@@ -6,7 +6,7 @@ import './lib/hljsConfig.js';
 
 import { Haste } from './lib/Haste.js';
 
-const app = new Haste('hastebin');
+const app = new Haste('Hastebin');
 
 const handlePop = async () => {
 	const path = window.location.pathname;
