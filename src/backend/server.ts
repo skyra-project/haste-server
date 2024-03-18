@@ -1,7 +1,6 @@
 process.env.NODE_ENV ??= 'development';
 
 import type { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
-import { envParseString } from '@skyra/env-utilities';
 import Fastify, { type FastifyRequest } from 'fastify';
 import { readFile } from 'node:fs/promises';
 import { DocumentHandler } from './handlers/DocumentHandler.js';
@@ -52,12 +51,6 @@ await fastify.register(import('@fastify/rate-limit'), {
 
 // Register Fastify Sensible for sending errors
 await fastify.register(import('@fastify/sensible'));
-
-// Register and configure CORS protection
-await fastify.register(import('@fastify/cors'), {
-	origin: envParseString('NODE_ENV') === 'production' ? config.cors_host : true,
-	methods: ['GET', 'POST']
-});
 
 // Register and configure Swagger
 await fastify.register(import('@fastify/swagger'), {
