@@ -147,6 +147,10 @@ fastify.post<{ Body: SwaggerTypes.PostBodyType; Reply: SwaggerTypes.CreatedDocum
 					...SwaggerTypes.CreatedDocument
 				},
 				...SwaggerTypes.FastifyError,
+				413: {
+					description: `An error indicating that the document exceeds the maximum length of ${config.maxLength} bytes.`,
+					...SwaggerTypes.Error
+				},
 				500: {
 					description: 'An error indicating that the document could not be saved.',
 					...SwaggerTypes.Error
