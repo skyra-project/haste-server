@@ -1,5 +1,5 @@
 import { Redis } from 'ioredis';
-import type { Config } from '../types.js';
+import type { Config } from '../lib/types.js';
 import { BaseDocumentStore } from './BaseDocumentStore.js';
 
 export type RedisDocumentStoreConfig = Omit<Config['storage'], 'path' | 'type'>;

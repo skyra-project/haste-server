@@ -1,7 +1,7 @@
 import type { FastifyReply, FastifyRequest } from 'fastify';
-import type { BaseDocumentStore } from './DocumentStores/BaseDocumentStore.js';
-import { createKey } from './keyGenerator.js';
-import type { DocumentHandlerConfig, FastifyRequestGeneric } from './types.js';
+import { createKey } from '../lib/keyGenerator.js';
+import type { DocumentHandlerConfig, FastifyRequestGeneric } from '../lib/types.js';
+import type { BaseDocumentStore } from '../stores/BaseDocumentStore.js';
 
 /**
  * Handles document operations such as retrieving, creating, and handling raw versions of documents.
