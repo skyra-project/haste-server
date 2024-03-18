@@ -37,7 +37,8 @@ const fastify = Fastify({ bodyLimit: config.maxLength }).withTypeProvider<TypeBo
 // Set up the error handling for max length errors
 fastify.setErrorHandler((error, _, reply) => {
 	if (error instanceof Fastify.errorCodes.FST_ERR_CTP_BODY_TOO_LARGE) {
-		return reply.status(413).send({ message: 'Document exceeds maximum length.' });
+		error.message = 'Document exceeds maximum length.';
+		return reply.status(413).send(error);
 	}
 
 	return reply.send(error);
