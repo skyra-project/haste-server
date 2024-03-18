@@ -156,10 +156,10 @@ export class Haste {
 	private configureAboutDocumentRoute() {
 		const logoElement = document.getElementById('logo');
 		if (logoElement) {
-			logoElement.addEventListener('click', async (event) => {
+			logoElement.addEventListener('click', (event) => {
 				event.preventDefault();
 
-				await this.loadDocument('about.md');
+				return this.loadDocument('about.md');
 			});
 		}
 	}
