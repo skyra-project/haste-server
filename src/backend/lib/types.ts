@@ -1,6 +1,6 @@
 import type { IntegerString } from '@skyra/env-utilities';
 import type { BaseDocumentStore } from './DocumentStores/BaseDocumentStore.js';
-import type * as SwaggerTypes from './SwaggerTypes.js';
+import type * as SwaggerTypes from './swaggerTypes.js';
 
 /**
  * Represents the configuration options for the application.
