@@ -1,7 +1,7 @@
 import { error, Stack } from '@pnotify/core';
-import { HasteDocument } from './HasteDocument.js';
+import { HasteDocument } from '../utils/HasteDocument.js';
+import { selectElement } from '../utils/select-element.js';
 import type { Button } from './types.js';
-import { selectElement } from './utils.js';
 
 /**
  * Represents a Haste object that handles document creation, loading, and saving.
@@ -60,54 +60,6 @@ export class Haste {
 		firstpos1: 10,
 		firstpos2: 10
 	});
-
-	/**
-	 * Map of common extensions
-	 *
-	 * @remark this list does not need to include anything is its own extension
-	 * due to the behavior of {@link lookupTypeByExtension} and {@link lookupExtensionByType}.
-	 *
-	 * @remark Optimized for {@link lookupTypeByExtension}
-	 */
-	private extensionsMap = new Map([
-		['bash', 'bash'],
-		['cc', 'cpp'],
-		['cpp', 'cpp'],
-		['css', 'css'],
-		['diff', 'diff'],
-		['go', 'go'],
-		['htm', 'xml'],
-		['html', 'xml'],
-		['ini', 'ini'],
-		['java', 'java'],
-		['json', 'json'],
-		['less', 'less'],
-		['md', 'markdown'],
-		['nginx', 'nginx'],
-		['php', 'php'],
-		['powershell', 'ps1'],
-		['properties', 'properties'],
-		['py', 'python'],
-		['sh', 'bash'],
-		['sql', 'sql'],
-		['swift', 'swift'],
-		['tex', 'tex'],
-		['ts', 'typescript'],
-		['txt', ''],
-		['xml', 'xml']
-	]);
-
-	public constructor(appName: string) {
-		this.appName = appName;
-
-		this.configureShortcuts();
-
-		for (const button of this.buttons) {
-			this.configureButton(button);
-		}
-
-		this.configureAboutDocumentRoute();
-	}
 
 	/**
 	 * Creates a new document in the Haste application.

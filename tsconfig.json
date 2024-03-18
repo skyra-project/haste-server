@@ -1,7 +1,3 @@
 {
-	"extends": ["@sapphire/ts-config", "@sapphire/ts-config/extra-strict", "@sapphire/ts-config/verbatim", "@sapphire/ts-config/bundler"],
-	"compilerOptions": {
-		"declaration": false,
-		"declarationMap": false
-	}
+	"extends": "./.nuxt/tsconfig.json"
 }
