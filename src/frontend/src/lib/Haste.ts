@@ -7,7 +7,7 @@ import { selectElement } from './utils.js';
  * Represents a Haste object that handles document creation, loading, and saving.
  */
 export class Haste {
-	private appName = 'hastebin';
+	private appName = 'Hastebin';
 	private textArea = selectElement<HTMLTextAreaElement>('textarea')!;
 	private box = selectElement('#box')!;
 	private code = selectElement('#box code')!;
@@ -105,6 +105,8 @@ export class Haste {
 		for (const button of this.buttons) {
 			this.configureButton(button);
 		}
+
+		this.configureAboutDocumentRoute();
 	}
 
 	/**
@@ -148,6 +150,17 @@ export class Haste {
 			this.addLineNumbers(ret.lineCount);
 		} catch {
 			this.newDocument();
+		}
+	}
+
+	private configureAboutDocumentRoute() {
+		const logoElement = document.getElementById('logo');
+		if (logoElement) {
+			logoElement.addEventListener('click', async (event) => {
+				event.preventDefault();
+
+				await this.loadDocument('about.md');
+			});
 		}
 	}
 
