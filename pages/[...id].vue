@@ -62,7 +62,7 @@
 	</div>
 
 	<div id="linenos" ref="lineNumbers"></div>
-	<pre ref="inputBox" id="box" style="display: none" class="hljs" tabindex="0"><code ref="codeBox"></code></pre>
+	<pre ref="inputBox" id="box" class="hljs" tabindex="0"><code ref="codeBox"></code></pre>
 	<textarea
 		ref="textArea"
 		spellcheck="false"
@@ -90,6 +90,7 @@ const duplicateButtonDisabled = ref(false);
 const rawButtonDisabled = ref(false);
 
 const route = useRoute();
+const url = useRequestURL();
 const router = useRouter();
 const toast = useToast();
 
@@ -103,7 +104,7 @@ onMounted(async () => {
 
 function newDocument() {
 	if (inputBox.value) {
-		inputBox.value.style.display = 'none';
+		inputBox.value.classList.add('hidden');
 	}
 
 	doc.value = new HasteDocument();
@@ -138,12 +139,12 @@ function setTitle(ext?: string) {
 function setButtonsEnabled(newDocument: boolean) {
 	if (newDocument) {
 		saveButtonDisabled.value = false;
-		duplicateButtonDisabled.value = false;
-		rawButtonDisabled.value = false;
-	} else {
-		saveButtonDisabled.value = true;
 		duplicateButtonDisabled.value = true;
 		rawButtonDisabled.value = true;
+	} else {
+		saveButtonDisabled.value = true;
+		duplicateButtonDisabled.value = false;
+		rawButtonDisabled.value = false;
 	}
 }
 
@@ -169,9 +170,23 @@ async function loadDocument(url: string) {
 		inputBox.value!.classList.remove('hidden');
 		inputBox.value!.focus();
 		addLineNumbers(ret.lineCount);
-	} catch {
+	} catch (error) {
 		newDocument();
+		showMessage('Unable to load document');
 	}
+}
+
+/**
+ * Looks up extension preferred for a given type.
+ * If none is found then the type itself is returned - which we'll use as the extension
+ * @param type The extension type to look up
+ */
+function lookupExtensionByType(type: string) {
+	for (const [key, value] of extensionsMap.entries()) {
+		if (value === type) return key;
+	}
+
+	return type;
 }
 
 /**
@@ -221,8 +236,32 @@ function handleRawKeyDown(event: KeyboardEvent) {
 }
 
 async function handleSave() {
-	if (textArea.value && textArea.value.value && textArea.value.value.replace(/^\s+|\s+$/g, '') !== '') {
-		// Implement
+	const textAreaValue = textArea.value?.value;
+	if (textAreaValue && textAreaValue.replace(/^\s+|\s+$/g, '') !== '' && doc.value) {
+		try {
+			const returnedDocument = await doc.value.save(textAreaValue);
+
+			if (returnedDocument) {
+				codeBox.value!.innerHTML = returnedDocument.value;
+				setTitle(returnedDocument.key);
+
+				let file = `/${returnedDocument.key}`;
+				if (returnedDocument.language) {
+					file += `.${lookupExtensionByType(returnedDocument.language)}`;
+				}
+
+				doc.value.key = returnedDocument.key;
+				navigateTo(file);
+				setButtonsEnabled(false);
+				textArea.value!.value = '';
+				textArea.value!.classList.add('hidden');
+				inputBox.value!.classList.remove('hidden');
+				inputBox.value!.focus();
+				addLineNumbers(returnedDocument.lineCount);
+			}
+		} catch (error) {
+			showMessage((error as Error).message);
+		}
 	}
 }
 
@@ -231,11 +270,17 @@ async function handleNew() {
 }
 
 async function handleDuplicate() {
-	// Implement
+	if (doc.value?.locked && doc.value.data && textArea.value) {
+		const currentData = doc.value.data;
+		newDocument();
+		textArea.value.value = currentData;
+	}
 }
 
 async function handleRaw() {
-	// Implement
+	if (doc.value && doc.value.key) {
+		window.location.assign(`${url.origin}/raw/${doc.value.key}`)
+	}
 }
 
 function showMessage(message: string) {
