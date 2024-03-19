@@ -4,7 +4,7 @@
 			<nuxt-link to="/about.md" id="logo" class="logo"></nuxt-link>
 		</div>
 		<div id="box2" class="pb-2 px-2 flex justify-center bg-[var(--dark-black)]">
-			<UTooltip text="Save" :shortcuts="['Ctrl | ⌘', 'S']">
+			<UTooltip text="Save" :shortcuts="['Ctrl | ⌘', 'S']" :prevent="saveButtonDisabled">
 				<UButton
 					ref="saveButton"
 					icon="i-heroicons-archive-box-arrow-down"
@@ -12,9 +12,9 @@
 					color="primary"
 					square
 					variant="ghost"
+					:disabled="saveButtonDisabled"
 					@click="handleSave"
 					@keydown="handleSaveKeyDown"
-					class="save function button-picture"
 				>
 				</UButton>
 			</UTooltip>
@@ -27,11 +27,10 @@
 					variant="ghost"
 					@click="handleNew"
 					@keydown="handleNewKeyDown"
-					class="new function button-picture enabled"
 				>
 				</UButton>
 			</UTooltip>
-			<UTooltip text="Duplicate & Edit" :shortcuts="['Ctrl | ⌘', 'D']">
+			<UTooltip text="Duplicate & Edit" :shortcuts="['Ctrl | ⌘', 'D']" :prevent="duplicateButtonDisabled">
 				<UButton
 					ref="duplicateButton"
 					icon="i-heroicons-pencil-square"
@@ -39,13 +38,13 @@
 					color="primary"
 					square
 					variant="ghost"
+					:disabled="duplicateButtonDisabled"
 					@click="handleDuplicate"
 					@keydown="handleDuplicateKeyDown"
-					class="duplicate function button-picture"
 				>
 				</UButton>
 			</UTooltip>
-			<UTooltip text="Just Text" :shortcuts="['Ctrl | ⌘', 'Shift', 'R']">
+			<UTooltip text="Just Text" :shortcuts="['Ctrl | ⌘', 'Shift', 'R']" :prevent="rawButtonDisabled">
 				<UButton
 					ref="rawButton"
 					icon="i-heroicons-document-text"
@@ -53,9 +52,9 @@
 					color="primary"
 					square
 					variant="ghost"
+					:disabled="rawButtonDisabled"
 					@click="handleRaw"
 					@keydown="handleRawKeyDown"
-					class="raw function button-picture"
 				>
 				</UButton>
 			</UTooltip>
@@ -63,7 +62,7 @@
 	</div>
 
 	<div id="linenos" ref="lineNumbers"></div>
-	<pre ref="inputBox" id="box" style="display: none" class="hljs" tabindex="0"><code></code></pre>
+	<pre ref="inputBox" id="box" style="display: none" class="hljs" tabindex="0"><code ref="codeBox"></code></pre>
 	<textarea
 		ref="textArea"
 		spellcheck="false"
@@ -83,17 +82,22 @@ const lineNumbers = ref<HTMLDivElement | null>(null);
 const saveButton = ref<HTMLButtonElement | null>(null);
 const rawButton = ref<HTMLButtonElement | null>(null);
 const duplicateButton = ref<HTMLButtonElement | null>(null);
+const codeBox = ref<HTMLPreElement | null>(null);
 const doc = ref<HasteDocument | null>(null);
+
+const saveButtonDisabled = ref(false);
+const duplicateButtonDisabled = ref(false);
+const rawButtonDisabled = ref(false);
 
 const route = useRoute();
 const router = useRouter();
 const toast = useToast();
 
-onMounted(() => {
+onMounted(async () => {
 	if (route.path === '/') {
 		newDocument();
 	} else {
-		// await loadDocument(route.path.substring(1, route.path.length));
+		await loadDocument(route.path.substring(1, route.path.length));
 	}
 });
 
@@ -133,13 +137,13 @@ function setTitle(ext?: string) {
  */
 function setButtonsEnabled(newDocument: boolean) {
 	if (newDocument) {
-		// duplicateButton.value?.classList.add('enabled');
-		// rawButton.value?.classList.add('enabled');
-		// saveButton.value?.classList.add('enabled');
+		saveButtonDisabled.value = false;
+		duplicateButtonDisabled.value = false;
+		rawButtonDisabled.value = false;
 	} else {
-		duplicateButton.value?.classList.remove('enabled');
-		rawButton.value?.classList.remove('enabled');
-		saveButton.value?.classList.remove('enabled');
+		saveButtonDisabled.value = true;
+		duplicateButtonDisabled.value = true;
+		rawButtonDisabled.value = true;
 	}
 }
 
@@ -150,6 +154,46 @@ function removeLineNumbers() {
 	if (lineNumbers.value) {
 		lineNumbers.value.innerHTML = '&gt;';
 	}
+}
+
+async function loadDocument(url: string) {
+	const parts = url.split('.', 2);
+	doc.value = new HasteDocument();
+	try {
+		const ret = await doc.value.load(parts[0], lookupTypeByExtension(parts[1]));
+		codeBox.value!.innerHTML = ret.value;
+		setTitle(ret.key);
+		setButtonsEnabled(false);
+		textArea.value!.value = '';
+		textArea.value!.classList.add('hidden');
+		inputBox.value!.classList.remove('hidden');
+		inputBox.value!.focus();
+		addLineNumbers(ret.lineCount);
+	} catch {
+		newDocument();
+	}
+}
+
+/**
+ * Look up the type for a given extension
+ * If none is found then the extension itself is returned - which we'll use as the extension
+ * @param ext The extension to look up
+ */
+function lookupTypeByExtension(ext: string) {
+	return extensionsMap.get(ext) ?? ext;
+}
+
+/**
+ * Adds the line numbers to the view
+ */
+function addLineNumbers(lineCount: number) {
+	let numbers = '';
+
+	for (let i = 0; i < lineCount; i++) {
+		numbers += `${(i + 1).toString()}<br/>`;
+	}
+
+	lineNumbers.value!.innerHTML = numbers;
 }
 
 function handleSaveKeyDown(event: KeyboardEvent) {

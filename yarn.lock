@@ -3212,6 +3212,8 @@ __metadata:
     prettier: "npm:^3.2.5"
     typescript: "npm:^5.4.2"
     vite-plugin-pwa: "npm:^0.19.4"
+    vue: "npm:^3.4.21"
+    vue-router: "npm:^4.3.0"
   languageName: unknown
   linkType: soft
 
@@ -11623,7 +11625,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^3.4.19":
+"vue@npm:^3.4.19, vue@npm:^3.4.21":
   version: 3.4.21
   resolution: "vue@npm:3.4.21"
   dependencies:
