@@ -5,8 +5,8 @@ services:
     image: redis:alpine
     restart: always
     ports:
-      - '8287:8287'
-    command: redis-server --port 8287 --requirepass redis
+      - '6379:6379'
+    command: redis-server --port 6379 --requirepass redis
 
   haste:
     container_name: hasteserver
@@ -20,9 +20,8 @@ services:
     environment:
       PORT: 8290
       HOST: 0.0.0.0
-      STORAGE_TYPE: redis
-      STORAGE_HOST: redis
-      STORAGE_PORT: 8287
-      STORAGE_PASSWORD: redis
-      STORAGE_DB: 2
-      STORAGE_EXPIRE_SECONDS: 21600
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: redis
+      REDIS_DB: 2
+      REDIS_EXPIRE_SECONDS: 21600

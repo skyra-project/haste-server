@@ -39,6 +39,7 @@ const manifestIcons = [
 // }
 
 export default defineNuxtConfig({
+	devtools: { enabled: true },
 	modules: ['@nuxt/fonts', '@vite-pwa/nuxt', 'nuxt-rate-limit', '@nuxt/ui'],
 	css: ['~/assets/css/main.css'],
 	fonts: {

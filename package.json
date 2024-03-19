@@ -30,7 +30,9 @@
 		"nuxt-rate-limit": "^1.2.0",
 		"prettier": "^3.2.5",
 		"typescript": "^5.4.2",
-		"vite-plugin-pwa": "^0.19.4"
+		"vite-plugin-pwa": "^0.19.4",
+		"vue": "^3.4.21",
+		"vue-router": "^4.3.0"
 	},
 	"packageManager": "yarn@4.2.2"
 }

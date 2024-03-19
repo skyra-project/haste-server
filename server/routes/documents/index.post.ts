@@ -1,5 +1,3 @@
-import { createKey } from '~/server/utils/keyGenerator';
-
 /**
  * Handle creating a new document
  */
