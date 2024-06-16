@@ -20,7 +20,7 @@
 		"@fastify/sensible": "^5.6.0",
 		"@fastify/static": "^7.0.4",
 		"@fastify/swagger": "^8.14.0",
-		"@fastify/swagger-ui": "^3.1.0",
+		"@fastify/swagger-ui": "^4.0.0",
 		"@fastify/type-provider-typebox": "^4.0.0",
 		"@pnotify/core": "^5.2.0",
 		"@sapphire/fetch": "^3.0.2",
