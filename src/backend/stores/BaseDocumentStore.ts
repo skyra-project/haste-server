@@ -1,6 +1,7 @@
 /**
  * Represents an abstract class for a document store.
  */
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 export abstract class BaseDocumentStore {
 	/**
 	 * Gets a file at a specified key
