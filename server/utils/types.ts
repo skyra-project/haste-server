@@ -1,4 +1,4 @@
-import type { IntegerString } from "@skyra/env-utilities";
+import type { IntegerString } from '@skyra/env-utilities';
 
 /**
  * Represents the configuration options for the application.

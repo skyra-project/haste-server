@@ -279,7 +279,7 @@ async function handleDuplicate() {
 
 async function handleRaw() {
 	if (doc.value && doc.value.key) {
-		window.location.assign(`${url.origin}/raw/${doc.value.key}`)
+		window.location.assign(`${url.origin}/raw/${doc.value.key}`);
 	}
 }
 
