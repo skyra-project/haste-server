@@ -848,10 +848,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sinclair/typebox@npm:^0.33.7":
-  version: 0.33.7
-  resolution: "@sinclair/typebox@npm:0.33.7"
-  checksum: 10/73d55197ccff7cd93e799cda37163d062e5985d4e03c21ab9d478258b2e2c84c3e19814dd3b31dccbbd01f71efb83800341611efa0e6ea17c77b6593915dbfe5
+"@sinclair/typebox@npm:^0.33.9":
+  version: 0.33.9
+  resolution: "@sinclair/typebox@npm:0.33.9"
+  checksum: 10/0ff01966523bf346f1294b3301c998ab9b304dfb518f06466f6a70bc1ccd956e37a93d9c800e9f86e3b056bbfa61865783be2d73700dbbe7d2f897b00b8d2dd6
   languageName: node
   linkType: hard
 
@@ -880,9 +880,9 @@ __metadata:
     "@sapphire/fetch": "npm:^3.0.3"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@sinclair/typebox": "npm:^0.33.7"
+    "@sinclair/typebox": "npm:^0.33.9"
     "@skyra/env-utilities": "npm:^1.3.0"
-    "@types/node": "npm:^20.16.2"
+    "@types/node": "npm:^20.16.5"
     "@typescript-eslint/eslint-plugin": "npm:^7.13.1"
     "@typescript-eslint/parser": "npm:^7.13.1"
     autoprefixer: "npm:^10.4.20"
@@ -898,7 +898,7 @@ __metadata:
     rimraf: "npm:^6.0.1"
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.2"
-    vite: "npm:^5.4.2"
+    vite: "npm:^5.4.3"
   languageName: unknown
   linkType: soft
 
@@ -909,12 +909,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.16.2":
-  version: 20.16.2
-  resolution: "@types/node@npm:20.16.2"
+"@types/node@npm:^20.16.5":
+  version: 20.16.5
+  resolution: "@types/node@npm:20.16.5"
   dependencies:
     undici-types: "npm:~6.19.2"
-  checksum: 10/fcae2ffaa681c2947cd3dae67a6dcf83ef666fc0994281ad881b9e3bb542fec3a9206d9ce899c20e5cdddace2b96b42e32f247864de9baf95756c07b9eff15d7
+  checksum: 10/39a8457149dc17cdea57afc90d4da53182fdb8b958d5bb065a15d123d81d4efa6b51a0de92428d05ead2e63ce07195586f71083401b99cdbcd04662344fbf7a1
   languageName: node
   linkType: hard
 
@@ -3370,14 +3370,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.41":
-  version: 8.4.41
-  resolution: "postcss@npm:8.4.41"
+"postcss@npm:^8.4.43":
+  version: 8.4.45
+  resolution: "postcss@npm:8.4.45"
   dependencies:
     nanoid: "npm:^3.3.7"
     picocolors: "npm:^1.0.1"
     source-map-js: "npm:^1.2.0"
-  checksum: 10/6e6176c2407eff60493ca60a706c6b7def20a722c3adda94ea1ece38345eb99964191336fd62b62652279cec6938e79e0b1e1d477142c8d3516e7a725a74ee37
+  checksum: 10/7eaf7346d04929ee979548ece5e34d253eae6f175346e298b2c4621ad6f4ee00adfe7abe72688640e910c0361ae50537c5dda3e35fd1066491282c342b3ee5c8
   languageName: node
   linkType: hard
 
@@ -4246,13 +4246,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.4.2":
-  version: 5.4.2
-  resolution: "vite@npm:5.4.2"
+"vite@npm:^5.4.3":
+  version: 5.4.3
+  resolution: "vite@npm:5.4.3"
   dependencies:
     esbuild: "npm:^0.21.3"
     fsevents: "npm:~2.3.3"
-    postcss: "npm:^8.4.41"
+    postcss: "npm:^8.4.43"
     rollup: "npm:^4.20.0"
   peerDependencies:
     "@types/node": ^18.0.0 || >=20.0.0
@@ -4285,7 +4285,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/c449f9295060fa88c9b5cc1bd17c2de198deae596b7da1250db9662fb15e7b21e0dbe9a40a9106fb7438b1231494b169457e809ecbb65e732648d87dd284ab23
+  checksum: 10/864bf64fe57bd26b1527ea6d8dac2f4f8b834791f836590043463c0ded6a150a9407ffac6a859abc34ec013ecfcd23f405c20aa76f4ad99deab1176d5f017574
   languageName: node
   linkType: hard
 
