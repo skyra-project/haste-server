@@ -848,10 +848,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sinclair/typebox@npm:^0.33.9":
-  version: 0.33.9
-  resolution: "@sinclair/typebox@npm:0.33.9"
-  checksum: 10/0ff01966523bf346f1294b3301c998ab9b304dfb518f06466f6a70bc1ccd956e37a93d9c800e9f86e3b056bbfa61865783be2d73700dbbe7d2f897b00b8d2dd6
+"@sinclair/typebox@npm:^0.33.11":
+  version: 0.33.11
+  resolution: "@sinclair/typebox@npm:0.33.11"
+  checksum: 10/9ef0c41c46327f11b7262afa62083d01fc8922ec013bc8062e0224662e46ac24e9743da379e364e0053fa5a04fe8c540fb7137a70ae5581a2230b7f0edd73b4c
   languageName: node
   linkType: hard
 
@@ -880,7 +880,7 @@ __metadata:
     "@sapphire/fetch": "npm:^3.0.3"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@sinclair/typebox": "npm:^0.33.9"
+    "@sinclair/typebox": "npm:^0.33.11"
     "@skyra/env-utilities": "npm:^1.3.0"
     "@types/node": "npm:^20.16.5"
     "@typescript-eslint/eslint-plugin": "npm:^7.13.1"
@@ -898,7 +898,7 @@ __metadata:
     rimraf: "npm:^6.0.1"
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.2"
-    vite: "npm:^5.4.3"
+    vite: "npm:^5.4.5"
   languageName: unknown
   linkType: soft
 
@@ -4246,9 +4246,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.4.3":
-  version: 5.4.3
-  resolution: "vite@npm:5.4.3"
+"vite@npm:^5.4.5":
+  version: 5.4.5
+  resolution: "vite@npm:5.4.5"
   dependencies:
     esbuild: "npm:^0.21.3"
     fsevents: "npm:~2.3.3"
@@ -4285,7 +4285,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/864bf64fe57bd26b1527ea6d8dac2f4f8b834791f836590043463c0ded6a150a9407ffac6a859abc34ec013ecfcd23f405c20aa76f4ad99deab1176d5f017574
+  checksum: 10/ef794392c44cdc0b4256e6a58697ebf9b86536dde04ba6449a853664c8a9441c4ae8c380c35d7e78556f197a738d46921e076064a4ff7a7448e5905d55262baf
   languageName: node
   linkType: hard
 
