@@ -433,14 +433,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/rate-limit@npm:^9.1.0":
-  version: 9.1.0
-  resolution: "@fastify/rate-limit@npm:9.1.0"
+"@fastify/rate-limit@npm:^10.0.1":
+  version: 10.0.1
+  resolution: "@fastify/rate-limit@npm:10.0.1"
   dependencies:
-    "@lukeed/ms": "npm:^2.0.1"
-    fastify-plugin: "npm:^4.0.0"
-    toad-cache: "npm:^3.3.1"
-  checksum: 10/ffae0e4c9c69ff5f1d8b289327202b7cdbb21f91f51ae4d3dff4d97b200581ca9162b503a18449eb0b68945b56e15f22b9073d246665f0d024ae3b9874c8cce7
+    "@lukeed/ms": "npm:^2.0.2"
+    fastify-plugin: "npm:^5.0.0"
+    toad-cache: "npm:^3.7.0"
+  checksum: 10/824c78e50acb6b88bb4b226f4ac3526732139d7e976808af5c63a70ab6ed9f163b37f2f91e42f5cf7eedd717ffb383401c24f1dc13990ab0500ba73f17f1773f
   languageName: node
   linkType: hard
 
@@ -894,7 +894,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@skyra/haste-server@workspace:."
   dependencies:
-    "@fastify/rate-limit": "npm:^9.1.0"
+    "@fastify/rate-limit": "npm:^10.0.1"
     "@fastify/sensible": "npm:^5.6.0"
     "@fastify/static": "npm:^7.0.4"
     "@fastify/swagger": "npm:^8.15.0"
@@ -4056,7 +4056,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"toad-cache@npm:^3.3.0, toad-cache@npm:^3.3.1":
+"toad-cache@npm:^3.3.0, toad-cache@npm:^3.7.0":
   version: 3.7.0
   resolution: "toad-cache@npm:3.7.0"
   checksum: 10/cdc62aacc047e94eab21697943e117bbb1938168a03e5e85fdba28ab6ea66f4796ff16b219019a64d2115048378f9dd1f4e62c78c1f1d4961d0b3d23f9a9374d
