@@ -539,12 +539,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/type-provider-typebox@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "@fastify/type-provider-typebox@npm:4.1.0"
+"@fastify/type-provider-typebox@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@fastify/type-provider-typebox@npm:5.0.0"
   peerDependencies:
     "@sinclair/typebox": ">=0.26 <=0.33"
-  checksum: 10/147613351fcfeeff664859e9b5eadbb954b2606d1a13061060a5eac688d7d6a89e0b5a1290f020fd44a4557c6f1bfce7fe72a57679364baf444b855f45364897
+  checksum: 10/3cc89989a312b31f6f8a9c6f4c5a13251d0a7a9aeea5f7f7d84538f995129a0af4fa71553b38106fd4a8d5f179bdb7985e1d0b8dc5e418c375ca493c7e84fc42
   languageName: node
   linkType: hard
 
@@ -899,7 +899,7 @@ __metadata:
     "@fastify/static": "npm:^7.0.4"
     "@fastify/swagger": "npm:^8.15.0"
     "@fastify/swagger-ui": "npm:^5.0.1"
-    "@fastify/type-provider-typebox": "npm:^4.1.0"
+    "@fastify/type-provider-typebox": "npm:^5.0.0"
     "@pnotify/core": "npm:^5.2.0"
     "@sapphire/eslint-config": "npm:^5.0.5"
     "@sapphire/fetch": "npm:^3.0.3"

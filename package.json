@@ -21,7 +21,7 @@
 		"@fastify/static": "^7.0.4",
 		"@fastify/swagger": "^8.15.0",
 		"@fastify/swagger-ui": "^5.0.1",
-		"@fastify/type-provider-typebox": "^4.1.0",
+		"@fastify/type-provider-typebox": "^5.0.0",
 		"@pnotify/core": "^5.2.0",
 		"@sapphire/fetch": "^3.0.3",
 		"@sinclair/typebox": "^0.33.12",
