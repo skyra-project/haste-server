@@ -1,22 +1,22 @@
-version: '3.9'
 services:
   redis:
     container_name: redis
+    pull_policy: always
     image: redis:alpine
     restart: always
     ports:
-      - '8287:8287'
+      - 8287:8287
     command: redis-server --port 8287 --requirepass redis
 
   haste:
     container_name: hasteserver
     image: ghcr.io/skyra-project/haste-server:latest
     build: .
-    restart: 'no'
+    restart: no
     depends_on:
       - redis
     ports:
-      - '8290:8290'
+      - 8290:8290
     environment:
       PORT: 8290
       HOST: 0.0.0.0
