@@ -108,17 +108,17 @@ this script to work
 
 ```ps1
 Function haste {
- $fileContent = Get-Content -Path $args[0] -Encoding UTF8 -Raw
- $response = Invoke-RestMethod -Uri https://hastebin.skyra.pw/documents -Method POST -Body $fileContent
- $key = $response.key
+  $fileContent = Get-Content -Path $args[0] -Encoding UTF8 -Raw
+  $response = Invoke-RestMethod -Uri https://hastebin.skyra.pw/documents -Method POST -ContentType 'text/plain; charset=utf-8' -Body $fileContent
+  $key = $response.key
 
- Write-Host https://hastebin.skyra.pw/$key
+  Write-Host https://hastebin.skyra.pw/$key
 }
 ```
 
 ##### Usage
 
-```sh
+```ps1
 haste .\path\to\file
 # https://hastebin.skyra.pw/1238193
 ```
