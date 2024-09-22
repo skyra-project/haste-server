@@ -8,9 +8,9 @@ import { selectElement } from './utils.js';
  */
 export class Haste {
 	private appName = 'Hastebin';
-	private textArea = selectElement<HTMLTextAreaElement>('textarea')!;
-	private box = selectElement('#box')!;
-	private code = selectElement('#box code')!;
+	private textArea = selectElement<HTMLTextAreaElement>('textarea');
+	private box = selectElement('#box');
+	private code = selectElement('#box code');
 	private doc: HasteDocument | null = null;
 	private buttons: Button[] = [
 		{
@@ -20,7 +20,7 @@ export class Haste {
 			shortcut: (evt) => (evt.ctrlKey || evt.metaKey) && evt.key === 's',
 			action: async () => {
 				const textAreaValue = this.textArea.value;
-				if (textAreaValue && textAreaValue.replace(/^\s+|\s+$/g, '') !== '') {
+				if (textAreaValue && textAreaValue.replaceAll(/^\s+$/g, '') !== '') {
 					await this.saveDocument();
 				}
 			}
@@ -30,7 +30,10 @@ export class Haste {
 			label: 'New',
 			shortcutDescription: 'Control Or Command + n',
 			shortcut: (evt) => (evt.ctrlKey || evt.metaKey) && evt.key === 'n',
-			action: () => this.newDocument()
+			action: () => {
+				this.newDocument();
+				this.pushRouteState();
+			}
 		},
 		{
 			where: selectElement('#box2 .duplicate'),
@@ -45,7 +48,7 @@ export class Haste {
 			shortcutDescription: 'Control Or Command + Shift + r',
 			shortcut: (evt) => (evt.ctrlKey || evt.metaKey) && evt.shiftKey && evt.key === 'r',
 			action: () =>
-				this.doc && this.doc.key
+				this.doc?.key
 					? window.location.assign(`${window.location.origin}/raw/${this.doc.key}`)
 					: window.location.replace(window.location.href)
 		}
@@ -121,14 +124,16 @@ export class Haste {
 		this.box.style.display = 'none';
 		this.doc = new HasteDocument();
 
-		window.history.pushState(null, this.appName, '/');
-
 		this.setTitle();
 		this.setButtonsEnabled(true);
 		this.textArea.value = '';
 		this.textArea.style.display = '';
 		this.textArea.focus();
 		this.removeLineNumbers();
+	}
+
+	public pushRouteState() {
+		window.history.pushState(null, this.appName, '/');
 	}
 
 	/**
@@ -150,6 +155,7 @@ export class Haste {
 			this.addLineNumbers(ret.lineCount);
 		} catch {
 			this.newDocument();
+			this.pushRouteState();
 		}
 	}
 
@@ -159,6 +165,7 @@ export class Haste {
 			logoElement.addEventListener('click', (event) => {
 				event.preventDefault();
 
+				window.history.pushState(null, this.appName, '/about.md');
 				return this.loadDocument('about.md');
 			});
 		}
@@ -171,6 +178,7 @@ export class Haste {
 		if (this.doc?.locked && this.doc.data) {
 			const currentData = this.doc.data;
 			this.newDocument();
+			this.pushRouteState();
 			this.textArea.value = currentData;
 		}
 	}
@@ -223,14 +231,18 @@ export class Haste {
 	 */
 	private setButtonsEnabled(newDocument: boolean) {
 		for (const button of ['duplicate', 'raw']) {
-			newDocument
-				? selectElement(`#box2 .function.${button}`).classList.remove('enabled')
-				: selectElement(`#box2 .function.${button}`).classList.add('enabled');
+			if (newDocument) {
+				selectElement(`#box2 .function.${button}`).classList.remove('enabled');
+			} else {
+				selectElement(`#box2 .function.${button}`).classList.add('enabled');
+			}
 		}
 
-		newDocument
-			? selectElement('#box2 .function.save').classList.add('enabled')
-			: selectElement('#box2 .function.save').classList.remove('enabled');
+		if (newDocument) {
+			selectElement('#box2 .function.save').classList.add('enabled');
+		} else {
+			selectElement('#box2 .function.save').classList.remove('enabled');
+		}
 	}
 
 	/**

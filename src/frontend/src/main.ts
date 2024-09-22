@@ -8,13 +8,19 @@ import { Haste } from './lib/Haste.js';
 
 const app = new Haste('Hastebin');
 
-const handlePop = async () => {
+async function handleInitialiseState(shouldPushRouteState = true) {
 	const path = window.location.pathname;
 	if (path === '/') {
 		app.newDocument();
+
+		if (shouldPushRouteState) {
+			app.pushRouteState();
+		}
 	} else {
 		await app.loadDocument(path.substring(1, path.length));
 	}
-};
+}
 
-void handlePop();
+void handleInitialiseState();
+
+window.addEventListener('popstate', () => handleInitialiseState(false));
