@@ -526,16 +526,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/swagger@npm:^8.15.0":
-  version: 8.15.0
-  resolution: "@fastify/swagger@npm:8.15.0"
+"@fastify/swagger@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "@fastify/swagger@npm:9.0.0"
   dependencies:
-    fastify-plugin: "npm:^4.0.0"
+    fastify-plugin: "npm:^5.0.0"
     json-schema-resolver: "npm:^2.0.0"
-    openapi-types: "npm:^12.0.0"
-    rfdc: "npm:^1.3.0"
-    yaml: "npm:^2.2.2"
-  checksum: 10/f6932cb8dcfa3866cf4cd0ec39797e8a33410ca9e28289ffcde00059eedc5b317ecf3202c22749d3af859767c4fa669bfe58ae4ef155f370cfb50fe2bc2a5bc2
+    openapi-types: "npm:^12.1.3"
+    rfdc: "npm:^1.3.1"
+    yaml: "npm:^2.4.2"
+  checksum: 10/e7d276a45008bc17297cae11ad1cce663caf00882fe8bae30e467d9f2d46e184a0a69d301117ce3cbf094bd413afc1cd212c6a443d2b6f8553aa9ff27e602068
   languageName: node
   linkType: hard
 
@@ -897,7 +897,7 @@ __metadata:
     "@fastify/rate-limit": "npm:^9.1.0"
     "@fastify/sensible": "npm:^5.6.0"
     "@fastify/static": "npm:^7.0.4"
-    "@fastify/swagger": "npm:^8.15.0"
+    "@fastify/swagger": "npm:^9.0.0"
     "@fastify/swagger-ui": "npm:^5.0.1"
     "@fastify/type-provider-typebox": "npm:^4.1.0"
     "@pnotify/core": "npm:^5.2.0"
@@ -3202,7 +3202,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"openapi-types@npm:^12.0.0, openapi-types@npm:^12.1.3":
+"openapi-types@npm:^12.1.3":
   version: 12.1.3
   resolution: "openapi-types@npm:12.1.3"
   checksum: 10/9d1d7ed848622b63d0a4c3f881689161b99427133054e46b8e3241e137f1c78bb0031c5d80b420ee79ac2e91d2e727ffd6fc13c553d1b0488ddc8ad389dcbef8
@@ -4408,7 +4408,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:^2.2.2, yaml@npm:^2.4.1":
+"yaml@npm:^2.4.1, yaml@npm:^2.4.2":
   version: 2.5.1
   resolution: "yaml@npm:2.5.1"
   bin:
