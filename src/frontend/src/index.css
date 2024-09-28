@@ -6,10 +6,16 @@
 	--dark-black: #141512;
 }
 
+html {
+	height: 100%;
+}
+
 body {
 	background: #282c34;
 	padding: 20px 50px;
 	margin: 0px;
+	height: 100%;
+	box-sizing: border-box;
 }
 
 /* textarea */
