@@ -61,8 +61,7 @@ await fastify.register(import('@fastify/rate-limit'), {
 			date: Date.now(),
 			expiresIn: context.ttl
 		};
-	},
-	allowList: []
+	}
 });
 
 // Register Fastify Sensible for sending errors
