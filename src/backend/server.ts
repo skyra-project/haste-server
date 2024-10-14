@@ -49,7 +49,6 @@ await fastify.register(import('@fastify/rate-limit'), {
 	max: config.rateLimits.max,
 	timeWindow: config.rateLimits.timeWindow,
 	keyGenerator: (request) => {
-		console.log(request.headers);
 		const xRealIp = request.headers['x-real-ip'];
 		if (typeof xRealIp === 'string') return xRealIp;
 		return request.ip;
