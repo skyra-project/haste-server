@@ -16,7 +16,7 @@ export const config: Config = {
 
 	rateLimits: {
 		max: envParseInteger('RATE_LIMIT_MAX', 500),
-		timeWindow: envParseString('RATE_LIMIT_TIME_WINDOW', '1 minute')
+		timeWindow: envParseInteger('RATE_LIMIT_TIME_WINDOW', 1000 * 60)
 	},
 
 	storage: {

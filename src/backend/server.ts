@@ -47,7 +47,23 @@ fastify.setErrorHandler((error, _, reply) => {
 // Register the rate limit handler
 await fastify.register(import('@fastify/rate-limit'), {
 	max: config.rateLimits.max,
-	timeWindow: config.rateLimits.timeWindow
+	timeWindow: config.rateLimits.timeWindow,
+	keyGenerator: (request) => {
+		console.log(request.headers);
+		const xRealIp = request.headers['x-real-ip'];
+		if (typeof xRealIp === 'string') return xRealIp;
+		return request.ip;
+	},
+	errorResponseBuilder: (_, context) => {
+		return {
+			statusCode: 429,
+			error: 'Too Many Requests',
+			message: `Rate limit exceeded. Only ${context.max} requests per ${context.after} to this service are allowed. Retry in ${context.after}ms.`,
+			date: Date.now(),
+			expiresIn: context.ttl
+		};
+	},
+	allowList: []
 });
 
 // Register Fastify Sensible for sending errors
