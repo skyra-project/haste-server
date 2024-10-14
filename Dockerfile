@@ -2,11 +2,11 @@
 #    Base Stage    #
 # ================ #
 
-FROM node:20-alpine as base
+FROM node:20-alpine AS base
 
 WORKDIR /usr/src/app
 
-RUN apk add --no-cache dumb-init python3 make g++
+RUN apk add --no-cache dumb-init g++ make python3
 
 COPY --chown=node:node yarn.lock .
 COPY --chown=node:node package.json .
@@ -20,7 +20,7 @@ ENTRYPOINT ["dumb-init", "--"]
 #   Builder Stage  #
 # ================ #
 
-FROM base as builder
+FROM base AS builder
 
 ENV NODE_ENV="development"
 
@@ -29,8 +29,8 @@ COPY --chown=node:node vite.config.ts .
 COPY --chown=node:node tsup.config.ts .
 COPY --chown=node:node src/ src/
 
-RUN yarn install --immutable
-RUN yarn build
+RUN yarn install --immutable \
+    && yarn build
 
 # ================ #
 #   Runner Stage   #
