@@ -465,9 +465,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/static@npm:^8.0.0, @fastify/static@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "@fastify/static@npm:8.0.1"
+"@fastify/static@npm:^8.0.0, @fastify/static@npm:^8.0.2":
+  version: 8.0.2
+  resolution: "@fastify/static@npm:8.0.2"
   dependencies:
     "@fastify/accept-negotiator": "npm:^2.0.0"
     "@fastify/send": "npm:^3.1.0"
@@ -475,20 +475,20 @@ __metadata:
     fastify-plugin: "npm:^5.0.0"
     fastq: "npm:^1.17.1"
     glob: "npm:^11.0.0"
-  checksum: 10/47d0f6f57da6dd4ee72c2e8cb6008e1aabced1b48238c975f8f1aebee5b1fc6e40c528ff8f04ae0930ea124ebbe93a9881a42f2ad69a0324cdd0461c6bfbe631
+  checksum: 10/a6d71351bc38a32778b3695ba02e8f65c5f33d11dd6f19e4f6a1c087bdbc97f7d6a310fd2b002104be112034e6ea3d0690be69c41c95713966667f244fbc0262
   languageName: node
   linkType: hard
 
-"@fastify/swagger-ui@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "@fastify/swagger-ui@npm:5.0.1"
+"@fastify/swagger-ui@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "@fastify/swagger-ui@npm:5.1.0"
   dependencies:
     "@fastify/static": "npm:^8.0.0"
     fastify-plugin: "npm:^5.0.0"
     openapi-types: "npm:^12.1.3"
     rfdc: "npm:^1.3.1"
     yaml: "npm:^2.4.1"
-  checksum: 10/d5bcc7dc314cd2f0273ec2864b59986de24c7a0ff01c17614b8dd136eef2075e4387b95a301762e1c0ef82af5640b88b4b1af96454951c78cab2bae35835f6f2
+  checksum: 10/5fe7c97abfd1c169c0b156b52a0ef3f4c9662fd5c23e56565d82745cdacbe2ade0e1359f614e4648eaa1a69470c32e89e449be0d18b9955793f80e9ef03c17d6
   languageName: node
   linkType: hard
 
@@ -839,10 +839,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sinclair/typebox@npm:^0.33.16":
-  version: 0.33.16
-  resolution: "@sinclair/typebox@npm:0.33.16"
-  checksum: 10/8c950dac7a2eb8dffb57037bae94891a162d1cd763035d2d5a496ff34681292b3b46a80ecc65bfa605221d88d67f8c5bc883ff1277be51cfcf124785a870b578
+"@sinclair/typebox@npm:^0.33.17":
+  version: 0.33.17
+  resolution: "@sinclair/typebox@npm:0.33.17"
+  checksum: 10/980ac7ffe074e6b575ca4713d7a5c76e1bc08cae8c4dbb13eb48945ed414b4503659b95ba424f8350b714bec6701830e7c6dc98aedbeef0f65ebf508376a39f4
   languageName: node
   linkType: hard
 
@@ -862,18 +862,18 @@ __metadata:
   dependencies:
     "@fastify/rate-limit": "npm:^10.1.1"
     "@fastify/sensible": "npm:^6.0.1"
-    "@fastify/static": "npm:^8.0.1"
+    "@fastify/static": "npm:^8.0.2"
     "@fastify/swagger": "npm:^9.2.0"
-    "@fastify/swagger-ui": "npm:^5.0.1"
+    "@fastify/swagger-ui": "npm:^5.1.0"
     "@fastify/type-provider-typebox": "npm:^5.0.0"
     "@pnotify/core": "npm:^5.2.0"
     "@sapphire/eslint-config": "npm:^5.0.5"
     "@sapphire/fetch": "npm:^3.0.3"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@sinclair/typebox": "npm:^0.33.16"
+    "@sinclair/typebox": "npm:^0.33.17"
     "@skyra/env-utilities": "npm:^1.3.0"
-    "@types/node": "npm:^20.16.11"
+    "@types/node": "npm:^20.16.13"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
     autoprefixer: "npm:^10.4.20"
@@ -889,7 +889,7 @@ __metadata:
     rimraf: "npm:^6.0.1"
     tsup: "npm:^8.3.0"
     typescript: "npm:^5.6.2"
-    vite: "npm:^5.4.8"
+    vite: "npm:^5.4.9"
   languageName: unknown
   linkType: soft
 
@@ -900,12 +900,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.16.11":
-  version: 20.16.11
-  resolution: "@types/node@npm:20.16.11"
+"@types/node@npm:^20.16.13":
+  version: 20.16.13
+  resolution: "@types/node@npm:20.16.13"
   dependencies:
     undici-types: "npm:~6.19.2"
-  checksum: 10/6d2f92b7b320c32ba0c2bc54d21651bd21690998a2e27f00d15019d4db3e0ec30fce85332efed5e37d4cda078ff93ea86ee3e92b76b7a25a9b92a52a039b60b2
+  checksum: 10/6e7b82119372cc12d28fcc1b0c10d1b8fa560bbb500f87a4c68bc446a0986d42c92e0f583040167841a0c598131979c3399b17c736c9fb8ba4f0dcf2b2048a84
   languageName: node
   linkType: hard
 
@@ -4245,9 +4245,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.4.8":
-  version: 5.4.8
-  resolution: "vite@npm:5.4.8"
+"vite@npm:^5.4.9":
+  version: 5.4.9
+  resolution: "vite@npm:5.4.9"
   dependencies:
     esbuild: "npm:^0.21.3"
     fsevents: "npm:~2.3.3"
@@ -4284,7 +4284,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/17fdffa558abaf854f04ead7d3ddd76e4556a59871f9ac63cca3fc20a79979984837d8dddaae4b171e3d73061f781e4eec0f6d3babdbce2b4d111d29cf474c1c
+  checksum: 10/60dfb3912ba6367d2d128e798d899caae3f4ec58990657b9f679c4d9de21ddec7eba5f6ad3d4fa0e8ea31771d477521b8e757a622ecc54829d73cb7f7c146bc4
   languageName: node
   linkType: hard
 
