@@ -505,12 +505,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/type-provider-typebox@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "@fastify/type-provider-typebox@npm:5.0.0"
+"@fastify/type-provider-typebox@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "@fastify/type-provider-typebox@npm:5.0.1"
   peerDependencies:
     "@sinclair/typebox": ">=0.26 <=0.33"
-  checksum: 10/3cc89989a312b31f6f8a9c6f4c5a13251d0a7a9aeea5f7f7d84538f995129a0af4fa71553b38106fd4a8d5f179bdb7985e1d0b8dc5e418c375ca493c7e84fc42
+  checksum: 10/744af89939f8d4ac1afa882cde783d8f413cea55d85d52e86a0d1169f3cadb7f9ebbe8f4ecc31a867af4e63da0d72ce7c63db2b7f518377b868bfae825a3be33
   languageName: node
   linkType: hard
 
@@ -806,10 +806,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/fetch@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "@sapphire/fetch@npm:3.0.3"
-  checksum: 10/4eed77aeb72d9a2fb4671b88e1e6d960c838ebd23d22735f78a385b295ed2938e348722b8b93da00aa8c9b1ec9a2e545b20d2f0100b5bd490c8f34734ae9831c
+"@sapphire/fetch@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "@sapphire/fetch@npm:3.0.4"
+  checksum: 10/e140b262c9d2440504d914fae8a5652b222f9ba6c36c9cca6e77a78ea23667a44d689aa84f72c0a08e42224b4e046bfc63e7ade8e2225724febf4f743b5d0e8f
   languageName: node
   linkType: hard
 
@@ -839,10 +839,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sinclair/typebox@npm:^0.33.17":
-  version: 0.33.17
-  resolution: "@sinclair/typebox@npm:0.33.17"
-  checksum: 10/980ac7ffe074e6b575ca4713d7a5c76e1bc08cae8c4dbb13eb48945ed414b4503659b95ba424f8350b714bec6701830e7c6dc98aedbeef0f65ebf508376a39f4
+"@sinclair/typebox@npm:^0.33.21":
+  version: 0.33.21
+  resolution: "@sinclair/typebox@npm:0.33.21"
+  checksum: 10/15d8261466ec0b04ef02bc8e75e6836984b3048db0b788e4e6883c7bbb6f27f944fa917f2b5813858c8d36bb202639a071b72af57335f14423757a9d9ae03f55
   languageName: node
   linkType: hard
 
@@ -865,24 +865,24 @@ __metadata:
     "@fastify/static": "npm:^8.0.2"
     "@fastify/swagger": "npm:^9.2.0"
     "@fastify/swagger-ui": "npm:^5.1.0"
-    "@fastify/type-provider-typebox": "npm:^5.0.0"
+    "@fastify/type-provider-typebox": "npm:^5.0.1"
     "@pnotify/core": "npm:^5.2.0"
     "@sapphire/eslint-config": "npm:^5.0.5"
-    "@sapphire/fetch": "npm:^3.0.3"
+    "@sapphire/fetch": "npm:^3.0.4"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@sinclair/typebox": "npm:^0.33.17"
+    "@sinclair/typebox": "npm:^0.33.21"
     "@skyra/env-utilities": "npm:^1.3.0"
-    "@types/node": "npm:^22.8.7"
+    "@types/node": "npm:^22.9.0"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
     autoprefixer: "npm:^10.4.20"
-    concurrently: "npm:^9.0.1"
+    concurrently: "npm:^9.1.0"
     esbuild-plugin-version-injector: "npm:^1.2.1"
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-prettier: "npm:^5.2.1"
-    fastify: "npm:^5.0.0"
+    fastify: "npm:^5.1.0"
     highlight.js: "npm:^11.10.0"
     ioredis: "npm:^5.4.1"
     prettier: "npm:^3.3.3"
@@ -900,12 +900,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.8.7":
-  version: 22.8.7
-  resolution: "@types/node@npm:22.8.7"
+"@types/node@npm:^22.9.0":
+  version: 22.9.0
+  resolution: "@types/node@npm:22.9.0"
   dependencies:
     undici-types: "npm:~6.19.8"
-  checksum: 10/9c73d4cbcbf9773a5986421025c26d6139d8ab960317b3062fbb449c00dbe8197230334be550ffcdb6059bd25f4cb903546bace905155628537283a80c2075d5
+  checksum: 10/a7df3426891868b0f5fb03e46aeddd8446178233521c624a44531c92a040cf08a82d8235f7e1e02af731fd16984665d4d71f3418caf9c2788313b10f040d615d
   languageName: node
   linkType: hard
 
@@ -1417,9 +1417,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"concurrently@npm:^9.0.1":
-  version: 9.0.1
-  resolution: "concurrently@npm:9.0.1"
+"concurrently@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "concurrently@npm:9.1.0"
   dependencies:
     chalk: "npm:^4.1.2"
     lodash: "npm:^4.17.21"
@@ -1431,7 +1431,7 @@ __metadata:
   bin:
     conc: dist/bin/concurrently.js
     concurrently: dist/bin/concurrently.js
-  checksum: 10/aae80b641c61a46dbb8831b79c81506f1c0b95a438c408e6b36d9aa84eb453c4126c608e58e8ed57049e068a5d868d16645475e15b9bb7902d684cd0e0bd1b34
+  checksum: 10/9ed158095a6dcb30b2fbc00f173a993d080b6eca466b8005650b051f82618991ba8ae76b39c41ae78780f83846154e5ec434753f402aa4401acf0ffb2422e1cf
   languageName: node
   linkType: hard
 
@@ -2045,9 +2045,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "fastify@npm:5.0.0"
+"fastify@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "fastify@npm:5.1.0"
   dependencies:
     "@fastify/ajv-compiler": "npm:^4.0.0"
     "@fastify/error": "npm:^4.0.0"
@@ -2064,7 +2064,7 @@ __metadata:
     secure-json-parse: "npm:^2.7.0"
     semver: "npm:^7.6.0"
     toad-cache: "npm:^3.7.0"
-  checksum: 10/192cf11117cceda4556e9f48050763797ca3383cf43bcb1b40696990f02d5aebc80ccd0429279e9c16ec050523b1a3a27ed6c77dc3330035487607229348dd97
+  checksum: 10/32ad1a2fcb1206f42ef8f600f59c11b6bba8b41c9c4b97dda895ecfd265f0127c0b9019335923b0208db73ca835ef996af65e6a62fe106a274f8e3973dcfd65d
   languageName: node
   linkType: hard
 
