@@ -437,16 +437,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/send@npm:^3.1.0":
-  version: 3.1.1
-  resolution: "@fastify/send@npm:3.1.1"
+"@fastify/send@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "@fastify/send@npm:3.2.0"
   dependencies:
     "@lukeed/ms": "npm:^2.0.2"
     escape-html: "npm:~1.0.3"
     fast-decode-uri-component: "npm:^1.0.1"
     http-errors: "npm:^2.0.0"
     mime: "npm:^3"
-  checksum: 10/52081bb74c3652e29aa1d8ea1f63af02d7d0487e412a9b105cd668fecd7fa0924f03ae77d2050fbe1b4d060e991a84967084638ad17db6478b9851da6dd648ef
+  checksum: 10/74f0bae4356271f694cb2e39b6958f6daca09032be8fa7633b97dec5ad4af60220daec894c23fcf8f28b48abc0242a2c8940a6bf225b17bebd0681ab8781b0bc
   languageName: node
   linkType: hard
 
@@ -465,17 +465,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/static@npm:^8.0.0, @fastify/static@npm:^8.0.2":
-  version: 8.0.2
-  resolution: "@fastify/static@npm:8.0.2"
+"@fastify/static@npm:^8.0.0, @fastify/static@npm:^8.0.3":
+  version: 8.0.3
+  resolution: "@fastify/static@npm:8.0.3"
   dependencies:
     "@fastify/accept-negotiator": "npm:^2.0.0"
-    "@fastify/send": "npm:^3.1.0"
+    "@fastify/send": "npm:^3.2.0"
     content-disposition: "npm:^0.5.4"
     fastify-plugin: "npm:^5.0.0"
     fastq: "npm:^1.17.1"
     glob: "npm:^11.0.0"
-  checksum: 10/a6d71351bc38a32778b3695ba02e8f65c5f33d11dd6f19e4f6a1c087bdbc97f7d6a310fd2b002104be112034e6ea3d0690be69c41c95713966667f244fbc0262
+  checksum: 10/077fdc5ca564f13789cb009530c07555e2213da923563abe0a70febc4fbaa8ab02eec70ab6dd67d66737269b92c57d87bab20e63f4c92d8c70ac38d458df616b
   languageName: node
   linkType: hard
 
@@ -492,16 +492,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/swagger@npm:^9.3.0":
-  version: 9.3.0
-  resolution: "@fastify/swagger@npm:9.3.0"
+"@fastify/swagger@npm:^9.4.0":
+  version: 9.4.0
+  resolution: "@fastify/swagger@npm:9.4.0"
   dependencies:
     fastify-plugin: "npm:^5.0.0"
     json-schema-resolver: "npm:^2.0.0"
     openapi-types: "npm:^12.1.3"
     rfdc: "npm:^1.3.1"
     yaml: "npm:^2.4.2"
-  checksum: 10/a66400ca374e42c7c405b91f7bada565c946eb2d8a1f452b1c006af545cce3487b9e002328be1803984c1fb2c895a1eea6c529f5efb051b82210c1c17e85889a
+  checksum: 10/c72cbb0bb3d8765529c7bd9e00a22a2b41fc1ebb588ac98bacf468ad0f2488573dd1bf1685e7ace4e854cebbffdaeba79fa813a0ff8b3038bea956786db3e836
   languageName: node
   linkType: hard
 
@@ -839,10 +839,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sinclair/typebox@npm:^0.34.2":
-  version: 0.34.2
-  resolution: "@sinclair/typebox@npm:0.34.2"
-  checksum: 10/b14f2a5d8a39ef66667651149f4294e066bf6d0523d92a01acdd2517f813c42f43ca1e0a25d45acf85b23302834321f3467a77d9cef30504c91406fdf15ad1f1
+"@sinclair/typebox@npm:^0.34.8":
+  version: 0.34.8
+  resolution: "@sinclair/typebox@npm:0.34.8"
+  checksum: 10/fcbad6b3b62550252cebdfbb5da509398bbf9064979d7d62c905e7225dcea7ff9662f1553e81aba24a00e4fa5aedb548a4cf32d7cddaf1c691eed75b0212d1f7
   languageName: node
   linkType: hard
 
@@ -862,8 +862,8 @@ __metadata:
   dependencies:
     "@fastify/rate-limit": "npm:^10.2.1"
     "@fastify/sensible": "npm:^6.0.1"
-    "@fastify/static": "npm:^8.0.2"
-    "@fastify/swagger": "npm:^9.3.0"
+    "@fastify/static": "npm:^8.0.3"
+    "@fastify/swagger": "npm:^9.4.0"
     "@fastify/swagger-ui": "npm:^5.1.0"
     "@fastify/type-provider-typebox": "npm:^5.0.1"
     "@pnotify/core": "npm:^5.2.0"
@@ -871,9 +871,9 @@ __metadata:
     "@sapphire/fetch": "npm:^3.0.5"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@sinclair/typebox": "npm:^0.34.2"
+    "@sinclair/typebox": "npm:^0.34.8"
     "@skyra/env-utilities": "npm:^1.3.0"
-    "@types/node": "npm:^22.9.0"
+    "@types/node": "npm:^22.9.3"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
     autoprefixer: "npm:^10.4.20"
@@ -900,12 +900,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.9.0":
-  version: 22.9.0
-  resolution: "@types/node@npm:22.9.0"
+"@types/node@npm:^22.9.3":
+  version: 22.9.3
+  resolution: "@types/node@npm:22.9.3"
   dependencies:
     undici-types: "npm:~6.19.8"
-  checksum: 10/a7df3426891868b0f5fb03e46aeddd8446178233521c624a44531c92a040cf08a82d8235f7e1e02af731fd16984665d4d71f3418caf9c2788313b10f040d615d
+  checksum: 10/c32a03ff998b8c6cf7d653216508a92b1e6569dd5031ea6cfc2aaa8c75ebbf4172bf1602f0e1f673086e210787dc96667b99ba4d919bc151f9a1f88aeac42822
   languageName: node
   linkType: hard
 
