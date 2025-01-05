@@ -35,11 +35,11 @@
 		"@sapphire/eslint-config": "^5.0.5",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^22.10.2",
+		"@types/node": "^22.10.5",
 		"@typescript-eslint/eslint-plugin": "^7.18.0",
 		"@typescript-eslint/parser": "^7.18.0",
 		"autoprefixer": "^10.4.20",
-		"concurrently": "^9.1.1",
+		"concurrently": "^9.1.2",
 		"esbuild-plugin-version-injector": "^1.2.1",
 		"eslint": "^8.57.1",
 		"eslint-config-prettier": "^9.1.0",
@@ -48,10 +48,10 @@
 		"rimraf": "^6.0.1",
 		"tsup": "^8.3.5",
 		"typescript": "^5.6.3",
-		"vite": "^6.0.6"
+		"vite": "^6.0.7"
 	},
 	"eslintConfig": {
 		"extends": "@sapphire"
 	},
-	"packageManager": "yarn@4.5.3"
+	"packageManager": "yarn@4.6.0"
 }
