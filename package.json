@@ -17,17 +17,17 @@
 		"format": "prettier --write src"
 	},
 	"dependencies": {
-		"@fastify/rate-limit": "^10.2.1",
+		"@fastify/rate-limit": "^10.2.2",
 		"@fastify/sensible": "^6.0.2",
-		"@fastify/static": "^8.0.3",
-		"@fastify/swagger": "^9.4.0",
-		"@fastify/swagger-ui": "^5.2.0",
+		"@fastify/static": "^8.0.4",
+		"@fastify/swagger": "^9.4.1",
+		"@fastify/swagger-ui": "^5.2.1",
 		"@fastify/type-provider-typebox": "^5.1.0",
 		"@pnotify/core": "^5.2.0",
 		"@sapphire/fetch": "^3.0.5",
 		"@sinclair/typebox": "^0.34.13",
 		"@skyra/env-utilities": "^1.3.0",
-		"fastify": "^5.2.0",
+		"fastify": "^5.2.1",
 		"highlight.js": "^11.11.1",
 		"ioredis": "^5.4.2"
 	},
