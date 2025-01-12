@@ -263,6 +263,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fastify/forwarded@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@fastify/forwarded@npm:3.0.0"
+  checksum: 10/5da4417fa6a4c39f40cb10aa6f6fe0c970d24974ad9e729512ba381c7b1b768c924a3deadc60eb3a02d756086746aa9b12a5afb4032c16ca7a7ca5e3c2830155
+  languageName: node
+  linkType: hard
+
 "@fastify/merge-json-schemas@npm:^0.1.1":
   version: 0.1.1
   resolution: "@fastify/merge-json-schemas@npm:0.1.1"
@@ -272,14 +279,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/rate-limit@npm:^10.2.1":
-  version: 10.2.1
-  resolution: "@fastify/rate-limit@npm:10.2.1"
+"@fastify/proxy-addr@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@fastify/proxy-addr@npm:5.0.0"
+  dependencies:
+    "@fastify/forwarded": "npm:^3.0.0"
+    ipaddr.js: "npm:^2.1.0"
+  checksum: 10/7aa26049de8aed5c2eefb58e1d66bc354509036e539a5bf56e684eb03bc6dd2aa862192b09ca2dd14891dad1e96f6ff07b248be2e68cefd7578f0c1452b35f64
+  languageName: node
+  linkType: hard
+
+"@fastify/rate-limit@npm:^10.2.2":
+  version: 10.2.2
+  resolution: "@fastify/rate-limit@npm:10.2.2"
   dependencies:
     "@lukeed/ms": "npm:^2.0.2"
     fastify-plugin: "npm:^5.0.0"
     toad-cache: "npm:^3.7.0"
-  checksum: 10/5e0098daa4b4a4901a5c76449a1600842caec5cebe8b00fef00562766f13b9944e64f95d5fac208c11ed3ea440bcd95a475e6c7c3d997cecd41ad93992eb6aa1
+  checksum: 10/36ece40fcda49bd1182f45c5fcd9052d9cf1cc63c7731274d470b374c6d95733e68371f8befae0084f9b5efcde7435b37a93fe1680ceaa24635142bfdcd1d527
   languageName: node
   linkType: hard
 
@@ -311,9 +328,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/static@npm:^8.0.0, @fastify/static@npm:^8.0.3":
-  version: 8.0.3
-  resolution: "@fastify/static@npm:8.0.3"
+"@fastify/static@npm:^8.0.0, @fastify/static@npm:^8.0.4":
+  version: 8.0.4
+  resolution: "@fastify/static@npm:8.0.4"
   dependencies:
     "@fastify/accept-negotiator": "npm:^2.0.0"
     "@fastify/send": "npm:^3.2.0"
@@ -321,33 +338,33 @@ __metadata:
     fastify-plugin: "npm:^5.0.0"
     fastq: "npm:^1.17.1"
     glob: "npm:^11.0.0"
-  checksum: 10/077fdc5ca564f13789cb009530c07555e2213da923563abe0a70febc4fbaa8ab02eec70ab6dd67d66737269b92c57d87bab20e63f4c92d8c70ac38d458df616b
+  checksum: 10/84e333e39997c808b39b9df4f56d3282fe4c03626fd363b9912e4fc0c65cef5a67cd659cf98fe5031e7f96a13c6341267c4f3c31b126f4a2f2ffd2a3de35e948
   languageName: node
   linkType: hard
 
-"@fastify/swagger-ui@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "@fastify/swagger-ui@npm:5.2.0"
+"@fastify/swagger-ui@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "@fastify/swagger-ui@npm:5.2.1"
   dependencies:
     "@fastify/static": "npm:^8.0.0"
     fastify-plugin: "npm:^5.0.0"
     openapi-types: "npm:^12.1.3"
     rfdc: "npm:^1.3.1"
     yaml: "npm:^2.4.1"
-  checksum: 10/809ef5b96a16c36147acbd3c94536a442d2b37ff1cabed9eb9a0bb47984116cbfd94e4c610a302c4deb945cc4484254d473ef47ebfe8b3d9b7e5149cbb657097
+  checksum: 10/9c27a2d55c41994c2d9b4aff55f3476d4dc1c6f67b30f05df5beeb61d0337deae8095959b882a8680b9bdee99375c8ef118b93ec6c39c7e998a5f853c7a5a367
   languageName: node
   linkType: hard
 
-"@fastify/swagger@npm:^9.4.0":
-  version: 9.4.0
-  resolution: "@fastify/swagger@npm:9.4.0"
+"@fastify/swagger@npm:^9.4.1":
+  version: 9.4.1
+  resolution: "@fastify/swagger@npm:9.4.1"
   dependencies:
     fastify-plugin: "npm:^5.0.0"
     json-schema-resolver: "npm:^2.0.0"
     openapi-types: "npm:^12.1.3"
     rfdc: "npm:^1.3.1"
     yaml: "npm:^2.4.2"
-  checksum: 10/c72cbb0bb3d8765529c7bd9e00a22a2b41fc1ebb588ac98bacf468ad0f2488573dd1bf1685e7ace4e854cebbffdaeba79fa813a0ff8b3038bea956786db3e836
+  checksum: 10/b65eda41f43bfafb278bea150745a893005610504f778b42a17bd6e9987bcf71c96471ed5dc1c1ff3e51f803667bdd91010569418676f88271a18c666ead167f
   languageName: node
   linkType: hard
 
@@ -720,11 +737,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@skyra/haste-server@workspace:."
   dependencies:
-    "@fastify/rate-limit": "npm:^10.2.1"
+    "@fastify/rate-limit": "npm:^10.2.2"
     "@fastify/sensible": "npm:^6.0.2"
-    "@fastify/static": "npm:^8.0.3"
-    "@fastify/swagger": "npm:^9.4.0"
-    "@fastify/swagger-ui": "npm:^5.2.0"
+    "@fastify/static": "npm:^8.0.4"
+    "@fastify/swagger": "npm:^9.4.1"
+    "@fastify/swagger-ui": "npm:^5.2.1"
     "@fastify/type-provider-typebox": "npm:^5.1.0"
     "@pnotify/core": "npm:^5.2.0"
     "@sapphire/eslint-config": "npm:^5.0.5"
@@ -742,7 +759,7 @@ __metadata:
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-prettier: "npm:^5.2.1"
-    fastify: "npm:^5.2.0"
+    fastify: "npm:^5.2.1"
     highlight.js: "npm:^11.11.1"
     ioredis: "npm:^5.4.2"
     prettier: "npm:^3.4.2"
@@ -1828,13 +1845,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "fastify@npm:5.2.0"
+"fastify@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "fastify@npm:5.2.1"
   dependencies:
     "@fastify/ajv-compiler": "npm:^4.0.0"
     "@fastify/error": "npm:^4.0.0"
     "@fastify/fast-json-stringify-compiler": "npm:^5.0.0"
+    "@fastify/proxy-addr": "npm:^5.0.0"
     abstract-logging: "npm:^2.0.1"
     avvio: "npm:^9.0.0"
     fast-json-stringify: "npm:^6.0.0"
@@ -1842,12 +1860,11 @@ __metadata:
     light-my-request: "npm:^6.0.0"
     pino: "npm:^9.0.0"
     process-warning: "npm:^4.0.0"
-    proxy-addr: "npm:^2.0.7"
     rfdc: "npm:^1.3.1"
     secure-json-parse: "npm:^3.0.1"
     semver: "npm:^7.6.0"
     toad-cache: "npm:^3.7.0"
-  checksum: 10/70fabc3d08797f266dc5befc506b5bf2aa2d07ca3f1449e768df07d8ea34df0dd6a10720ccc1422525679f9b807fc91b0ec2083c2f6fc3ee464ee75b11afcbd4
+  checksum: 10/ac785822186ecac6183dd81659b8315c0567eca3c768e2acf89a9389cc6babe9dada0d886965129617d3c25cbd70c83975362a79000f8c5aab77229b3d84d464
   languageName: node
   linkType: hard
 
@@ -1939,7 +1956,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"forwarded@npm:0.2.0, forwarded@npm:^0.2.0":
+"forwarded@npm:^0.2.0":
   version: 0.2.0
   resolution: "forwarded@npm:0.2.0"
   checksum: 10/29ba9fd347117144e97cbb8852baae5e8b2acb7d1b591ef85695ed96f5b933b1804a7fac4a15dd09ca7ac7d0cdc104410e8102aae2dd3faa570a797ba07adb81
@@ -2249,10 +2266,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ipaddr.js@npm:1.9.1":
-  version: 1.9.1
-  resolution: "ipaddr.js@npm:1.9.1"
-  checksum: 10/864d0cced0c0832700e9621913a6429ccdc67f37c1bd78fb8c6789fff35c9d167cb329134acad2290497a53336813ab4798d2794fd675d5eb33b5fdf0982b9ca
+"ipaddr.js@npm:^2.1.0":
+  version: 2.2.0
+  resolution: "ipaddr.js@npm:2.2.0"
+  checksum: 10/9e1cdd9110b3bca5d910ab70d7fb1933e9c485d9b92cb14ef39f30c412ba3fe02a553921bf696efc7149cc653453c48ccf173adb996ec27d925f1f340f872986
   languageName: node
   linkType: hard
 
@@ -3107,16 +3124,6 @@ __metadata:
     err-code: "npm:^2.0.2"
     retry: "npm:^0.12.0"
   checksum: 10/96e1a82453c6c96eef53a37a1d6134c9f2482f94068f98a59145d0986ca4e497bf110a410adf73857e588165eab3899f0ebcf7b3890c1b3ce802abc0d65967d4
-  languageName: node
-  linkType: hard
-
-"proxy-addr@npm:^2.0.7":
-  version: 2.0.7
-  resolution: "proxy-addr@npm:2.0.7"
-  dependencies:
-    forwarded: "npm:0.2.0"
-    ipaddr.js: "npm:1.9.1"
-  checksum: 10/f24a0c80af0e75d31e3451398670d73406ec642914da11a2965b80b1898ca6f66a0e3e091a11a4327079b2b268795f6fa06691923fef91887215c3d0e8ea3f68
   languageName: node
   linkType: hard
 
