@@ -355,16 +355,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/swagger@npm:^9.4.1":
-  version: 9.4.1
-  resolution: "@fastify/swagger@npm:9.4.1"
+"@fastify/swagger@npm:^9.4.2":
+  version: 9.4.2
+  resolution: "@fastify/swagger@npm:9.4.2"
   dependencies:
     fastify-plugin: "npm:^5.0.0"
-    json-schema-resolver: "npm:^2.0.0"
+    json-schema-resolver: "npm:^3.0.0"
     openapi-types: "npm:^12.1.3"
     rfdc: "npm:^1.3.1"
     yaml: "npm:^2.4.2"
-  checksum: 10/b65eda41f43bfafb278bea150745a893005610504f778b42a17bd6e9987bcf71c96471ed5dc1c1ff3e51f803667bdd91010569418676f88271a18c666ead167f
+  checksum: 10/66e603458b8c965276b5a694334288262cd3f24b8942010c357d61e0af42426440dc97c3af2a850daf6513064613c7052a62ac02ff7006be3f9c17b9e8705c37
   languageName: node
   linkType: hard
 
@@ -740,7 +740,7 @@ __metadata:
     "@fastify/rate-limit": "npm:^10.2.2"
     "@fastify/sensible": "npm:^6.0.2"
     "@fastify/static": "npm:^8.0.4"
-    "@fastify/swagger": "npm:^9.4.1"
+    "@fastify/swagger": "npm:^9.4.2"
     "@fastify/swagger-ui": "npm:^5.2.1"
     "@fastify/type-provider-typebox": "npm:^5.1.0"
     "@pnotify/core": "npm:^5.2.0"
@@ -750,7 +750,7 @@ __metadata:
     "@sapphire/ts-config": "npm:^5.0.1"
     "@sinclair/typebox": "npm:^0.34.14"
     "@skyra/env-utilities": "npm:^1.3.0"
-    "@types/node": "npm:^22.10.7"
+    "@types/node": "npm:^22.12.0"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
     autoprefixer: "npm:^10.4.20"
@@ -764,9 +764,9 @@ __metadata:
     ioredis: "npm:^5.4.2"
     prettier: "npm:^3.4.2"
     rimraf: "npm:^6.0.1"
-    tsup: "npm:^8.3.5"
+    tsup: "npm:^8.3.6"
     typescript: "npm:^5.6.3"
-    vite: "npm:^6.0.7"
+    vite: "npm:^6.0.11"
   languageName: unknown
   linkType: soft
 
@@ -777,12 +777,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.10.7":
-  version: 22.10.7
-  resolution: "@types/node@npm:22.10.7"
+"@types/node@npm:^22.12.0":
+  version: 22.12.0
+  resolution: "@types/node@npm:22.12.0"
   dependencies:
     undici-types: "npm:~6.20.0"
-  checksum: 10/64cde1c2f5e5f7d597d3bd462f52c3c2d688a66623eb75d25e1d1d63d384ef553a27100635ad0dbb7d74da517048aa636947863eb624cf85f25d2f22370ce474
+  checksum: 10/aac2b6f6a845ec3540c3d979b3150efe3162165bfda953af10b579df2d1cc4f5c48506922bf6bf661a2e5a7ebb571c5729bf1f9f12488a810bb1a5fa9522ef9d
   languageName: node
   linkType: hard
 
@@ -1842,10 +1842,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-uri@npm:^3.0.0, fast-uri@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "fast-uri@npm:3.0.1"
-  checksum: 10/e8ee4712270de0d29eb0fbf41ffad0ac80952e8797be760e8bb62c4707f08f50a86fe2d7829681ca133c07d6eb4b4a75389a5fc36674c5b254a3ac0891a68fc7
+"fast-uri@npm:^3.0.0, fast-uri@npm:^3.0.1, fast-uri@npm:^3.0.5":
+  version: 3.0.6
+  resolution: "fast-uri@npm:3.0.6"
+  checksum: 10/43c87cd03926b072a241590e49eca0e2dfe1d347ddffd4b15307613b42b8eacce00a315cf3c7374736b5f343f27e27ec88726260eb03a758336d507d6fbaba0a
   languageName: node
   linkType: hard
 
@@ -2409,14 +2409,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-schema-resolver@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "json-schema-resolver@npm:2.0.0"
+"json-schema-resolver@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "json-schema-resolver@npm:3.0.0"
   dependencies:
     debug: "npm:^4.1.1"
+    fast-uri: "npm:^3.0.5"
     rfdc: "npm:^1.1.4"
-    uri-js: "npm:^4.2.2"
-  checksum: 10/829b951001d5ca605598aaa137b4fa7ef675f4ae11d7f156fee0616353c6e64d5278b405e8fb4823f15dd826cafd1727ed005ff52291975c408b7fcd14b7709b
+  checksum: 10/dc405682e000a180da79c3609a0bb66e3dbda775f20fe3d63122e089bc406e07fec48644cc4049bce20f020a72979e6fc05360deb865a8fc2827ec46a47b7529
   languageName: node
   linkType: hard
 
@@ -3788,9 +3788,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsup@npm:^8.3.5":
-  version: 8.3.5
-  resolution: "tsup@npm:8.3.5"
+"tsup@npm:^8.3.6":
+  version: 8.3.6
+  resolution: "tsup@npm:8.3.6"
   dependencies:
     bundle-require: "npm:^5.0.0"
     cac: "npm:^6.7.14"
@@ -3825,7 +3825,7 @@ __metadata:
   bin:
     tsup: dist/cli-default.js
     tsup-node: dist/cli-node.js
-  checksum: 10/8cf694d5fe7923c47273388f7fb203fe64fe66efb65a96829d361de3360d4db4299e7f82f4e6354716b580c9a1eadb336a25759f90fdc61fe816d5d7d9a28003
+  checksum: 10/ee70995a5d155ea7d9d1e0491f46520fe250393ed7935d8776956fc3380d3c992b06e6a01223187712eb32f52ff06dbc66c60cbe5dc91c4bd1415ad6d238b517
   languageName: node
   linkType: hard
 
@@ -3930,7 +3930,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^6.0.7":
+"vite@npm:^6.0.11":
   version: 6.0.11
   resolution: "vite@npm:6.0.11"
   dependencies:
