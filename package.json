@@ -27,31 +27,31 @@
 		"@sapphire/fetch": "^3.0.5",
 		"@sinclair/typebox": "^0.34.33",
 		"@skyra/env-utilities": "^2.0.0",
-		"fastify": "^5.2.2",
+		"fastify": "^5.3.0",
 		"highlight.js": "^11.11.1",
-		"ioredis": "^5.6.0"
+		"ioredis": "^5.6.1"
 	},
 	"devDependencies": {
 		"@sapphire/eslint-config": "^5.0.5",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^22.14.0",
+		"@types/node": "^22.14.1",
 		"@typescript-eslint/eslint-plugin": "^7.18.0",
 		"@typescript-eslint/parser": "^7.18.0",
 		"autoprefixer": "^10.4.21",
 		"concurrently": "^9.1.2",
 		"esbuild-plugin-version-injector": "^1.2.1",
 		"eslint": "^8.57.1",
-		"eslint-config-prettier": "^10.1.1",
+		"eslint-config-prettier": "^10.1.2",
 		"eslint-plugin-prettier": "^5.2.6",
 		"prettier": "^3.5.3",
 		"rimraf": "^6.0.1",
 		"tsup": "^8.4.0",
 		"typescript": "^5.6.3",
-		"vite": "^6.2.5"
+		"vite": "^6.2.6"
 	},
 	"eslintConfig": {
 		"extends": "@sapphire"
 	},
-	"packageManager": "yarn@4.8.1"
+	"packageManager": "yarn@4.9.0"
 }
