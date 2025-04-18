@@ -766,7 +766,7 @@ __metadata:
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^10.1.2"
     eslint-plugin-prettier: "npm:^5.2.6"
-    fastify: "npm:^5.3.0"
+    fastify: "npm:^5.3.1"
     highlight.js: "npm:^11.11.1"
     ioredis: "npm:^5.6.1"
     prettier: "npm:^3.5.3"
@@ -1865,9 +1865,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:^5.3.0":
-  version: 5.3.0
-  resolution: "fastify@npm:5.3.0"
+"fastify@npm:^5.3.1":
+  version: 5.3.1
+  resolution: "fastify@npm:5.3.1"
   dependencies:
     "@fastify/ajv-compiler": "npm:^4.0.0"
     "@fastify/error": "npm:^4.0.0"
@@ -1884,7 +1884,7 @@ __metadata:
     secure-json-parse: "npm:^4.0.0"
     semver: "npm:^7.6.0"
     toad-cache: "npm:^3.7.0"
-  checksum: 10/efbb0f29d7e4a9ace5f5f5c71e1005b033f19e69f89ab945f43f1be0d739c93235bdf6f6c632531269648329e3b1c9564f2e59377c38399f292c0cff5b6c6a16
+  checksum: 10/8afe5bb884804b6731288cd7f3cba2faaa60d3d029b01d363e0594037c9bd5af6e1c0cb124ca7c0cf9cc36d87a0dad8a41cf0268e4e952d87fb648535ba4021d
   languageName: node
   linkType: hard
 
