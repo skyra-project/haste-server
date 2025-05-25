@@ -737,13 +737,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@skyra/env-utilities@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@skyra/env-utilities@npm:2.0.0"
+"@skyra/env-utilities@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@skyra/env-utilities@npm:2.0.1"
   dependencies:
-    dotenv: "npm:^16.4.7"
-    dotenv-expand: "npm:^12.0.1"
-  checksum: 10/bd52a4516db90ae7feaa9802330570ec510f51ed14ce8d68bcfd8ae7de071f1f7ec6d9da96bb153421f3eb0d4f079c7550afcaedeb189684cae2cca3404d1a85
+    dotenv: "npm:^16.5.0"
+    dotenv-expand: "npm:^12.0.2"
+  checksum: 10/1575fc2cf12a17fc835dc8b6437176df58f91d78cddd7387c76917f49378830003dbaba04324c3689927ec2d9a71c1982e761aa2e1c9cbd14f1fde180c7a215c
   languageName: node
   linkType: hard
 
@@ -763,7 +763,7 @@ __metadata:
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
     "@sinclair/typebox": "npm:^0.34.33"
-    "@skyra/env-utilities": "npm:^2.0.0"
+    "@skyra/env-utilities": "npm:^2.0.1"
     "@types/node": "npm:^22.15.21"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
@@ -1425,19 +1425,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv-expand@npm:^12.0.1":
-  version: 12.0.1
-  resolution: "dotenv-expand@npm:12.0.1"
+"dotenv-expand@npm:^12.0.2":
+  version: 12.0.2
+  resolution: "dotenv-expand@npm:12.0.2"
   dependencies:
     dotenv: "npm:^16.4.5"
-  checksum: 10/ceae1314c3c537c5a8d7f621013603d844e02290ad20b937cc59d7236aa6feb1a0dc94a0085d22d24da3a1cab2fef426d29b08034be5d46f46e4c8a5313014fa
+  checksum: 10/c956c8ff62ae4da7dd320f032da49f383cce5578a890ad4a432e882e8f0966d54fbcc6b94058cf07dd48773916b9843fe65958d1567cb5d7ee7a3ffad4739ba1
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.4.5, dotenv@npm:^16.4.7":
-  version: 16.4.7
-  resolution: "dotenv@npm:16.4.7"
-  checksum: 10/f13bfe97db88f0df4ec505eeffb8925ec51f2d56a3d0b6d916964d8b4af494e6fb1633ba5d09089b552e77ab2a25de58d70259b2c5ed45ec148221835fc99a0c
+"dotenv@npm:^16.4.5, dotenv@npm:^16.5.0":
+  version: 16.5.0
+  resolution: "dotenv@npm:16.5.0"
+  checksum: 10/e68a16834f1a41cc2dfb01563bc150668ad675e6cd09191211467b5c0806b6ecd6ec438e021aa8e01cd0e72d2b70ef4302bec7cc0fe15b6955f85230b62dc8a9
   languageName: node
   linkType: hard
 
