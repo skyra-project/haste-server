@@ -342,16 +342,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/swagger-ui@npm:^5.2.2":
-  version: 5.2.2
-  resolution: "@fastify/swagger-ui@npm:5.2.2"
+"@fastify/swagger-ui@npm:^5.2.3":
+  version: 5.2.3
+  resolution: "@fastify/swagger-ui@npm:5.2.3"
   dependencies:
     "@fastify/static": "npm:^8.0.0"
     fastify-plugin: "npm:^5.0.0"
     openapi-types: "npm:^12.1.3"
     rfdc: "npm:^1.3.1"
     yaml: "npm:^2.4.1"
-  checksum: 10/1258d8bf0a0941296002bfadbec80f232c7423a97d1e528958dce6c19ef34749abf2c550657f77d5d054dc1631b9d8bc48c1a3e0f3cf4058f80293ad29be72b0
+  checksum: 10/acc2af714768f0fbbfaee08bbd8e0ea76dbefa8c546014781ac0d5242f82ed369ce288145a1491582f38064ded8f1eec4d2f2e769d9230d3286c0b0da515df19
   languageName: node
   linkType: hard
 
@@ -528,10 +528,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pkgr/core@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "@pkgr/core@npm:0.2.0"
-  checksum: 10/b7e126161ecf59ceaa0a95ba4b937cc57bf29c42bd72dc129391e4c9ab06aac31e37379dde4f523a736aab9765b18c2494096eedcbe1f494df415998eef2b949
+"@pkgr/core@npm:^0.2.4":
+  version: 0.2.5
+  resolution: "@pkgr/core@npm:0.2.5"
+  checksum: 10/9df63a2b98c26532ca7c7b468c31e1826b3f340e22e3f7929f93e4082c172b8811dcf655db1e7301bde7ada211d81818a682bb33fdcf173dce4b3fc223022436
   languageName: node
   linkType: hard
 
@@ -755,7 +755,7 @@ __metadata:
     "@fastify/sensible": "npm:^6.0.3"
     "@fastify/static": "npm:^8.2.0"
     "@fastify/swagger": "npm:^9.5.1"
-    "@fastify/swagger-ui": "npm:^5.2.2"
+    "@fastify/swagger-ui": "npm:^5.2.3"
     "@fastify/type-provider-typebox": "npm:^5.1.0"
     "@pnotify/core": "npm:^5.2.0"
     "@sapphire/eslint-config": "npm:^5.0.6"
@@ -764,7 +764,7 @@ __metadata:
     "@sapphire/ts-config": "npm:^5.0.1"
     "@sinclair/typebox": "npm:^0.34.33"
     "@skyra/env-utilities": "npm:^2.0.1"
-    "@types/node": "npm:^22.15.21"
+    "@types/node": "npm:^22.15.29"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
     autoprefixer: "npm:^10.4.21"
@@ -772,7 +772,7 @@ __metadata:
     esbuild-plugin-version-injector: "npm:^1.2.1"
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^10.1.5"
-    eslint-plugin-prettier: "npm:^5.4.0"
+    eslint-plugin-prettier: "npm:^5.4.1"
     fastify: "npm:^5.3.3"
     highlight.js: "npm:^11.11.1"
     ioredis: "npm:^5.6.1"
@@ -791,12 +791,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.15.21":
-  version: 22.15.21
-  resolution: "@types/node@npm:22.15.21"
+"@types/node@npm:^22.15.29":
+  version: 22.15.29
+  resolution: "@types/node@npm:22.15.29"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10/cb4189587cca445bfb8166c0ed39f9344d743f37f3da892f2999a99bbabda45dc773237e61ecb7d1dc83dd95718cb1b5715b0be5dd7953565b19019e36a7cf39
+  checksum: 10/3426790c5aa22df445213d7f37e57ea261cf3013030fe9b3025d87c302097799a9db3b848e2a9bdb07cab8ec6c7e9947ac770cf11e12e420148296b63d63e7db
   languageName: node
   linkType: hard
 
@@ -1619,12 +1619,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:^5.4.0":
-  version: 5.4.0
-  resolution: "eslint-plugin-prettier@npm:5.4.0"
+"eslint-plugin-prettier@npm:^5.4.0, eslint-plugin-prettier@npm:^5.4.1":
+  version: 5.4.1
+  resolution: "eslint-plugin-prettier@npm:5.4.1"
   dependencies:
     prettier-linter-helpers: "npm:^1.0.0"
-    synckit: "npm:^0.11.0"
+    synckit: "npm:^0.11.7"
   peerDependencies:
     "@types/eslint": ">=8.0.0"
     eslint: ">=8.0.0"
@@ -1635,7 +1635,7 @@ __metadata:
       optional: true
     eslint-config-prettier:
       optional: true
-  checksum: 10/c1ebd3109f3214b71239e168b5bb51343dc3527f1ebde430595c837d9eecd453c7e89185873d2f7dcfb14b3fc65902e6596de5d6d62b895dc07d822b45643061
+  checksum: 10/ad7b1efa996cbd419cbb881182c58bce1c6c35d1cf30186c0e330437c4e551da4599b8c8aa7464b27d43fb57990837698ebaa9d238ba084dc1410f6caf31c000
   languageName: node
   linkType: hard
 
@@ -3724,13 +3724,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"synckit@npm:^0.11.0":
-  version: 0.11.2
-  resolution: "synckit@npm:0.11.2"
+"synckit@npm:^0.11.7":
+  version: 0.11.8
+  resolution: "synckit@npm:0.11.8"
   dependencies:
-    "@pkgr/core": "npm:^0.2.0"
-    tslib: "npm:^2.8.1"
-  checksum: 10/8dbf20a9f1cb9f168062b505302f87b434b6f808d61af94183583b1201f33ba0026469fb81dd20074c980bc56237c6bd4ccb640433b5734eef14f5a90c1bbf18
+    "@pkgr/core": "npm:^0.2.4"
+  checksum: 10/9bb2cf11edaf31ba781f1c719dd58087323201bda6392254538aef4dea216aa02a32e25f06643bcfa1c1a2c95e0d84186d82cfb66f9a0ab3a2be4816c696a8a3
   languageName: node
   linkType: hard
 
@@ -3856,7 +3855,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.1.0, tslib@npm:^2.6.2, tslib@npm:^2.8.1":
+"tslib@npm:^2.1.0, tslib@npm:^2.6.2":
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10/3e2e043d5c2316461cb54e5c7fe02c30ef6dccb3384717ca22ae5c6b5bc95232a6241df19c622d9c73b809bea33b187f6dbc73030963e29950c2141bc32a79f7
