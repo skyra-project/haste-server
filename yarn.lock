@@ -730,10 +730,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sinclair/typebox@npm:^0.34.39":
-  version: 0.34.39
-  resolution: "@sinclair/typebox@npm:0.34.39"
-  checksum: 10/3031d8a1414dfbef430a3f8dc85d89103e9e50a2756d7b8e7824229f1f2a529483ce5f9cc570f2c58500da149ca2dd54d5be6837b75af491c0d6bd8161a06f9e
+"@sinclair/typebox@npm:^0.34.40":
+  version: 0.34.40
+  resolution: "@sinclair/typebox@npm:0.34.40"
+  checksum: 10/d167bf62ab8bb60b618fa13659e494476ccf47f03688bdb626e59848fb9f828db11ca78eafd53d4c236b32c6ca3c20dabf48ba3cd82cdab680b806684092e1d2
   languageName: node
   linkType: hard
 
@@ -762,7 +762,7 @@ __metadata:
     "@sapphire/fetch": "npm:^3.0.5"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@sinclair/typebox": "npm:^0.34.39"
+    "@sinclair/typebox": "npm:^0.34.40"
     "@skyra/env-utilities": "npm:^2.0.1"
     "@types/node": "npm:^22.17.2"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
