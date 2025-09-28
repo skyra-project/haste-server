@@ -355,16 +355,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/swagger@npm:^9.5.1":
-  version: 9.5.1
-  resolution: "@fastify/swagger@npm:9.5.1"
+"@fastify/swagger@npm:^9.5.2":
+  version: 9.5.2
+  resolution: "@fastify/swagger@npm:9.5.2"
   dependencies:
     fastify-plugin: "npm:^5.0.0"
     json-schema-resolver: "npm:^3.0.0"
     openapi-types: "npm:^12.1.3"
     rfdc: "npm:^1.3.1"
     yaml: "npm:^2.4.2"
-  checksum: 10/a3dc99e02977c355b7ab87b0dcde488c59b6088e98da8978fd73ba60fac7a8d1307c0298e93b65e8a5eca65cebccf8ee15e7367fa3fce128f785d0b95c16b2b5
+  checksum: 10/8eb6c711698f534b438394c5a95a4ac57cce60d4b20b242efee682ff1d32583170226d7e655c2d63bb2c1ae45e021426c6881d6ebafb55d774b7c170d8e70b02
   languageName: node
   linkType: hard
 
@@ -402,10 +402,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ioredis/commands@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "@ioredis/commands@npm:1.3.0"
-  checksum: 10/203029f09d6ed626677aff01c2a8358af1dfe0f26ebe2e36b18ec2af10721b04d316174aa4e75f37477a316aef065abb492f830c58f6ab7df361af1796c94a7e
+"@ioredis/commands@npm:1.4.0":
+  version: 1.4.0
+  resolution: "@ioredis/commands@npm:1.4.0"
+  checksum: 10/ea299f22057139261ebd7dbc7fc85615e90c254e667620a276d3cf771b9d9190ffbdf25af6586c3f52598a2c830d64bee17f32c3ce734db403e93f73548d54d4
   languageName: node
   linkType: hard
 
@@ -754,7 +754,7 @@ __metadata:
     "@fastify/rate-limit": "npm:^10.3.0"
     "@fastify/sensible": "npm:^6.0.3"
     "@fastify/static": "npm:^8.2.0"
-    "@fastify/swagger": "npm:^9.5.1"
+    "@fastify/swagger": "npm:^9.5.2"
     "@fastify/swagger-ui": "npm:^5.2.3"
     "@fastify/type-provider-typebox": "npm:^5.2.0"
     "@pnotify/core": "npm:^5.2.0"
@@ -773,14 +773,14 @@ __metadata:
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^10.1.8"
     eslint-plugin-prettier: "npm:^5.5.4"
-    fastify: "npm:^5.6.0"
+    fastify: "npm:^5.6.1"
     highlight.js: "npm:^11.11.1"
-    ioredis: "npm:^5.7.0"
+    ioredis: "npm:^5.8.0"
     prettier: "npm:^3.6.2"
     rimraf: "npm:^6.0.1"
     tsup: "npm:^8.5.0"
     typescript: "npm:^5.6.3"
-    vite: "npm:^7.1.6"
+    vite: "npm:^7.1.7"
   languageName: unknown
   linkType: soft
 
@@ -1867,9 +1867,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:^5.6.0":
-  version: 5.6.0
-  resolution: "fastify@npm:5.6.0"
+"fastify@npm:^5.6.1":
+  version: 5.6.1
+  resolution: "fastify@npm:5.6.1"
   dependencies:
     "@fastify/ajv-compiler": "npm:^4.0.0"
     "@fastify/error": "npm:^4.0.0"
@@ -1886,7 +1886,7 @@ __metadata:
     secure-json-parse: "npm:^4.0.0"
     semver: "npm:^7.6.0"
     toad-cache: "npm:^3.7.0"
-  checksum: 10/7408bd995a0eedadbbf632a724888f4d9fcf949dae61306762d304ec2ba2128c531da93b77117184c887fe28abd22ae170fd43198de95fb12f51829da6f44635
+  checksum: 10/f58cb066421126c33ad756353984f8e67456d0118bcd75d2e53eec011416b4152450e3b3bfbbd9463e4e2f7ab24c71ec573e2e9d33cd168243bb466fd067cdf3
   languageName: node
   linkType: hard
 
@@ -2272,11 +2272,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:^5.7.0":
-  version: 5.7.0
-  resolution: "ioredis@npm:5.7.0"
+"ioredis@npm:^5.8.0":
+  version: 5.8.0
+  resolution: "ioredis@npm:5.8.0"
   dependencies:
-    "@ioredis/commands": "npm:^1.3.0"
+    "@ioredis/commands": "npm:1.4.0"
     cluster-key-slot: "npm:^1.1.0"
     debug: "npm:^4.3.4"
     denque: "npm:^2.1.0"
@@ -2285,7 +2285,7 @@ __metadata:
     redis-errors: "npm:^1.2.0"
     redis-parser: "npm:^3.0.0"
     standard-as-callback: "npm:^2.1.0"
-  checksum: 10/7407736226a866d81110240cb2d67e9c2269f13d84c69391833f26c89ac28cf853ff85d52bc555fcfa0d7553c49441e0a4b5c9a5a95a547b90c42fc1a9f1ba01
+  checksum: 10/cf28889012e18d83b1e1762801426a653ac2f958cd3d79afb71005659a5b3e850acc18cf9315e0525a48c0f6cc948198b26b1339491309c71e62c3f2c47f2f20
   languageName: node
   linkType: hard
 
@@ -4024,9 +4024,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^7.1.6":
-  version: 7.1.6
-  resolution: "vite@npm:7.1.6"
+"vite@npm:^7.1.7":
+  version: 7.1.7
+  resolution: "vite@npm:7.1.7"
   dependencies:
     esbuild: "npm:^0.25.0"
     fdir: "npm:^6.5.0"
@@ -4075,7 +4075,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/b0bb7c5b4d3fbaf7e34f17e9103bac7a380d9de076343ba9b81f5fafc07982aef19d7d5a701faf8c8571c75a7ab2920bfeb41cc70b84ae22dd6db79f92ad6d1b
+  checksum: 10/824703387717e1c90fac2e263021bf8ed5cddd5ac14f8c6ee80e54f8351be579869950438accb6daeb1e238f2108fddbadf98ec3cf8b0442f1fd8a25fb0ecab3
   languageName: node
   linkType: hard
 
