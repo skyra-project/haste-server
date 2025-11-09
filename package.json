@@ -27,7 +27,7 @@
 		"@sapphire/fetch": "^3.0.5",
 		"@sinclair/typebox": "^0.34.41",
 		"@skyra/env-utilities": "^2.0.1",
-		"fastify": "^5.6.1",
+		"fastify": "^5.6.2",
 		"highlight.js": "^11.11.1",
 		"ioredis": "^5.8.2"
 	},
