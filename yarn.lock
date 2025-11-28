@@ -925,13 +925,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/ts-config@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "@sapphire/ts-config@npm:5.0.1"
+"@sapphire/ts-config@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "@sapphire/ts-config@npm:5.0.3"
   dependencies:
-    tslib: "npm:^2.6.2"
-    typescript: "npm:^5.4.2"
-  checksum: 10/9d3169bd80db69f18a4d13bf6877f4bc7294b2ee127f79283eef45f5908b6737f16bbee20ec345ec47cffb2f6f74cbfb2d20b3daaece2a5cd4ccf078abefa0b2
+    tslib: "npm:^2.8.1"
+    typescript: "npm:~5.4.5"
+  checksum: 10/187405f8ca6d46258600220910970cc71832687707394968b477b290e0f48023154a126cfdedfa298b317b3fda563091230a47766a49fd87dea02e7d0c08e1af
   languageName: node
   linkType: hard
 
@@ -966,7 +966,7 @@ __metadata:
     "@sapphire/eslint-config": "npm:^5.0.6"
     "@sapphire/fetch": "npm:^3.0.5"
     "@sapphire/prettier-config": "npm:^2.0.0"
-    "@sapphire/ts-config": "npm:^5.0.1"
+    "@sapphire/ts-config": "npm:^5.0.3"
     "@sinclair/typebox": "npm:^0.34.41"
     "@skyra/env-utilities": "npm:^2.0.1"
     "@types/node": "npm:^24.10.1"
@@ -981,11 +981,11 @@ __metadata:
     fastify: "npm:^5.6.2"
     highlight.js: "npm:^11.11.1"
     ioredis: "npm:^5.8.2"
-    prettier: "npm:^3.6.2"
-    rimraf: "npm:^6.1.0"
+    prettier: "npm:^3.7.1"
+    rimraf: "npm:^6.1.2"
     tsup: "npm:^8.5.1"
     typescript: "npm:^5.6.3"
-    vite: "npm:^7.2.2"
+    vite: "npm:^7.2.4"
   languageName: unknown
   linkType: soft
 
@@ -2344,7 +2344,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^11.0.0, glob@npm:^11.0.3":
+"glob@npm:^11.0.0":
   version: 11.0.3
   resolution: "glob@npm:11.0.3"
   dependencies:
@@ -2357,6 +2357,17 @@ __metadata:
   bin:
     glob: dist/esm/bin.mjs
   checksum: 10/2ae536c1360c0266b523b2bfa6aadc10144a8b7e08869b088e37ac3c27cd30774f82e4bfb291cde796776e878f9e13200c7ff44010eb7054e00f46f649397893
+  languageName: node
+  linkType: hard
+
+"glob@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "glob@npm:13.0.0"
+  dependencies:
+    minimatch: "npm:^10.1.1"
+    minipass: "npm:^7.1.2"
+    path-scurry: "npm:^2.0.0"
+  checksum: 10/de390721d29ee1c9ea41e40ec2aa0de2cabafa68022e237dc4297665a5e4d650776f2573191984ea1640aba1bf0ea34eddef2d8cbfbfc2ad24b5fb0af41d8846
   languageName: node
   linkType: hard
 
@@ -2890,7 +2901,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^10.0.3":
+"minimatch@npm:^10.0.3, minimatch@npm:^10.1.1":
   version: 10.1.1
   resolution: "minimatch@npm:10.1.1"
   dependencies:
@@ -3383,12 +3394,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.0.0, prettier@npm:^3.5.3, prettier@npm:^3.6.2":
-  version: 3.6.2
-  resolution: "prettier@npm:3.6.2"
+"prettier@npm:^3.0.0, prettier@npm:^3.5.3, prettier@npm:^3.7.1":
+  version: 3.7.1
+  resolution: "prettier@npm:3.7.1"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10/1213691706bcef1371d16ef72773c8111106c3533b660b1cc8ec158bd109cdf1462804125f87f981f23c4a3dba053b6efafda30ab0114cc5b4a725606bb9ff26
+  checksum: 10/59fa89769246d395de30dec976e0ad31c8d2fe3889733765d89398c95c2b9d6cd341553a850fe14fe187407c9bfb2262a2ab1823c6de1f0205a968e2012f0f11
   languageName: node
   linkType: hard
 
@@ -3541,15 +3552,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "rimraf@npm:6.1.0"
+"rimraf@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "rimraf@npm:6.1.2"
   dependencies:
-    glob: "npm:^11.0.3"
+    glob: "npm:^13.0.0"
     package-json-from-dist: "npm:^1.0.1"
   bin:
     rimraf: dist/esm/bin.mjs
-  checksum: 10/ce376c041ef4212dce2b30690dff3c09fc34253ec21821dffec77731061241888c04c3baf0b052bc5a1698b9f348c08ef83bddbd6e2553e79bf939bedb1a31a9
+  checksum: 10/add8e566fe903f59d7b55c6c2382320c48302778640d1951baf247b3b451af496c2dee7195c204a8c646fd6327feadd1f5b61ce68c1362d4898075a726d83cc6
   languageName: node
   linkType: hard
 
@@ -4038,7 +4049,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.1.0, tslib@npm:^2.6.2":
+"tslib@npm:^2.1.0, tslib@npm:^2.8.1":
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10/3e2e043d5c2316461cb54e5c7fe02c30ef6dccb3384717ca22ae5c6b5bc95232a6241df19c622d9c73b809bea33b187f6dbc73030963e29950c2141bc32a79f7
@@ -4113,7 +4124,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.4.2, typescript@npm:^5.6.3":
+"typescript@npm:^5.6.3":
   version: 5.6.3
   resolution: "typescript@npm:5.6.3"
   bin:
@@ -4133,7 +4144,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.4.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>":
   version: 5.6.3
   resolution: "typescript@patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"
   bin:
@@ -4215,9 +4226,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^7.2.2":
-  version: 7.2.2
-  resolution: "vite@npm:7.2.2"
+"vite@npm:^7.2.4":
+  version: 7.2.4
+  resolution: "vite@npm:7.2.4"
   dependencies:
     esbuild: "npm:^0.25.0"
     fdir: "npm:^6.5.0"
@@ -4266,7 +4277,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/aee08b420646d5bcd92d5f4130b13b90303cab1cf48ee4772030f5fa7b464cc602ba578e9b1800a71f9b1c9b8daf1336e8c069a4cf1bb90b7b05ae5b13f62b06
+  checksum: 10/25962e65159e62fa6b643ac5bc79457c61c9b2cec9a1a17763b067b1e5ecac6483ad84247d6d457d81e25c5d1f8c553372bedf71dee09d8c1bd41af6c7b016a5
   languageName: node
   linkType: hard
 
