@@ -495,18 +495,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/sensible@npm:^6.0.3":
-  version: 6.0.3
-  resolution: "@fastify/sensible@npm:6.0.3"
+"@fastify/sensible@npm:^6.0.4":
+  version: 6.0.4
+  resolution: "@fastify/sensible@npm:6.0.4"
   dependencies:
     "@lukeed/ms": "npm:^2.0.2"
     dequal: "npm:^2.0.3"
     fastify-plugin: "npm:^5.0.0"
     forwarded: "npm:^0.2.0"
     http-errors: "npm:^2.0.0"
-    type-is: "npm:^1.6.18"
+    type-is: "npm:^2.0.1"
     vary: "npm:^1.1.2"
-  checksum: 10/9d33b5b80e9c70c06eaada587d9bcbad494edb426806304559dd959b02bc1a5b5011a4a47e9457c1116f6c7af0c1490a6dd65c4c7b9ee30157e99db3b9b8fc9c
+  checksum: 10/ba0934bfa65c1a91d01de8ccd776dbc5ae88946e90fedac434df84478390d2377bfab30fab652c8b7938a6eaff0a9ba2f9ab7b9d726dd73677008d22b9e88f0a
   languageName: node
   linkType: hard
 
@@ -957,7 +957,7 @@ __metadata:
   resolution: "@skyra/haste-server@workspace:."
   dependencies:
     "@fastify/rate-limit": "npm:^10.3.0"
-    "@fastify/sensible": "npm:^6.0.3"
+    "@fastify/sensible": "npm:^6.0.4"
     "@fastify/static": "npm:^8.3.0"
     "@fastify/swagger": "npm:^9.6.1"
     "@fastify/swagger-ui": "npm:^5.2.3"
@@ -981,11 +981,11 @@ __metadata:
     fastify: "npm:^5.6.2"
     highlight.js: "npm:^11.11.1"
     ioredis: "npm:^5.8.2"
-    prettier: "npm:^3.7.3"
+    prettier: "npm:^3.7.4"
     rimraf: "npm:^6.1.2"
     tsup: "npm:^8.5.1"
     typescript: "npm:^5.6.3"
-    vite: "npm:^7.2.4"
+    vite: "npm:^7.2.6"
   languageName: unknown
   linkType: soft
 
@@ -1534,6 +1534,13 @@ __metadata:
   dependencies:
     safe-buffer: "npm:5.2.1"
   checksum: 10/b7f4ce176e324f19324be69b05bf6f6e411160ac94bc523b782248129eb1ef3be006f6cff431aaea5e337fe5d176ce8830b8c2a1b721626ead8933f0cbe78720
+  languageName: node
+  linkType: hard
+
+"content-type@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "content-type@npm:1.0.5"
+  checksum: 10/585847d98dc7fb8035c02ae2cb76c7a9bd7b25f84c447e5ed55c45c2175e83617c8813871b4ee22f368126af6b2b167df655829007b21aa10302873ea9c62662
   languageName: node
   linkType: hard
 
@@ -2852,10 +2859,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"media-typer@npm:0.3.0":
-  version: 0.3.0
-  resolution: "media-typer@npm:0.3.0"
-  checksum: 10/38e0984db39139604756903a01397e29e17dcb04207bb3e081412ce725ab17338ecc47220c1b186b6bbe79a658aad1b0d41142884f5a481f36290cdefbe6aa46
+"media-typer@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "media-typer@npm:1.1.0"
+  checksum: 10/a58dd60804df73c672942a7253ccc06815612326dc1c0827984b1a21704466d7cde351394f47649e56cf7415e6ee2e26e000e81b51b3eebb5a93540e8bf93cbd
   languageName: node
   linkType: hard
 
@@ -2876,19 +2883,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mime-db@npm:1.52.0":
-  version: 1.52.0
-  resolution: "mime-db@npm:1.52.0"
-  checksum: 10/54bb60bf39e6f8689f6622784e668a3d7f8bed6b0d886f5c3c446cb3284be28b30bf707ed05d0fe44a036f8469976b2629bbea182684977b084de9da274694d7
+"mime-db@npm:^1.54.0":
+  version: 1.54.0
+  resolution: "mime-db@npm:1.54.0"
+  checksum: 10/9e7834be3d66ae7f10eaa69215732c6d389692b194f876198dca79b2b90cbf96688d9d5d05ef7987b20f749b769b11c01766564264ea5f919c88b32a29011311
   languageName: node
   linkType: hard
 
-"mime-types@npm:~2.1.24":
-  version: 2.1.35
-  resolution: "mime-types@npm:2.1.35"
+"mime-types@npm:^3.0.0":
+  version: 3.0.2
+  resolution: "mime-types@npm:3.0.2"
   dependencies:
-    mime-db: "npm:1.52.0"
-  checksum: 10/89aa9651b67644035de2784a6e665fc685d79aba61857e02b9c8758da874a754aed4a9aced9265f5ed1171fd934331e5516b84a7f0218031b6fa0270eca1e51a
+    mime-db: "npm:^1.54.0"
+  checksum: 10/9db0ad31f5eff10ee8f848130779b7f2d056ddfdb6bda696cb69be68d486d33a3457b4f3f9bdeb60d0736edb471bd5a7c0a384375c011c51c889fd0d5c3b893e
   languageName: node
   linkType: hard
 
@@ -3394,12 +3401,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.0.0, prettier@npm:^3.5.3, prettier@npm:^3.7.3":
-  version: 3.7.3
-  resolution: "prettier@npm:3.7.3"
+"prettier@npm:^3.0.0, prettier@npm:^3.5.3, prettier@npm:^3.7.4":
+  version: 3.7.4
+  resolution: "prettier@npm:3.7.4"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10/f83ca7e3c69717c1e2f7a95af2d9700eea520c235dfc0f94727a550a4bf0f14eda956a9b2682991b4f1da4605247b3cd3c5547bf2ada4a3ca718bc9ca230040a
+  checksum: 10/b4d00ea13baed813cb777c444506632fb10faaef52dea526cacd03085f01f6db11fc969ccebedf05bf7d93c3960900994c6adf1b150e28a31afd5cfe7089b313
   languageName: node
   linkType: hard
 
@@ -4114,13 +4121,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-is@npm:^1.6.18":
-  version: 1.6.18
-  resolution: "type-is@npm:1.6.18"
+"type-is@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "type-is@npm:2.0.1"
   dependencies:
-    media-typer: "npm:0.3.0"
-    mime-types: "npm:~2.1.24"
-  checksum: 10/0bd9eeae5efd27d98fd63519f999908c009e148039d8e7179a074f105362d4fcc214c38b24f6cda79c87e563cbd12083a4691381ed28559220d4a10c2047bed4
+    content-type: "npm:^1.0.5"
+    media-typer: "npm:^1.1.0"
+    mime-types: "npm:^3.0.0"
+  checksum: 10/bacdb23c872dacb7bd40fbd9095e6b2fca2895eedbb689160c05534d7d4810a7f4b3fd1ae87e96133c505958f6d602967a68db5ff577b85dd6be76eaa75d58af
   languageName: node
   linkType: hard
 
@@ -4226,9 +4234,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^7.2.4":
-  version: 7.2.4
-  resolution: "vite@npm:7.2.4"
+"vite@npm:^7.2.6":
+  version: 7.2.6
+  resolution: "vite@npm:7.2.6"
   dependencies:
     esbuild: "npm:^0.25.0"
     fdir: "npm:^6.5.0"
@@ -4277,7 +4285,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/25962e65159e62fa6b643ac5bc79457c61c9b2cec9a1a17763b067b1e5ecac6483ad84247d6d457d81e25c5d1f8c553372bedf71dee09d8c1bd41af6c7b016a5
+  checksum: 10/c640ed9c91957749287af2f483f5b5024a56718ba7cf32b0e2c398772fdf7fdb9fd5f97665c41712d4e9422c14009e283d0b69ac1b64b4f91474625bebe324de
   languageName: node
   linkType: hard
 
