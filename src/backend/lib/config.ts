@@ -21,6 +21,7 @@ export const config: Config = {
 
 	storage: {
 		type: envParseString('STORAGE_TYPE', 'file'),
+		path: envParseString('STORAGE_PATH', './data'),
 		host: envParseString('STORAGE_HOST', '127.0.0.1'),
 		port: envParseInteger('STORAGE_PORT', 6379),
 		expire: envParseInteger('STORAGE_EXPIRE_SECONDS', null) ?? undefined,
