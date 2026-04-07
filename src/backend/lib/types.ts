@@ -94,6 +94,7 @@ declare module '@skyra/env-utilities' {
 		RATE_LIMIT_TIME_WINDOW: IntegerString;
 		STORAGE_TYPE: 'file' | 'redis';
 		STORAGE_HOST: string;
+		STORAGE_PATH: string;
 		STORAGE_PORT: IntegerString;
 		STORAGE_EXPIRE_SECONDS: IntegerString;
 		STORAGE_DB: IntegerString;
