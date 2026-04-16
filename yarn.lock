@@ -335,7 +335,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/static@npm:^8.0.0, @fastify/static@npm:^8.3.0":
+"@fastify/static@npm:^8.0.0":
   version: 8.3.0
   resolution: "@fastify/static@npm:8.3.0"
   dependencies:
@@ -346,6 +346,20 @@ __metadata:
     fastq: "npm:^1.17.1"
     glob: "npm:^11.0.0"
   checksum: 10/6f1401f9f72c8efd49acc602e7bcd67b72a3526e3ca0612b870d89f07e369beb9eeb6822a97342d2856414d7438887c4f7f3b299f0b3820a6daa669dc413fda7
+  languageName: node
+  linkType: hard
+
+"@fastify/static@npm:^9.1.1":
+  version: 9.1.1
+  resolution: "@fastify/static@npm:9.1.1"
+  dependencies:
+    "@fastify/accept-negotiator": "npm:^2.0.0"
+    "@fastify/send": "npm:^4.0.0"
+    content-disposition: "npm:^1.0.1"
+    fastify-plugin: "npm:^5.0.0"
+    fastq: "npm:^1.17.1"
+    glob: "npm:^13.0.0"
+  checksum: 10/e50c9dad45242397742e1f4d03f21fc0a424840fafc47d764c1368f4439b2b8e1954e92c59daece65980e1495432b5401f62994687a94c6af32fec1472504b6d
   languageName: node
   linkType: hard
 
@@ -783,7 +797,7 @@ __metadata:
   dependencies:
     "@fastify/rate-limit": "npm:^10.3.0"
     "@fastify/sensible": "npm:^6.0.4"
-    "@fastify/static": "npm:^8.3.0"
+    "@fastify/static": "npm:^9.1.1"
     "@fastify/swagger": "npm:^9.6.1"
     "@fastify/swagger-ui": "npm:^5.2.3"
     "@fastify/type-provider-typebox": "npm:^5.2.0"
@@ -1359,6 +1373,13 @@ __metadata:
   dependencies:
     safe-buffer: "npm:5.2.1"
   checksum: 10/b7f4ce176e324f19324be69b05bf6f6e411160ac94bc523b782248129eb1ef3be006f6cff431aaea5e337fe5d176ce8830b8c2a1b721626ead8933f0cbe78720
+  languageName: node
+  linkType: hard
+
+"content-disposition@npm:^1.0.1":
+  version: 1.1.0
+  resolution: "content-disposition@npm:1.1.0"
+  checksum: 10/c4f65e3c001a4a8eb87d0d24c0f112abb139836fb13b8ea67276715e7dce09570ef666ba7848ee8b660d467e6588d030c8ed7e8d0128db6ca78a0800dcd8c7a8
   languageName: node
   linkType: hard
 
