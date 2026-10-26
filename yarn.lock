@@ -526,7 +526,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/static@npm:^8.0.0, @fastify/static@npm:^8.3.0":
+"@fastify/static@npm:^10.0.0":
+  version: 10.1.7
+  resolution: "@fastify/static@npm:10.1.7"
+  dependencies:
+    "@fastify/accept-negotiator": "npm:^2.0.0"
+    "@fastify/error": "npm:^4.0.0"
+    "@fastify/send": "npm:^4.0.0"
+    content-disposition: "npm:^3.0.0"
+    fastify-plugin: "npm:^6.0.0"
+    fastq: "npm:^1.17.1"
+    glob: "npm:^13.0.0"
+  checksum: 10/bd833e9ce1576745b47a5b0912dcd30860d1d3f7ba5abdbb74f387531b2575db182b9c745232c95410323126a25ea372bc9cf7410b723a92ba7a533037141967
+  languageName: node
+  linkType: hard
+
+"@fastify/static@npm:^8.0.0":
   version: 8.3.0
   resolution: "@fastify/static@npm:8.3.0"
   dependencies:
@@ -974,7 +989,7 @@ __metadata:
   dependencies:
     "@fastify/rate-limit": "npm:^10.3.0"
     "@fastify/sensible": "npm:^6.0.4"
-    "@fastify/static": "npm:^8.3.0"
+    "@fastify/static": "npm:^10.0.0"
     "@fastify/swagger": "npm:^9.6.1"
     "@fastify/swagger-ui": "npm:^5.2.3"
     "@fastify/type-provider-typebox": "npm:^5.2.0"
@@ -1550,6 +1565,13 @@ __metadata:
   dependencies:
     safe-buffer: "npm:5.2.1"
   checksum: 10/b7f4ce176e324f19324be69b05bf6f6e411160ac94bc523b782248129eb1ef3be006f6cff431aaea5e337fe5d176ce8830b8c2a1b721626ead8933f0cbe78720
+  languageName: node
+  linkType: hard
+
+"content-disposition@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "content-disposition@npm:3.0.0"
+  checksum: 10/3ce58867a5b25b9043d70ff9a7c922f162f009f381c72983349736ed315c89fcbb578471c24e2d42d640fbd71603389bcdb1c7b71f49a87e0f84f9f93c86eee0
   languageName: node
   linkType: hard
 
@@ -2168,6 +2190,13 @@ __metadata:
   version: 5.0.1
   resolution: "fastify-plugin@npm:5.0.1"
   checksum: 10/76f6960558239d1ead520ecfb9dbb9b0435a63376d9d48bed0861609a909bf1958cb097745bb1a5485592f2c6d1438941e7481203c86b0e74d2bc34f09e8ed3e
+  languageName: node
+  linkType: hard
+
+"fastify-plugin@npm:^6.0.0":
+  version: 6.0.1
+  resolution: "fastify-plugin@npm:6.0.1"
+  checksum: 10/2154818e24a44b3d86e0be11a1778c99fc432e3d52fefaca9cd24e8b093519fa7a520f0f699cc21b1732d97c833189de1cd2c42a03ecfb658df418a19d0d3f1f
   languageName: node
   linkType: hard
 
